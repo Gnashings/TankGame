@@ -48,10 +48,8 @@ public class RoomSystem : MonoBehaviour
         {
             trigger.enabled = false;
             ReleaseEnemies();
-            LockDoors()
-        }    
-        
-        
+            LockDoors();
+        }
     }
 
 }

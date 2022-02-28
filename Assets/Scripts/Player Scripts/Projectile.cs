@@ -65,14 +65,19 @@ public class Projectile : MonoBehaviour
         {
 
             other.GetComponentInParent<Rigidbody>().AddExplosionForce(force, other.ClosestPoint(gameObject.transform.position), range, upMod);
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             
             //exp.enabled = false;
+            if(other.CompareTag("Enemy"))
+            {
+                other.gameObject.SetActive(false);
+                Debug.Log("ENEMY HIT");
+            }
             
         }
         else
             Destroy(gameObject);
-
+        
     }
     
 }
