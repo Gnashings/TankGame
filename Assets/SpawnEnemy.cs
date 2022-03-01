@@ -17,10 +17,18 @@ public class SpawnEnemy : MonoBehaviour
         
     }
 
-    
+    public void TriggerDoor()
+    {
+        enemy.SetActive(true);
+    }
+
+    public void HideDoor()
+    {
+        enemy.SetActive(false);
+    }
 
     public void TriggerEnemy()
     {
-       Instantiate(enemy, transform.position, Quaternion.identity);
+       Instantiate(enemy, transform.position, Quaternion.identity, gameObject.transform);
     }
 }
