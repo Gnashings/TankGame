@@ -13,7 +13,8 @@ public class RoomSystem : MonoBehaviour
 
     private GameObject[] EnemyList;
     private BoxCollider trigger;
-
+    private int enemyCount;
+    private int enemiesKilled;
     void Start()
     {
         trigger = gameObject.GetComponent<BoxCollider>();
@@ -31,14 +32,30 @@ public class RoomSystem : MonoBehaviour
         foreach (Transform spawner in spawnPointList)
         {
             spawner.gameObject.GetComponent<SpawnEnemy>().TriggerEnemy();
-
+            enemyCount++;
         }
     }
-    private void LockDoors()
+    public void LockDoors()
     {
         foreach (GameObject door in doors)
         {
             door.SetActive(true);
+        }
+    }
+    public void UnlockDoors()
+    {
+        foreach (GameObject door in doors)
+        {
+            door.SetActive(false);
+        }
+    }
+
+    public void CheckDoorCanOpen()
+    {
+        enemiesKilled++;
+        if(enemiesKilled == enemyCount)
+        {
+            UnlockDoors();
         }
     }
 
