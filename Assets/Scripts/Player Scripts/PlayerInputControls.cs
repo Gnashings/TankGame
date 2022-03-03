@@ -54,6 +54,7 @@ public class PlayerInputControls : MonoBehaviour
     {
         rotation.y = move.ReadValue<Vector2>().x;
         return rotation;
+        
     }
 
     public Vector3 GetLookAxis()
