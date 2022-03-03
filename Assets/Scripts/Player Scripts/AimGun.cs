@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AimScope : MonoBehaviour
+public class AimGun : MonoBehaviour
 {
     public PlayerInputControls inputs;
-    public GameObject pivot;
-    Vector3 newer;
     void Start()
     {
         inputs = gameObject.GetComponentInParent<PlayerInputControls>();

@@ -17,12 +17,15 @@ public class Projectile : MonoBehaviour
     public SphereCollider exp;
 
     [Header("Explosive effects")]
-    public float force;
-    public float range;
-    public float upMod;
+    public Explosion explosion;
+    public Explosion riskyBusiness;
+    private float force;
+    private float range;
+    private float upMod;
     void Start()
     {
         //killOffTimer = meme.clip.length;
+        
         startTimer = true;
     }
 
@@ -46,30 +49,48 @@ public class Projectile : MonoBehaviour
 
 
     }
+    /*
     private void OnCollisionEnter(Collision collision)
     {
-
-        if(!collision.collider.CompareTag("Player"))
+        if (!collision.collider.CompareTag("Player"))
         {
+            
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<Rigidbody>().isKinematic = true;
             body.enabled = false;
             exp.enabled = true;
+            
             Instantiate(particles, transform.position, transform.rotation);
         }
-    }
+        explosion.Explode();
+    }*/
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player"))
+        {
 
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            body.enabled = false;
+            exp.enabled = false;
+            Instantiate(particles, transform.position, transform.rotation);
+            explosion.Explode();
+        }
+        
+    }
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.attachedRigidbody != null)
         {
 
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(force, other.ClosestPoint(gameObject.transform.position), range, upMod);
-            //Debug.Log(other.name);
+            
+            Debug.Log(other.name);
             
             //exp.enabled = false;
             if(other.CompareTag("Enemy"))
             {
+                other.GetComponentInParent<Rigidbody>().AddExplosionForce(force, other.ClosestPoint(gameObject.transform.position), range, upMod);
                 other.gameObject.SetActive(false);
                 Debug.Log("ENEMY HIT");
             }
@@ -79,5 +100,5 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         
     }
-    
+    */
 }

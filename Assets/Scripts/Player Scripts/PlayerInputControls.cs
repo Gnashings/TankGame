@@ -23,6 +23,7 @@ public class PlayerInputControls : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
     }
 
     // Update is called once per frame
@@ -86,8 +87,7 @@ public class PlayerInputControls : MonoBehaviour
         fw.z = gas.ReadValue<Vector2>().y;
         return fw;
     }
-    public bool gasPeddle;
-    public bool breakPeddle;
+
     #endregion
     private void OnEnable()
     {
@@ -96,11 +96,7 @@ public class PlayerInputControls : MonoBehaviour
         look = playerControls.ScopeMode.LookAround;
         fire = playerControls.ScopeMode.Fire;
         gas = playerControls.ScopeMode.Gas;
-        /*
-        playerControls.ScopeMode.Gas.started += context => gasPeddle = true;
-        playerControls.ScopeMode.Gas.performed += context => gasPeddle = true;
-        playerControls.ScopeMode.Gas.canceled += context => gasPeddle = false;
-        */
+
         move.Enable();
         look.Enable();
         fire.Enable();

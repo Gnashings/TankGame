@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePlayer : MonoBehaviour
+/// <summary>
+/// handles all rigidbody functionality for the tank
+/// </summary>
+public class TankBodyController : MonoBehaviour
 {
     public PlayerInputControls inputs;
     private Rigidbody rb;
     public float speed;
     public float rotationSpeed;
+    [HideInInspector]
+    public float topSpeed;
     void Start()
     {
         inputs = gameObject.GetComponent<PlayerInputControls>();
@@ -17,15 +22,28 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //og movement
+        //Move();
         Rotate();
+    }
+
+    private void FixedUpdate()
+    {
+        //accel
+        Move();
+        
     }
 
     private void Move()
     {
         //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetMoveForwardAxis() * speed * Time.deltaTime;
-
-        rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * Time.deltaTime;
+        if(rb.velocity.magnitude <= topSpeed)
+        {
+            rb.AddForce(Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed, ForceMode.Acceleration);
+        }
+        
+        //USE THIS IF ALL ELSE FAILS
+        //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * Time.deltaTime;
         
         /*
         if (inputs.gasPeddle)
@@ -45,4 +63,6 @@ public class MovePlayer : MonoBehaviour
         Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * Time.fixedDeltaTime * inputs.GetMoveRotationAxis());
         rb.MoveRotation(rb.rotation * deltaRotation);
     }
+
+
 }

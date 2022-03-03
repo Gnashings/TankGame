@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2791403321828406452}
   - component: {fileID: 7863790220822637850}
   - component: {fileID: 3493382173483983313}
+  - component: {fileID: 1830697642702009027}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -106,9 +107,8 @@ MonoBehaviour:
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
   body: {fileID: 7903358558469142572}
   exp: {fileID: 1248091766568693480}
-  force: 260
-  range: 10000
-  upMod: 0
+  explosion: {fileID: 1830697642702009027}
+  riskyBusiness: {fileID: 0}
 --- !u!135 &1248091766568693480
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118,9 +118,9 @@ SphereCollider:
   m_GameObject: {fileID: 750524474285098865}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &7903358558469142572
 BoxCollider:
@@ -131,7 +131,7 @@ BoxCollider:
   m_GameObject: {fileID: 750524474285098865}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -439,3 +439,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1830697642702009027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750524474285098865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382458088d94f2541bc2380e4f91431c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 11400000, guid: 96180e61781bbdd48bf672de5c7dbdd9, type: 2}
