@@ -96,6 +96,10 @@ public class PlayerStats : MonoBehaviour
         {
             //check for damage reduciton
             damage -= gustavArmorReduction;
+            if (damage <= 0)
+            {
+                return;
+            }    
 
             //split the damage and calculate the results correctly.
             if (armor - damage <= 0)
