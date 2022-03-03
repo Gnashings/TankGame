@@ -24,14 +24,14 @@ public class TankBodyController : MonoBehaviour
     {
         //og movement
         //Move();
-        Rotate();
+        
     }
 
     private void FixedUpdate()
     {
         //accel
         Move();
-        
+        Rotate();
     }
 
     private void Move()
@@ -60,7 +60,7 @@ public class TankBodyController : MonoBehaviour
 
     private void Rotate()
     {
-        Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * Time.fixedDeltaTime * inputs.GetMoveRotationAxis());
+        Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * inputs.GetMoveRotationAxis());
         rb.MoveRotation(rb.rotation * deltaRotation);
     }
 
