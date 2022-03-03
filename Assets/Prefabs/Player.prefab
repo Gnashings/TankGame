@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs: {fileID: 7280919474109410467}
   speed: 50
-  rotationSpeed: 5000
+  rotationSpeed: 5
   topSpeed: 0
 --- !u!114 &6879325751890812594
 MonoBehaviour:
