@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
   m_Name: Nash's Test
   m_EditorClassIdentifier: 
-  radius: 0
-  force: 0
-  damage: 0
+  radius: 20
+  force: 400
+  damage: 4
   upwardforce: 0
   explosionSound: {fileID: 0}
   particles: {fileID: 0}
-  canDamagePlayer: 0
-  canAffectPlayer: 0
-  canDamageEnemies: 0
-  canAffectEnemies: 0
+  canDamagePlayer: 1
+  canAffectPlayer: 1
+  canDamageEnemies: 1
+  canAffectEnemies: 1
