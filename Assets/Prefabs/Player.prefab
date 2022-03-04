@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 0.5
   maxYAngle: 0
+  isHeld: 0
 --- !u!114 &7280919474109410466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs: {fileID: 7280919474109410467}
   speed: 50
-  rotationSpeed: 5
+  rotationSpeed: 4
   topSpeed: 0
 --- !u!114 &6879325751890812594
 MonoBehaviour:
@@ -133,12 +134,13 @@ MonoBehaviour:
   totalArmor: 0
   health: 0
   armor: 0
+  armorBreakTimer: 0
+  bodyMods: 2
+  bombaCooldown: 3
+  gustavArmorReduction: 3
   noBodyMod: {fileID: 11400000, guid: 3342a8e27b462304b89a5e7d21446b94, type: 2}
   gustav: {fileID: 11400000, guid: 273173e63d99328438b284d33756f3c5, type: 2}
   bigBomba: {fileID: 11400000, guid: bc38ff51f3458a04bbe60822981f1ec8, type: 2}
-  bombaCooldown: 0
-  gustavArmorReduction: 3
-  bodyMods: 1
   tankbody: {fileID: 7280919474109410466}
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
@@ -541,6 +543,7 @@ GameObject:
   - component: {fileID: 7280919475653588322}
   - component: {fileID: 7280919475653588323}
   - component: {fileID: 7280919475653588320}
+  - component: {fileID: 2002487849}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Player
@@ -579,8 +582,9 @@ MonoBehaviour:
   normalShot: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
   riskyBusiness: {fileID: 0}
   muzzle: {fileID: 7280919474106374531}
-  firingCooldown: 0
-  bulletVelocity: 2000
+  firingCooldown: 0.05
+  bulletVelocity: 5000
+  accuracy: 0.1
 --- !u!114 &7280919475653588320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,6 +598,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: 0}
+--- !u!114 &2002487849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280919475653588325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1caa6e31f2ab8c048b2fa4fa674aaff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: NormalShot
+    expPerams: {fileID: 11400000, guid: 96180e61781bbdd48bf672de5c7dbdd9, type: 2}
+    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
+    size: 25
+  - tag: RIskyBusiness
+    expPerams: {fileID: 11400000, guid: 65474e2937a22744a8d2c8bfed59c64b, type: 2}
+    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
+    size: 25
 --- !u!1001 &829868961531648489
 PrefabInstance:
   m_ObjectHideFlags: 0

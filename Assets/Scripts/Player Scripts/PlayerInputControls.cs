@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class PlayerInputControls : MonoBehaviour
 {
@@ -44,9 +45,32 @@ public class PlayerInputControls : MonoBehaviour
 
     public bool Firing => fire.triggered;
 
+    public bool isHeld;
+
+    public bool IsFireHeld()
+    {
+        fire.canceled += context =>
+        {
+            if (context.interaction is HoldInteraction)
+            {
+                isHeld = false;
+            }
+        };
+        fire.started += context =>
+        {
+            if (context.interaction is HoldInteraction)
+            {
+                isHeld = true;
+            }         
+        };
+
+        return isHeld;
+    }
+
     public Vector3 GetMoveForwardAxis()
     {
         direction.z = move.ReadValue<Vector2>().y;
+
         return direction;
     }
 

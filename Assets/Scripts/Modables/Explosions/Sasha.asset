@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
-  m_Name: Big Bomba
+  m_Name: Sasha
   m_EditorClassIdentifier: 
-  radius: 25
-  force: 600
-  damage: 5
-  upwardforce: 1
-  explosionSound: {fileID: 8300000, guid: 39c013ad54e3f9e4ca49f19bfe327855, type: 3}
-  particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
+  radius: 0
+  force: 0
+  damage: 0
+  upwardforce: 0
+  explosionSound: {fileID: 0}
+  particles: {fileID: 0}
   canDamagePlayer: 0
   canAffectPlayer: 0
   canDamageEnemies: 1

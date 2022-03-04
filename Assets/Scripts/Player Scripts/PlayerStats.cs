@@ -9,57 +9,94 @@ public class PlayerStats : MonoBehaviour
     public float totalArmor;
     public float health;
     public float armor;
+    public float armorBreakTimer;
+    private float armorRecharge;
+    private bool hasGustavAbility;
+    private bool canBomba;
+    //defensive stats
+    private bool canRecharge;
+    private float flatDR;
 
     [Header("Body Mods")]
+    public BodyMods bodyMods;
+    public float bombaCooldown;
+    public float gustavArmorReduction;
     public BodyStats noBodyMod;
     public BodyStats gustav;
     public BodyStats bigBomba;
-    public float bombaCooldown;
-    public float gustavArmorReduction;
-    public BodyMods bodyMods;
+
+    [Header("Body Mods")]
+    public TurretMods turrets;
+    public TurretStats noGunMod;
+    public TurretStats riskyBusiness;
+    public TurretStats sasha;
+    public TurretStats newtonsApple;
 
     [Header("Editable Scripts")]
     public TankBodyController tankbody;
     public FireGun firegun;
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
-    private bool canBomba;
+   
     private void Start()
     {
         ResetAllStats();
         CheckBodyMod();
         SetHealthAndArmor();
+        CheckTurretMods();
+        StartCoroutine(ArmorRecharge());
+        
     }
 
-
-
-
+    private void FixedUpdate()
+    {
+        //ArmorRecharge();
+    }
 
     #region BodyMods
     private void CheckBodyMod()
     {
+        //No Mod
         if (bodyMods.HasFlag(BodyMods.noMod))
         {
             gameObject.transform.GetComponentInChildren<TankBodyController>().topSpeed = noBodyMod.topSpeed;
             totalHealth = noBodyMod.health;
             totalArmor = noBodyMod.armor;
+            armorRecharge = noBodyMod.armorRecharge;
+            armorBreakTimer = noBodyMod.armorBreakTimer;
         }
 
+        //Big Bomba
         if (bodyMods.HasFlag(BodyMods.bigBomba))
         {
             gameObject.GetComponentInChildren<TankBodyController>().topSpeed = noBodyMod.topSpeed;
             totalHealth = noBodyMod.health;
             totalArmor = noBodyMod.armor;
             canBomba = true;
+            armorRecharge = bigBomba.armorRecharge;
+            armorBreakTimer = bigBomba.armorBreakTimer;
         }
 
+        //Gustav
         if (bodyMods.HasFlag(BodyMods.gustav))
         {
             gameObject.GetComponentInChildren<TankBodyController>().topSpeed = gustav.topSpeed;
             totalHealth = gustav.health;
             totalArmor = gustav.armor;
-            gustavArmorReduction = 3;
+            hasGustavAbility = true;
+            armorRecharge = gustav.armorRecharge;
+            armorBreakTimer = gustav.armorBreakTimer;
+
+            //failsafe gustav ability
+            if (hasGustavAbility)
+            {
+                if (gustavArmorReduction <= 0)
+                    gustavArmorReduction = 3;  
+                else
+                    flatDR = gustavArmorReduction;
+            }
         }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -76,7 +113,6 @@ public class PlayerStats : MonoBehaviour
     }
     IEnumerator BombaCooldown()
     {
-        
         yield return new WaitForSeconds(bombaCooldown);
 
         canBomba = true;
@@ -90,12 +126,62 @@ public class PlayerStats : MonoBehaviour
     };
     #endregion
 
+    #region TurretMods
+    private void CheckTurretMods()
+    {
+        if (turrets.HasFlag(TurretMods.noMod))
+        {
+            firegun.SetGunValues(   noGunMod.fireRate,
+                                    noGunMod.bulletVelocity,
+                                    noGunMod.bulletSpread,
+                                    noGunMod.damage,
+                                    noGunMod.dealDamage,
+                                    noGunMod.explosiveProjectile,
+                                    noGunMod.automaticFire,
+                                    "NormalShot");
+        }
+        if (turrets.HasFlag(TurretMods.riskyBusiness))
+        {
+            firegun.SetGunValues(riskyBusiness.fireRate,
+                                    riskyBusiness.bulletVelocity,
+                                    riskyBusiness.bulletSpread,
+                                    riskyBusiness.damage,
+                                    riskyBusiness.dealDamage,
+                                    riskyBusiness.explosiveProjectile,
+                                    riskyBusiness.automaticFire,
+                                    "RiskyBusiness");
+        }
+        if (turrets.HasFlag(TurretMods.sasha))
+        {
+            firegun.SetGunValues(sasha.fireRate,
+                                    sasha.bulletVelocity,
+                                    sasha.bulletSpread,
+                                    sasha.damage,
+                                    sasha.dealDamage,
+                                    sasha.explosiveProjectile,
+                                    sasha.automaticFire,
+                                    "Sasha");
+        }
+        if (turrets.HasFlag(TurretMods.newtonsApple))
+        {
+            firegun.SetGunValues(newtonsApple.fireRate,
+                                    newtonsApple.bulletVelocity,
+                                    newtonsApple.bulletSpread,
+                                    newtonsApple.damage,
+                                    newtonsApple.dealDamage,
+                                    newtonsApple.explosiveProjectile,
+                                    newtonsApple.automaticFire,
+                                    "Newtons");
+        }
+    }
+    #endregion
+
     public void TakeDamage(float damage)
     {
         if (armor > 0)
         {
             //check for damage reduciton
-            damage -= gustavArmorReduction;
+            damage -= flatDR;
             if (damage <= 0)
             {
                 return;
@@ -108,6 +194,8 @@ public class PlayerStats : MonoBehaviour
                 leftOverDamage = damage - armor;
                 armor = 0;
                 health -= leftOverDamage;
+                StartCoroutine(ArmorBreakCooldown());
+                print("BREAK");
                 return;
             }
             else
@@ -115,28 +203,71 @@ public class PlayerStats : MonoBehaviour
         }
         else
             health -= damage;
+        
+        if(health <= 0)
+        {
+            Die();
+        }
     }
 
-    public void SetHealthAndArmor()
+    IEnumerator ArmorBreakCooldown()
+    {
+        canRecharge = false;
+        yield return new WaitForSeconds(armorBreakTimer);
+        canRecharge = true;
+        
+    }
+
+    IEnumerator ArmorRecharge()
+    {
+        while(true)
+        {
+            if (armor < totalArmor)
+            {
+                if(canRecharge == false)
+                {
+                    yield return null;
+                }
+                else
+                    armor += armorRecharge;
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+
+    }
+
+    private void SetHealthAndArmor()
     {
         health = totalHealth;
         armor = totalArmor;
     }
 
-    public void ResetAllStats()
+    private void ResetAllStats()
     {
         health = 0;
         armor = 0;
         totalHealth = 0;
         totalArmor = 0;
         gustavArmorReduction = 0;
+        flatDR = 0;
+        armorRecharge = 0;
     }
 
+    public void Die()
+    {
+        Debug.Log("you died");
+        armorRecharge = 0;
+    }
 
-    public enum Turrets
+    public enum TurretMods
     {
         noMod,
         riskyBusiness,
+        sasha,
         newtonsApple,
     };
 }

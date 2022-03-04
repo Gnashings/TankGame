@@ -15,3 +15,5 @@ MonoBehaviour:
   armor: 75
   health: 100
   topSpeed: 20
+  armorRecharge: 1
+  armorBreakTimer: 3

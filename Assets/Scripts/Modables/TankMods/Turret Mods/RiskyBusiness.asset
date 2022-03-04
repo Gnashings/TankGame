@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94e8477e613ac74d9e7aface3002596, type: 3}
-  m_Name: NoBodyMod
+  m_Script: {fileID: 11500000, guid: a5de612369df4e444b616293cb9f7688, type: 3}
+  m_Name: RiskyBusiness
   m_EditorClassIdentifier: 
-  armor: 100
-  health: 100
-  topSpeed: 20
-  armorRecharge: 1
-  armorBreakTimer: 3
+  fireRate: 2
+  bulletVelocity: 2000
+  bulletSpread: 0.05
+  damage: 0
+  dealDamage: 0
+  explosiveProjectile: 1
+  automaticFire: 0

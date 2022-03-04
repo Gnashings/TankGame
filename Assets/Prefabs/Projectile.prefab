@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 3264833450705266158}
   - component: {fileID: 8820548207043122329}
   - component: {fileID: 638589816355311827}
+  - component: {fileID: 1830697642702009027}
   - component: {fileID: 1248091766568693480}
   - component: {fileID: 7903358558469142572}
   - component: {fileID: 470601769898302904}
   - component: {fileID: 2791403321828406452}
   - component: {fileID: 7863790220822637850}
   - component: {fileID: 3493382173483983313}
-  - component: {fileID: 1830697642702009027}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -107,8 +107,22 @@ MonoBehaviour:
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
   body: {fileID: 7903358558469142572}
   exp: {fileID: 1248091766568693480}
+  rb: {fileID: 470601769898302904}
   explosion: {fileID: 1830697642702009027}
   riskyBusiness: {fileID: 0}
+--- !u!114 &1830697642702009027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750524474285098865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382458088d94f2541bc2380e4f91431c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 11400000, guid: 40730b8ea1bd237409826d7c75d8d690, type: 2}
 --- !u!135 &1248091766568693480
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -439,16 +453,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1830697642702009027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750524474285098865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382458088d94f2541bc2380e4f91431c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 11400000, guid: 40730b8ea1bd237409826d7c75d8d690, type: 2}

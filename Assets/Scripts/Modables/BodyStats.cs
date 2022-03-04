@@ -8,4 +8,6 @@ public class BodyStats : ScriptableObject
     public float armor;
     public float health;
     public float topSpeed;
+    public float armorRecharge;
+    public float armorBreakTimer;
 }

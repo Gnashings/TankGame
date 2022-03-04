@@ -21,4 +21,4 @@ MonoBehaviour:
   canDamagePlayer: 1
   canAffectPlayer: 1
   canDamageEnemies: 1
-  canAffectEnemies: 0
+  canAffectEnemies: 1
