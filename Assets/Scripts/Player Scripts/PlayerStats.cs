@@ -21,9 +21,11 @@ public class PlayerStats : MonoBehaviour
     public BodyMods bodyMods;
     public float bombaCooldown;
     public float gustavArmorReduction;
+    public GameObject autoGun;
     public BodyStats noBodyMod;
     public BodyStats gustav;
     public BodyStats bigBomba;
+    public BodyStats reaper;
 
     [Header("Body Mods")]
     public TurretMods turrets;
@@ -37,7 +39,11 @@ public class PlayerStats : MonoBehaviour
     public FireGun firegun;
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
-   
+
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         ResetAllStats();
@@ -64,6 +70,7 @@ public class PlayerStats : MonoBehaviour
             totalArmor = noBodyMod.armor;
             armorRecharge = noBodyMod.armorRecharge;
             armorBreakTimer = noBodyMod.armorBreakTimer;
+            canBomba = false;
         }
 
         //Big Bomba
@@ -72,9 +79,9 @@ public class PlayerStats : MonoBehaviour
             gameObject.GetComponentInChildren<TankBodyController>().topSpeed = noBodyMod.topSpeed;
             totalHealth = noBodyMod.health;
             totalArmor = noBodyMod.armor;
-            canBomba = true;
             armorRecharge = bigBomba.armorRecharge;
             armorBreakTimer = bigBomba.armorBreakTimer;
+            canBomba = true;
         }
 
         //Gustav
@@ -84,6 +91,7 @@ public class PlayerStats : MonoBehaviour
             totalHealth = gustav.health;
             totalArmor = gustav.armor;
             hasGustavAbility = true;
+            canBomba = false;
             armorRecharge = gustav.armorRecharge;
             armorBreakTimer = gustav.armorBreakTimer;
 
@@ -97,10 +105,22 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
+        //Reaper
+        if (bodyMods.HasFlag(BodyMods.reaper))
+        {
+            gameObject.GetComponentInChildren<TankBodyController>().topSpeed = reaper.topSpeed;
+            totalHealth = reaper.health;
+            totalArmor = reaper.armor;
+            armorRecharge = reaper.armorRecharge;
+            armorBreakTimer = reaper.armorBreakTimer;
+            canBomba = false;
+            autoGun.SetActive(true);
+        }
+
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Enemy"))
+        if(collision.collider.CompareTag("Enemy") && canBomba)
         {
             if(canBomba == true)
             {
@@ -123,6 +143,7 @@ public class PlayerStats : MonoBehaviour
         noMod,
         bigBomba,
         gustav,
+        reaper,
     };
     #endregion
 
@@ -237,7 +258,7 @@ public class PlayerStats : MonoBehaviour
                 yield return null;
             }
         }
-
+        
     }
 
     private void SetHealthAndArmor()
@@ -255,6 +276,9 @@ public class PlayerStats : MonoBehaviour
         gustavArmorReduction = 0;
         flatDR = 0;
         armorRecharge = 0;
+        canBomba = false;
+        canRecharge = true;
+        autoGun.SetActive(false);
     }
 
     public void Die()

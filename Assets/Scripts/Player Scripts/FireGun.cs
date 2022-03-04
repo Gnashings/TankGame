@@ -14,10 +14,10 @@ public class FireGun : MonoBehaviour
     [Tooltip("Where to shoot projectile from")]
     public GameObject muzzle;
     //[HideInInspector]
-    public float firingCooldown;
-    public float bulletVelocity;
+    private float firingCooldown;
+    private float bulletVelocity;
     private bool canFire;
-    public float accuracy;
+    private float accuracy;
     private float damage;
     private string bulletType;
     void Start()
@@ -89,7 +89,7 @@ public class FireGun : MonoBehaviour
         rocketInstance = ObjectPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
-        Debug.Log(bulletType);
+        
     }
 
     private void RiskyGun()
@@ -107,6 +107,7 @@ public class FireGun : MonoBehaviour
     {
         firingCooldown = firerateVal;
         bulletVelocity = bulletVelocityVal;
+        accuracy = bulletSpreadVal;
         if(dealsDamageVal == true) damage = damageVal;
         if(explosiveProjectileVal == false)
         {

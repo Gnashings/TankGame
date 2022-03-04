@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - Spawner
   - Door
+  - AutoTurret
   layers:
   - Default
   - TransparentFX

@@ -9,25 +9,18 @@ public class Projectile : MonoBehaviour, PooledObjects
     public AudioSource explosionSound;
     public float killOffTimer;
     public GameObject particles;
-    private float timer;
-    private float totalLifeTime;
-    private bool startTimer;
     public BoxCollider body;
     public SphereCollider exp;
     public Rigidbody rb;
     [Header("Explosive effects")]
     public Explosion explosion;
 
-    
-    private float force;
-    private float range;
-    private float upMod;
-
+    private float damage;
+    private bool isExplosive;
     public void OnObjectSpawn()
     {
         //killOffTimer = meme.clip.length;
         gameObject.SetActive(true);
-        startTimer = true;
         gameObject.GetComponent<MeshRenderer>().enabled = true;
         exp.enabled = true;
         rb.isKinematic = false;
@@ -57,7 +50,14 @@ public class Projectile : MonoBehaviour, PooledObjects
         //shot.AddForce(transform.forward);
 
     }
-    public void OnBecameInvisible()
+    public void BulletProperties()
+    {
+        if(isExplosive == true)
+        {
+
+        }
+    }
+    private void OnBecameInvisible()
     {
         ShutDown();
     }
@@ -87,12 +87,15 @@ public class Projectile : MonoBehaviour, PooledObjects
     }*/
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (!other.CompareTag("Player") &&
+            !other.CompareTag("AutoTurret") &&
+            !other.CompareTag("Spawner"))
         {
 
             ShutDown();
             Instantiate(particles, transform.position, transform.rotation);
             explosion.Explode();
+            //print(other.tag +" "+other.name);
         }
         
     }
