@@ -17,14 +17,7 @@ public class TankBodyController : MonoBehaviour
     {
         inputs = gameObject.GetComponent<PlayerInputControls>();
         rb = gameObject.GetComponentInChildren<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //og movement
-        //Move();
-        
+        speed = 0;
     }
 
     private void FixedUpdate()
@@ -33,29 +26,39 @@ public class TankBodyController : MonoBehaviour
         Move();
         Rotate();
     }
-
+    public float acceleration;
     private void Move()
     {
         //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetMoveForwardAxis() * speed * Time.deltaTime;
-        if(rb.velocity.magnitude <= topSpeed)
+
+        if(inputs.GetPadMoveForwardAxis().magnitude == 0)
         {
-            rb.AddForce(Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed, ForceMode.Acceleration);
+            //weird thing where you lose speed over time instead of instantly
+            /*
+            if(speed >= 0)
+            {
+                speed -= acceleration * Time.deltaTime;
+            }
+            */
+
+            speed = 0;
+            
+        }
+        if (speed >= topSpeed)
+        {
+            speed = topSpeed;
+        }
+        if (rb.velocity.magnitude <= topSpeed && inputs.GetPadMoveForwardAxis().magnitude != 0)
+        {
+
+            speed += acceleration * Time.deltaTime;
+
+            rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
         }
         
         //USE THIS IF ALL ELSE FAILS
         //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * Time.deltaTime;
         
-        /*
-        if (inputs.gasPeddle)
-        {
-            Vector3 pog;
-            pog.x = 0;
-            pog.y = 0;
-            pog.z = 1;
-            Debug.Log(pog);
-            rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * pog * speed * Time.deltaTime;
-        }*/
-
     }
 
     private void Rotate()
