@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputs: {fileID: 7280919474109410467}
   speed: 50
-  rotationSpeed: 4
+  rotationSpeed: 3
   topSpeed: 0
 --- !u!114 &6879325751890812594
 MonoBehaviour:
@@ -141,6 +141,11 @@ MonoBehaviour:
   noBodyMod: {fileID: 11400000, guid: 3342a8e27b462304b89a5e7d21446b94, type: 2}
   gustav: {fileID: 11400000, guid: 273173e63d99328438b284d33756f3c5, type: 2}
   bigBomba: {fileID: 11400000, guid: bc38ff51f3458a04bbe60822981f1ec8, type: 2}
+  turrets: 1
+  noGunMod: {fileID: 11400000, guid: 26a24a5b3f2db8142a3c283d56db796a, type: 2}
+  riskyBusiness: {fileID: 11400000, guid: b95ff4a1adb4c6c4d8d56d7f6ce6ef96, type: 2}
+  sasha: {fileID: 11400000, guid: f487dc1b1c0be8c469e610fa9c166125, type: 2}
+  newtonsApple: {fileID: 11400000, guid: a040ec2788640a34ea01ffde0e0803ce, type: 2}
   tankbody: {fileID: 7280919474109410466}
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
@@ -154,8 +159,8 @@ Rigidbody:
   m_GameObject: {fileID: 7280919474109410471}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 1
+  m_Drag: 2
+  m_AngularDrag: 4
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -579,8 +584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb23edb0d3fec84ab05de04b959c1c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalShot: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-  riskyBusiness: {fileID: 0}
   muzzle: {fileID: 7280919474106374531}
   firingCooldown: 0.05
   bulletVelocity: 5000
@@ -614,11 +617,19 @@ MonoBehaviour:
   - tag: NormalShot
     expPerams: {fileID: 11400000, guid: 96180e61781bbdd48bf672de5c7dbdd9, type: 2}
     prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-    size: 25
-  - tag: RIskyBusiness
+    size: 10
+  - tag: RiskyBusiness
     expPerams: {fileID: 11400000, guid: 65474e2937a22744a8d2c8bfed59c64b, type: 2}
     prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
+    size: 5
+  - tag: Sasha
+    expPerams: {fileID: 11400000, guid: a5d9a9162ac14da45b2364a2419df3a7, type: 2}
+    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
     size: 25
+  - tag: Newtons
+    expPerams: {fileID: 11400000, guid: 40c1c2fdd853cae43be0a392ddf198fc, type: 2}
+    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
+    size: 5
 --- !u!1001 &829868961531648489
 PrefabInstance:
   m_ObjectHideFlags: 0
