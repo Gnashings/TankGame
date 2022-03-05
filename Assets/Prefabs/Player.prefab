@@ -5114,12 +5114,12 @@ MonoBehaviour:
   gustav: {fileID: 11400000, guid: 273173e63d99328438b284d33756f3c5, type: 2}
   bigBomba: {fileID: 11400000, guid: bc38ff51f3458a04bbe60822981f1ec8, type: 2}
   reaper: {fileID: 11400000, guid: 362ef5d188ac14541beda079bc89d971, type: 2}
-  turrets: 1
+  turrets: 0
   noGunMod: {fileID: 11400000, guid: 26a24a5b3f2db8142a3c283d56db796a, type: 2}
   riskyBusiness: {fileID: 11400000, guid: b95ff4a1adb4c6c4d8d56d7f6ce6ef96, type: 2}
   sasha: {fileID: 11400000, guid: f487dc1b1c0be8c469e610fa9c166125, type: 2}
   newtonsApple: {fileID: 11400000, guid: a040ec2788640a34ea01ffde0e0803ce, type: 2}
-  tracks: 1
+  tracks: 0
   noTrackMod: {fileID: 11400000, guid: a372af456a926cf4aadea6b60b880622, type: 2}
   nuclearWinter: {fileID: 11400000, guid: f58e4c308461fe440b65fdd4325ce442, type: 2}
   hare: {fileID: 11400000, guid: 81aba6fb5587da34c9de9be08d32610c, type: 2}
