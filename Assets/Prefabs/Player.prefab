@@ -273,9 +273,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: 7280919474109410467}
-  speed: 45
+  speed: 0
   rotationSpeed: 3
   topSpeed: 0
+  acceleration: 3
 --- !u!114 &6879325751890812594
 MonoBehaviour:
   m_ObjectHideFlags: 0
