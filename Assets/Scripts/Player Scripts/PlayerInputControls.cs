@@ -12,6 +12,7 @@ public class PlayerInputControls : MonoBehaviour
     private InputAction fire;
     private PlayerControls playerControls;
     public float sensitivity;
+    [HideInInspector]
     public float maxYAngle = 80f;
     private Vector2 currentRotation;
     private Vector3 direction;
@@ -44,7 +45,7 @@ public class PlayerInputControls : MonoBehaviour
     }
 
     public bool Firing => fire.triggered;
-
+    [HideInInspector]
     public bool isHeld;
 
     public bool IsFireHeld()

@@ -61,6 +61,7 @@ public class Projectile : MonoBehaviour, PooledObjects
     {
         ShutDown();
     }
+
     public void ShutDown()
     {
         gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -70,21 +71,6 @@ public class Projectile : MonoBehaviour, PooledObjects
         gameObject.SetActive(false);
     }
 
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.collider.CompareTag("Player"))
-        {
-            
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            body.enabled = false;
-            exp.enabled = true;
-            
-            Instantiate(particles, transform.position, transform.rotation);
-        }
-        explosion.Explode();
-    }*/
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player") &&
@@ -99,27 +85,4 @@ public class Projectile : MonoBehaviour, PooledObjects
         }
         
     }
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.attachedRigidbody != null)
-        {
-
-            
-            Debug.Log(other.name);
-            
-            //exp.enabled = false;
-            if(other.CompareTag("Enemy"))
-            {
-                other.GetComponentInParent<Rigidbody>().AddExplosionForce(force, other.ClosestPoint(gameObject.transform.position), range, upMod);
-                other.gameObject.SetActive(false);
-                Debug.Log("ENEMY HIT");
-            }
-            
-        }
-        else
-            Destroy(gameObject);
-        
-    }
-    */
 }

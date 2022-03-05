@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -10,6 +9,8 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float armor;
     public float armorBreakTimer;
+
+    //private stats
     private float armorRecharge;
     private bool hasGustavAbility;
     private bool canBomba;
@@ -17,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     private bool canRecharge;
     private float flatDR;
 
-    [Header("Body Mods")]
+    [Header("Body Abilities")]
     public BodyMods bodyMods;
     public float bombaCooldown;
     public float gustavArmorReduction;
@@ -27,12 +28,19 @@ public class PlayerStats : MonoBehaviour
     public BodyStats bigBomba;
     public BodyStats reaper;
 
-    [Header("Body Mods")]
+    [Header("Turret Abilities")]
     public TurretMods turrets;
     public TurretStats noGunMod;
     public TurretStats riskyBusiness;
     public TurretStats sasha;
     public TurretStats newtonsApple;
+
+    [Header("Track Abilities")]
+    public TrackMods tracks;
+    public TrackStats noTrackMod;
+    public TrackStats nuclearWinter;
+    public TrackStats hare;
+    public TrackStats tortoise;
 
     [Header("Editable Scripts")]
     public TankBodyController tankbody;
@@ -40,26 +48,18 @@ public class PlayerStats : MonoBehaviour
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
 
-    private void Awake()
-    {
-        
-    }
-    private void Start()
+    void Start()
     {
         ResetAllStats();
-        CheckBodyMod();
-        SetHealthAndArmor();
+        CheckBodyMod();      
         CheckTurretMods();
+        CheckTrackMods();
+        SetHealthAndArmor();
         StartCoroutine(ArmorRecharge());
-        
-    }
-
-    private void FixedUpdate()
-    {
-        //ArmorRecharge();
     }
 
     #region BodyMods
+
     private void CheckBodyMod()
     {
         //No Mod
@@ -145,9 +145,11 @@ public class PlayerStats : MonoBehaviour
         gustav,
         reaper,
     };
-    #endregion
+
+    #endregion BodyMods
 
     #region TurretMods
+
     private void CheckTurretMods()
     {
         if (turrets.HasFlag(TurretMods.noMod))
@@ -195,8 +197,67 @@ public class PlayerStats : MonoBehaviour
                                     "Newtons");
         }
     }
-    #endregion
 
+    #endregion TurretMods
+
+    private void CheckTrackMods()
+    {
+        if (tracks.HasFlag(TrackMods.noMod))
+        {
+            tankbody.ignoreAcceleration = noTrackMod.ignoreAcceleration;
+            tankbody.slowImmune = noTrackMod.ignoreSlow;
+            tankbody.acceleration = noTrackMod.acceleration;
+            tankbody.rotationSpeed = noTrackMod.turningSpeed;
+            tankbody.rb.mass = 10;
+            tankbody.rb.drag = 5;
+            tankbody.rb.angularDrag = 4;
+        }
+        if (tracks.HasFlag(TrackMods.nuclearWinter))
+        {
+            tankbody.ignoreAcceleration = nuclearWinter.ignoreAcceleration;
+            tankbody.slowImmune = nuclearWinter.ignoreSlow;
+            tankbody.acceleration = nuclearWinter.acceleration;
+            tankbody.rotationSpeed = nuclearWinter.turningSpeed;
+            tankbody.rb.mass = 10;
+            tankbody.rb.drag = 1;
+            tankbody.rb.angularDrag = 4;
+        }
+        if (tracks.HasFlag(TrackMods.hare))
+        {
+            tankbody.ignoreAcceleration = hare.ignoreAcceleration;
+            tankbody.slowImmune = hare.ignoreSlow;
+            tankbody.acceleration = hare.acceleration;
+            tankbody.rotationSpeed = hare.turningSpeed;
+            tankbody.rb.mass = 10;
+            tankbody.rb.drag = 5;
+            tankbody.rb.angularDrag = 4;
+        }
+        if (tracks.HasFlag(TrackMods.tortoise))
+        {
+            tankbody.ignoreAcceleration = tortoise.ignoreAcceleration;
+            tankbody.slowImmune = tortoise.ignoreSlow;
+            tankbody.acceleration = tortoise.acceleration;
+            tankbody.rotationSpeed = tortoise.turningSpeed;
+            tankbody.rb.mass = 10;
+            tankbody.rb.drag = 5;
+            tankbody.rb.angularDrag = 4;
+        }
+    }
+    #region TrackMods
+
+
+    public enum TrackMods
+    {
+        noMod,
+        nuclearWinter,
+        hare,
+        tortoise,
+    };
+
+    #endregion Trackmods
+
+
+    #region ArmorAndHealth
     public void TakeDamage(float damage)
     {
         if (armor > 0)
@@ -206,7 +267,7 @@ public class PlayerStats : MonoBehaviour
             if (damage <= 0)
             {
                 return;
-            }    
+            }
 
             //split the damage and calculate the results correctly.
             if (armor - damage <= 0)
@@ -224,13 +285,12 @@ public class PlayerStats : MonoBehaviour
         }
         else
             health -= damage;
-        
-        if(health <= 0)
+
+        if (health <= 0)
         {
             Die();
         }
     }
-
     IEnumerator ArmorBreakCooldown()
     {
         canRecharge = false;
@@ -238,7 +298,6 @@ public class PlayerStats : MonoBehaviour
         canRecharge = true;
         
     }
-
     IEnumerator ArmorRecharge()
     {
         while(true)
@@ -260,13 +319,18 @@ public class PlayerStats : MonoBehaviour
         }
         
     }
-
     private void SetHealthAndArmor()
     {
         health = totalHealth;
         armor = totalArmor;
     }
 
+    #endregion ArmorAndHealth
+
+    public void ProcSlow()
+    {
+        tankbody.isSlowed = true;
+    }
     private void ResetAllStats()
     {
         health = 0;

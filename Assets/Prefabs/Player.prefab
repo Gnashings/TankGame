@@ -5079,10 +5079,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: 7280919474109410467}
+  rb: {fileID: 7280919474109410469}
+  acceleration: 5
   speed: 0
-  rotationSpeed: 3
+  rotationSpeed: 2
   topSpeed: 0
-  acceleration: 3
+  ignoreAcceleration: 0
+  slowAmount: 0.5
+  slowDuration: 0
+  isSlowed: 0
+  slowImmune: 0
 --- !u!114 &6879325751890812594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5108,11 +5114,16 @@ MonoBehaviour:
   gustav: {fileID: 11400000, guid: 273173e63d99328438b284d33756f3c5, type: 2}
   bigBomba: {fileID: 11400000, guid: bc38ff51f3458a04bbe60822981f1ec8, type: 2}
   reaper: {fileID: 11400000, guid: 362ef5d188ac14541beda079bc89d971, type: 2}
-  turrets: 0
+  turrets: 1
   noGunMod: {fileID: 11400000, guid: 26a24a5b3f2db8142a3c283d56db796a, type: 2}
   riskyBusiness: {fileID: 11400000, guid: b95ff4a1adb4c6c4d8d56d7f6ce6ef96, type: 2}
   sasha: {fileID: 11400000, guid: f487dc1b1c0be8c469e610fa9c166125, type: 2}
   newtonsApple: {fileID: 11400000, guid: a040ec2788640a34ea01ffde0e0803ce, type: 2}
+  tracks: 1
+  noTrackMod: {fileID: 11400000, guid: a372af456a926cf4aadea6b60b880622, type: 2}
+  nuclearWinter: {fileID: 11400000, guid: f58e4c308461fe440b65fdd4325ce442, type: 2}
+  hare: {fileID: 11400000, guid: 81aba6fb5587da34c9de9be08d32610c, type: 2}
+  tortoise: {fileID: 11400000, guid: 1149c61bb6464ba45b5f54580390eeda, type: 2}
   tankbody: {fileID: 7280919474109410466}
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
@@ -5125,13 +5136,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7280919474109410471}
   serializedVersion: 2
-  m_Mass: 25
+  m_Mass: 10
   m_Drag: 5
   m_AngularDrag: 4
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
+  m_Interpolate: 1
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!82 &2060620787878208410
 AudioSource:

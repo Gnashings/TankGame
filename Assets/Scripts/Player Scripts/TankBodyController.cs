@@ -8,57 +8,88 @@ using UnityEngine;
 public class TankBodyController : MonoBehaviour
 {
     public PlayerInputControls inputs;
-    private Rigidbody rb;
+    [HideInInspector]
+    public Rigidbody rb;
+    public float acceleration;
     public float speed;
+    
     public float rotationSpeed;
     [HideInInspector]
     public float topSpeed;
+    
+    public bool ignoreAcceleration;
+    private bool countingSlow;
+
+    [Header("Slow Debuff")]
+    [Tooltip("Do not go above 1")]
+    public float slowAmount;
+    public float slowDuration;
+    public bool isSlowed;
+    [HideInInspector]
+    public bool slowImmune;
+
     void Start()
     {
         inputs = gameObject.GetComponent<PlayerInputControls>();
         rb = gameObject.GetComponentInChildren<Rigidbody>();
         speed = 0;
     }
-
+    
     private void FixedUpdate()
     {
-        //accel
+        if(isSlowed)
+        {
+            if(!countingSlow)
+            {
+                StartCoroutine(SlowTimer());
+            }
+        }
         Move();
         Rotate();
     }
-    public float acceleration;
+    
     private void Move()
     {
-        //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetMoveForwardAxis() * speed * Time.deltaTime;
-
-        if(inputs.GetPadMoveForwardAxis().magnitude == 0)
+        if (inputs.GetPadMoveForwardAxis().magnitude == 0)
         {
-            //weird thing where you lose speed over time instead of instantly
-            /*
-            if(speed >= 0)
+            /*weird thing where you lose speed over time instead of instantly
+            if(speed > 0)
             {
                 speed -= acceleration * Time.deltaTime;
             }
             */
-
             speed = 0;
-            
         }
-        if (speed >= topSpeed)
+        if (inputs.GetPadMoveForwardAxis().magnitude != 0)
         {
-            speed = topSpeed;
-        }
-        if (rb.velocity.magnitude <= topSpeed && inputs.GetPadMoveForwardAxis().magnitude != 0)
-        {
+            /*
+            if(speed <= topSpeed) speed += acceleration * Time.deltaTime;
 
-            speed += acceleration * Time.deltaTime;
-
-            rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
+            rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();*/
+            MovementSpeed();
         }
         
         //USE THIS IF ALL ELSE FAILS
         //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * Time.deltaTime;
         
+    }
+
+    private void MovementSpeed()
+    {
+        if(rb.velocity.magnitude < topSpeed)
+        {
+            if (!ignoreAcceleration)
+            {
+                if (speed <= topSpeed) speed += acceleration * Time.deltaTime;
+            }
+            else
+            {
+                speed = topSpeed;
+            }
+            rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();
+
+        }
+
     }
 
     private void Rotate()
@@ -67,5 +98,35 @@ public class TankBodyController : MonoBehaviour
         rb.MoveRotation(rb.rotation * deltaRotation);
     }
 
+    private float ForceSlow()
+    {
+        if (slowImmune)
+        {
+            return 1;
+        }
+        if(slowAmount < 0)
+        {
+            Debug.LogWarning("slowAmount is below 0, please set higher");
+            return 1;
+        }
+        if(slowAmount > 1)
+        {
+            Debug.LogWarning("slowAmount is over 1, please set lower");
+            return 1;
+        }
+        if (isSlowed)
+        {
+            return slowAmount;
+        }
+        else
+            return 1;
+    }
 
+    IEnumerator SlowTimer()
+    {
+        countingSlow = true;
+        yield return new WaitForSeconds(slowDuration);
+        countingSlow = false;
+        isSlowed = false;
+    }
 }

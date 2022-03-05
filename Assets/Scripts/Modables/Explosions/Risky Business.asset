@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
   m_Name: Risky Business
   m_EditorClassIdentifier: 
-  radius: 15
-  force: 500
+  radius: 17
+  force: 5000
   damage: 4
   upwardforce: 1
   explosionSound: {fileID: 8300000, guid: 96344ad6391699c48ae8733dd2f09a66, type: 3}
