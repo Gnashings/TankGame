@@ -48,6 +48,11 @@ public class PlayerStats : MonoBehaviour
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
 
+    private void Awake()
+    {
+        LoadPlayerSettings();
+    }
+
     void Start()
     {
         ResetAllStats();
@@ -152,6 +157,7 @@ public class PlayerStats : MonoBehaviour
 
     private void CheckTurretMods()
     {
+        
         if (turrets.HasFlag(TurretMods.noMod))
         {
             firegun.SetGunValues(   noGunMod.fireRate,
@@ -200,6 +206,8 @@ public class PlayerStats : MonoBehaviour
 
     #endregion TurretMods
 
+    #region TrackMods
+
     private void CheckTrackMods()
     {
         if (tracks.HasFlag(TrackMods.noMod))
@@ -243,8 +251,6 @@ public class PlayerStats : MonoBehaviour
             tankbody.rb.angularDrag = 4;
         }
     }
-    #region TrackMods
-
 
     public enum TrackMods
     {
@@ -358,4 +364,70 @@ public class PlayerStats : MonoBehaviour
         sasha,
         newtonsApple,
     };
+
+    private void LoadPlayerSettings()
+    {
+        //turret
+        if (PlayerProgress.hasTurret == false)
+        {
+            turrets = TurretMods.noMod;
+        }
+        else
+        {
+            if (PlayerProgress.curTurret.Equals("RiskyBusiness"))
+            {
+                turrets = TurretMods.riskyBusiness;
+            }
+            if (PlayerProgress.curTurret.Equals("Sasha"))
+            {
+                turrets = TurretMods.sasha;
+            }
+            if (PlayerProgress.curTurret.Equals("NewtonsApple"))
+            {
+                turrets = TurretMods.newtonsApple;
+            }
+        }
+
+        //body
+        if (PlayerProgress.hasBody == false)
+        {
+            bodyMods = BodyMods.noMod;
+        }
+        else
+        {
+            if (PlayerProgress.curBody.Equals("BigBomba"))
+            {
+                bodyMods = BodyMods.bigBomba;
+            }
+            if (PlayerProgress.curBody.Equals("Reaper"))
+            {
+                bodyMods = BodyMods.reaper;
+            }
+            if (PlayerProgress.curBody.Equals("Gustav"))
+            {
+                bodyMods = BodyMods.gustav;
+            }
+        }
+
+        //tracks
+        if (PlayerProgress.hasTracks == false)
+        {
+            tracks = TrackMods.noMod;
+        }
+        else
+        {
+            if (PlayerProgress.curTracks.Equals("NuclearWinter"))
+            {
+                tracks = TrackMods.nuclearWinter;
+            }
+            if (PlayerProgress.curTracks.Equals("Hare"))
+            {
+                tracks = TrackMods.hare;
+            }
+            if (PlayerProgress.curTracks.Equals("Tortoise"))
+            {
+                tracks = TrackMods.tortoise;
+            }
+        }
+    }
 }
