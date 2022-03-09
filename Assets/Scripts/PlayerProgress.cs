@@ -35,4 +35,15 @@ public static class PlayerProgress
         Debug.Log("Body: " + hasBody);
         Debug.Log("Tracks " + hasTracks);
     }
+
+    public static void ResetPlayerStats()
+    {
+        hasTurret = false;
+        hasBody = false;
+        hasTracks = false;
+
+        curTurret = null;
+        curBody = null;
+        curTracks = null;
+    }
 }
