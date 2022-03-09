@@ -222,7 +222,7 @@ MonoBehaviour:
   fieldOfView: 100
   projectile: {fileID: 138699865376652563, guid: d3b9b14fb4732d748b90ba4c65af942d, type: 3}
   projectileSpawns:
-  - {fileID: 0}
+  - {fileID: 5981176943635223007}
   target: {fileID: 0}
 --- !u!114 &5981176945048174685
 MonoBehaviour:
