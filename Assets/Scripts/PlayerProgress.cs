@@ -45,5 +45,6 @@ public static class PlayerProgress
         curTurret = null;
         curBody = null;
         curTracks = null;
+        Debug.Log("all stats resets");
     }
 }
