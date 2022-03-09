@@ -4,6 +4,9 @@ using System.Collections;
 public abstract class BaseProjectile : MonoBehaviour {
     [Tooltip("Set bullet speed")]
     public float speed = 5.0f;
+
+    [Tooltip("Set bullet damage")]
+    public float damage;
  
     void OnTriggerEnter(Collider other)
     {
