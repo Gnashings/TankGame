@@ -28,28 +28,6 @@ public class Projectile : MonoBehaviour, PooledObjects
         rb.angularVelocity = Vector3.zero;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        /*
-        if(startTimer)
-        {
-            timer += Time.deltaTime;
-            if(timer >= killOffTimer)
-            {
-                gameObject.SetActive(false);
-            }
-        }
-
-        totalLifeTime += Time.deltaTime;
-        if(totalLifeTime >= 20)
-        {
-            gameObject.SetActive(false);
-        }*/
-
-        //shot.AddForce(transform.forward);
-
-    }
     public void BulletProperties()
     {
         if(isExplosive == true)

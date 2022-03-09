@@ -48,8 +48,9 @@ public class Explosion : MonoBehaviour
     {
         if(explosion.canDamageEnemies && other.CompareTag("Enemy"))
         {
-            Debug.Log("EXPLOSION.CS: NO ENEMY HEALTH IMPLIMENTED YET");
-            other.gameObject.SetActive(false);
+            //Debug.Log("EXPLOSION.CS: NO ENEMY HEALTH IMPLIMENTED YET");
+            //other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage);
         }
         if(explosion.canDamagePlayer && other.CompareTag("Player"))
         {
