@@ -5,11 +5,11 @@ public abstract class BaseProjectile : MonoBehaviour {
     [Tooltip("Set bullet speed")]
     public float speed = 5.0f;
  
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         
   //do any other stuff you want here too
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.Equals("Player"))
         {
             Destroy(gameObject);
         }
