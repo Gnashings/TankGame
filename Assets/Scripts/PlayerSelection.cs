@@ -20,6 +20,9 @@ public class PlayerSelection : MonoBehaviour
     {
         CheckChoices();
         gameDirector = GameObject.Find("GameDirector");
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void TurretSelection(string thisString)
@@ -52,15 +55,15 @@ public class PlayerSelection : MonoBehaviour
     {
         if(choseTurret == true)
         {
-            PlayerProgress.SetTurret();
+            PlayerProgress.SetTurret(selection);
         }
         if(choseBody == true)
         {
-            PlayerProgress.SetBody();
+            PlayerProgress.SetBody(selection);
         }
         if(choseTracks == true)
         {
-            PlayerProgress.SetTracks();
+            PlayerProgress.SetTracks(selection);
         }
         //DEBUG: SceneManager.LoadScene("Menu");
         SceneManager.LoadScene("SampleScene");
@@ -80,7 +83,7 @@ public class PlayerSelection : MonoBehaviour
             body.SetActive(false);
         }
 
-        if (PlayerProgress.hasTrack == true)
+        if (PlayerProgress.hasTracks == true)
         {
             tracks.SetActive(false);
         }

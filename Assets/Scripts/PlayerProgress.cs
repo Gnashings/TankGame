@@ -6,33 +6,33 @@ public static class PlayerProgress
 {
     public static bool hasTurret;
     public static bool hasBody;
-    public static bool hasTrack;
+    public static bool hasTracks;
     public static string curTurret;
-    public static bool TestingScript(bool flash)
-    {
-        return flash;
-    }
+    public static string curBody;
+    public static string curTracks;
 
-    public static void SetTurret()
+    public static void SetTurret(string selection)
     {
-        curTurret = "Sasha";
+        curTurret = selection;
         hasTurret = true;
     }
 
-    public static void SetBody()
+    public static void SetBody(string selection)
     {
+        curBody = selection;
         hasBody = true;
     }
 
-    public static void SetTracks()
+    public static void SetTracks(string selection)
     {
-        hasTrack = true;
+        curTracks = selection;
+        hasTracks = true;
     }
 
     public static void ReadData()
     {
         Debug.Log("Turret: " + hasTurret);
         Debug.Log("Body: " + hasBody);
-        Debug.Log("Tracks " + hasTrack);
+        Debug.Log("Tracks " + hasTracks);
     }
 }

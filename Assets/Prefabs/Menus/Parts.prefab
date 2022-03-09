@@ -120,7 +120,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181474104386051}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TurretSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Sasha
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 545181474104386048}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181474178708654
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181474204511836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TrackSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: NuclearWinter
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181474213759135
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +872,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181474806184218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TurretSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: NewtonsApple
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 545181474806184219}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181474920107461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475165401904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TrackSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tortoise
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475212536649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1466,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475451948883}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475499323139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,7 +1599,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475499323140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TurretSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RiskyBusiness
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 545181475499323141}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475615207163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1823,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475628918420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: BodySelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gustav
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475781138270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1956,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475781138211}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: BodySelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BigBomba
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475816792074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +2089,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475816792079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: TrackSelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Hare
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475848469490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,7 +2222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545181475848469495}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 845441419}
+        m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
+        m_MethodName: BodySelection
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Reaper
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &545181475929751330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,6 +2247,7 @@ GameObject:
   - component: {fileID: 545181475929751335}
   - component: {fileID: 545181475929751332}
   - component: {fileID: 545181475929751333}
+  - component: {fileID: 845441419}
   m_Layer: 5
   m_Name: Parts
   m_TagString: Untagged
@@ -2184,6 +2341,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &845441419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545181475929751330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d48a87261838954a80abb588ea70f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 5906101978814410418}
+  body: {fileID: 2333357927230108206}
+  tracks: {fileID: 8227628800564503271}
 --- !u!1 &545181476012010002
 GameObject:
   m_ObjectHideFlags: 0
