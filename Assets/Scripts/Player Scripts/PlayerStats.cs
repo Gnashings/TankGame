@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public bool isSASHA;
     [Header("Stats")]
     public float totalHealth;
     public float totalArmor;
@@ -47,6 +48,14 @@ public class PlayerStats : MonoBehaviour
     public FireGun firegun;
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
+
+    private void Awake()
+    {
+        if(isSASHA)
+        {
+            turrets = TurretMods.sasha;
+        }
+    }
 
     void Start()
     {
@@ -152,6 +161,7 @@ public class PlayerStats : MonoBehaviour
 
     private void CheckTurretMods()
     {
+        
         if (turrets.HasFlag(TurretMods.noMod))
         {
             firegun.SetGunValues(   noGunMod.fireRate,
@@ -200,6 +210,8 @@ public class PlayerStats : MonoBehaviour
 
     #endregion TurretMods
 
+    #region TrackMods
+
     private void CheckTrackMods()
     {
         if (tracks.HasFlag(TrackMods.noMod))
@@ -243,8 +255,6 @@ public class PlayerStats : MonoBehaviour
             tankbody.rb.angularDrag = 4;
         }
     }
-    #region TrackMods
-
 
     public enum TrackMods
     {
