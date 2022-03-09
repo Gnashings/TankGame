@@ -13,7 +13,7 @@ public class EnemyStats : MonoBehaviour
         stats.health = 0;
         health = stats.health;
     }
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         
