@@ -13,6 +13,16 @@ public class ShootingSystem : MonoBehaviour {
     float m_fireTimer = 0.0f;
     public GameObject target;
  
+
+void Start()
+    {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player");
+
+        
+    }
+
+
     // Update is called once per frame
     void Update () {
         if(!target)

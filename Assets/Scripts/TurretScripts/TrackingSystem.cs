@@ -11,6 +11,17 @@ public class TrackingSystem : MonoBehaviour {
     Vector3 m_lastKnownPosition = Vector3.zero;
     Quaternion m_lookAtRotation;
  
+
+
+
+  void Start()
+    {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player");
+
+      
+    }
+
     // Update is called once per frame
     void Update () {
         if(target){
