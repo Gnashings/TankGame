@@ -8,7 +8,7 @@ public class Menus : MonoBehaviour
 
     void Start ()
     {
-        //Reset Stats
+        PlayerProgress.ResetPlayerStats();
     }
 
     public void Play()
