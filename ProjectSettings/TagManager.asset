@@ -9,6 +9,7 @@ TagManager:
   - Spawner
   - Door
   - AutoTurret
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
