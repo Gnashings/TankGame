@@ -14,6 +14,8 @@ public class FireGun : MonoBehaviour
     [Tooltip("Where to shoot projectile from")]
     public GameObject muzzle;
     //[HideInInspector]
+    public AudioSource fireSound;
+    public AudioSource fireSoundAlt;
     private float firingCooldown;
     private float bulletVelocity;
     private bool canFire;
@@ -29,6 +31,8 @@ public class FireGun : MonoBehaviour
         {
             bulletVelocity = 2000f;
         }
+
+
         
     }
 
@@ -84,9 +88,20 @@ public class FireGun : MonoBehaviour
     }
     private void SashaGun()
     {
+        
+        /*
+        if(!fireSound.isPlaying)
+        {
+            fireSound.Play();
+        }
+        if(fireSound.isPlaying && !fireSoundAlt.isPlaying)
+        {
+            fireSoundAlt.Play();
+        }
+        */
         GameObject rocketInstance;
         Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-        rocketInstance = ObjectPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
+        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
         
@@ -96,24 +111,19 @@ public class FireGun : MonoBehaviour
     {
         GameObject rocketInstance;
         Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-        rocketInstance = ObjectPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
+        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
     }
 
 
-    public void SetGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, float damageVal, bool dealsDamageVal, bool explosiveProjectileVal, bool autoFireVal,
+    public void SetGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, bool autoFireVal,
         string bulletTypeVal)
     {
         firingCooldown = firerateVal;
         bulletVelocity = bulletVelocityVal;
         accuracy = bulletSpreadVal;
-        if(dealsDamageVal == true) damage = damageVal;
-        if(explosiveProjectileVal == false)
-        {
-
-        }
-        if(autoFireVal == true)
+        if (autoFireVal == true)
         {
 
         }

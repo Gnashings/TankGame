@@ -12,13 +12,11 @@ public class AutoTurret : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Debug.Log("AUTOTURRET.CS NO ENEMY HEALTH IMPLIMENTED YET");
-            
             if(!autoGunAudio.isPlaying)
             {
                 autoGunAudio.Play();
             }
-            //other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<EnemyStats>().TakeDamage(damage);
         }
     }
 

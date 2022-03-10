@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotBox: {fileID: 2116737990}
   autoGunAudio: {fileID: 4497219228839135922}
-  damage: 0
+  damage: 1
 --- !u!82 &4497219228839135922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.019
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5513,8 +5513,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 2, z: 10}
-  m_Center: {x: 0, y: -2, z: 0}
+  m_Size: {x: 6, y: 5, z: 10}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &7280919475653588325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,7 +5526,7 @@ GameObject:
   - component: {fileID: 7280919475653588322}
   - component: {fileID: 7280919475653588323}
   - component: {fileID: 7280919475653588320}
-  - component: {fileID: 2002487849}
+  - component: {fileID: 7843395419576220603}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Player
@@ -5576,7 +5576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: {fileID: 0}
---- !u!114 &2002487849
+--- !u!114 &7843395419576220603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5585,26 +5585,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7280919475653588325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1caa6e31f2ab8c048b2fa4fa674aaff0, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d44ae7c8767284a8841288a1bda305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - tag: NormalShot
-    expPerams: {fileID: 11400000, guid: 96180e61781bbdd48bf672de5c7dbdd9, type: 2}
-    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-    size: 10
-  - tag: RiskyBusiness
-    expPerams: {fileID: 11400000, guid: 65474e2937a22744a8d2c8bfed59c64b, type: 2}
-    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-    size: 5
-  - tag: Sasha
-    expPerams: {fileID: 11400000, guid: a5d9a9162ac14da45b2364a2419df3a7, type: 2}
-    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-    size: 25
-  - tag: Newtons
-    expPerams: {fileID: 11400000, guid: 40c1c2fdd853cae43be0a392ddf198fc, type: 2}
-    prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
-    size: 5
+  pools: []
 --- !u!1 &7658630174405104897
 GameObject:
   m_ObjectHideFlags: 0

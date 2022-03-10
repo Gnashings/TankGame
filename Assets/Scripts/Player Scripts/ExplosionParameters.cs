@@ -12,8 +12,7 @@ public class ExplosionParameters : ScriptableObject
     public float damage;
     [Tooltip("the amount of upward force in the explosion")]
     public float upwardforce;
-    [Tooltip("the boom")]
-    public AudioClip explosionSound;
+
     [Tooltip("the particles")]
     public GameObject particles;
 

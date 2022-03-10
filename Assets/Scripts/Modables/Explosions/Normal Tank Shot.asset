@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 10
   force: 500
-  damage: 0
+  damage: 100
   upwardforce: 0
-  explosionSound: {fileID: 8300000, guid: 96344ad6391699c48ae8733dd2f09a66, type: 3}
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
   canDamagePlayer: 0
   canAffectPlayer: 0

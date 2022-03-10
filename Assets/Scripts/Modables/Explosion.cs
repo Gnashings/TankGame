@@ -11,9 +11,9 @@ public class Explosion : MonoBehaviour
 
     public void Explode()
     {
-        if(explosion.explosionSound != null)
+        if(explosion.particles != null)
         {
-            
+            Instantiate(explosion.particles, transform.position, transform.rotation);
         }
         
         Physics.OverlapSphere(transform.position, explosion.radius);

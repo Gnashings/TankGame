@@ -7,10 +7,12 @@ public class EnemyStats : MonoBehaviour
 
     public EnemyStatsPerameters stats;
 
-    float health;
+    public float health;
+
     void Start()
     {
-        stats.health = 0;
+        //stats.health = 0;
+        health = 0;
         health = stats.health;
     }
     public void TakeDamage(float damage)

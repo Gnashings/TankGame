@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        LoadPlayerSettings();
+        //LoadPlayerSettings();
     }
 
     void Start()
@@ -163,9 +163,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(   noGunMod.fireRate,
                                     noGunMod.bulletVelocity,
                                     noGunMod.bulletSpread,
-                                    noGunMod.damage,
-                                    noGunMod.dealDamage,
-                                    noGunMod.explosiveProjectile,
                                     noGunMod.automaticFire,
                                     "NormalShot");
         }
@@ -174,9 +171,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(riskyBusiness.fireRate,
                                     riskyBusiness.bulletVelocity,
                                     riskyBusiness.bulletSpread,
-                                    riskyBusiness.damage,
-                                    riskyBusiness.dealDamage,
-                                    riskyBusiness.explosiveProjectile,
                                     riskyBusiness.automaticFire,
                                     "RiskyBusiness");
         }
@@ -185,9 +179,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(sasha.fireRate,
                                     sasha.bulletVelocity,
                                     sasha.bulletSpread,
-                                    sasha.damage,
-                                    sasha.dealDamage,
-                                    sasha.explosiveProjectile,
                                     sasha.automaticFire,
                                     "Sasha");
         }
@@ -196,9 +187,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(newtonsApple.fireRate,
                                     newtonsApple.bulletVelocity,
                                     newtonsApple.bulletSpread,
-                                    newtonsApple.damage,
-                                    newtonsApple.dealDamage,
-                                    newtonsApple.explosiveProjectile,
                                     newtonsApple.automaticFire,
                                     "Newtons");
         }

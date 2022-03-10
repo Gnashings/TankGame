@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class BulletPool : MonoBehaviour
 {
     [System.Serializable]
     public class Pool
     {
         public string tag;
         public ExplosionParameters expPerams;
+        public TurretStats bulPerams;
         public GameObject prefab;
         public int size;
     }
 
     //singleton
-    public static ObjectPool Instance;
+    public static BulletPool Instance;
     private void Awake()
     {
         Instance = this;
@@ -36,12 +37,19 @@ public class ObjectPool : MonoBehaviour
             {
                 GameObject obj = Instantiate(pool.prefab);
                 obj.GetComponent<Explosion>().explosion = pool.expPerams;
+
+                obj.GetComponent<Projectile>().SetFollowthrough(pool.bulPerams.destroysOtherShots);
+                obj.GetComponent<Projectile>().SetExplosive(pool.bulPerams.explosiveProjectile);
+                obj.GetComponent<Projectile>().SetDealsDamage(pool.bulPerams.dealDamage);
+                obj.GetComponent<Projectile>().SetDamage(pool.bulPerams.damage);
+                obj.GetComponent<Projectile>().SetEffects(pool.bulPerams.fireFX);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
             poolDictionary.Add(pool.tag, objectPool);
         }
     }
+
 
     public GameObject SpawnFromPool (string tag, Vector3 position, Quaternion rotation)
     {

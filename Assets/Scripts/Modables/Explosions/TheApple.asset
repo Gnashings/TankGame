@@ -16,8 +16,7 @@ MonoBehaviour:
   force: 200
   damage: 100
   upwardforce: 0
-  explosionSound: {fileID: 0}
-  particles: {fileID: 0}
+  particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
   canDamagePlayer: 1
   canAffectPlayer: 0
   canDamageEnemies: 1
