@@ -65,9 +65,12 @@ public class Projectile : MonoBehaviour, PooledObjects
             {
                 explosion.Explode();
             }
-            if(dealsDamage && other.CompareTag("Enemy"))
+            if (dealsDamage && other.CompareTag("Enemy"))
             {
-                other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
+                if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
+                {
+                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
+                }
             }
             ShutDown();
             //print(other.tag +" TARGET HIT "+other.name);

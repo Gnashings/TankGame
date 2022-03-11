@@ -9,7 +9,10 @@ public class SpawnEnemy : MonoBehaviour
     //TODO TRACK THE DEATH OF EACH ENEMY SPAWNED
     void Start()
     {
-       
+       if(enemy == null)
+        {
+            Debug.LogError("NO ENEMY ASSIGNED");
+        }
     }
 
     void Update()
