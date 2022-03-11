@@ -9,13 +9,17 @@ public class LevelDirector : MonoBehaviour
     public List<RoomSystem> rooms = new List<RoomSystem>();
     public bool roomsCompleted;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        roomsCompleted = false;
-        if(rooms.Count != 0)
+        if (rooms.Count != 0)
         {
             Debug.LogWarning("Keep the room list to zero in the director script, this is a readonly field.");
         }
+    }
+    void Start()
+    {
+        roomsCompleted = false;
+
     }
 
     // Update is called once per frame

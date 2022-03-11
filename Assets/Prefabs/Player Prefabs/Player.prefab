@@ -5086,9 +5086,10 @@ MonoBehaviour:
   topSpeed: 0
   ignoreAcceleration: 0
   slowAmount: 0.5
-  slowDuration: 0
+  slowDuration: 1
   isSlowed: 0
   slowImmune: 0
+  backPenalty: 0.25
 --- !u!114 &6879325751890812594
 MonoBehaviour:
   m_ObjectHideFlags: 0

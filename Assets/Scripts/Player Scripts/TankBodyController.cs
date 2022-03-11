@@ -27,7 +27,8 @@ public class TankBodyController : MonoBehaviour
     public bool isSlowed;
     [HideInInspector]
     public bool slowImmune;
-
+    public float backPenalty;
+    
     void Start()
     {
         inputs = gameObject.GetComponent<PlayerInputControls>();
@@ -53,20 +54,15 @@ public class TankBodyController : MonoBehaviour
         if (inputs.GetPadMoveForwardAxis().magnitude == 0)
         {
             /*weird thing where you lose speed over time instead of instantly
-            if(speed > 0)
-            {
-                speed -= acceleration * Time.deltaTime;
-            }
-            */
+            if(speed > 0){speed -= acceleration * Time.deltaTime;}*/
             speed = 0;
         }
         if (inputs.GetPadMoveForwardAxis().magnitude != 0)
         {
-            /*
-            if(speed <= topSpeed) speed += acceleration * Time.deltaTime;
-
+            /*if(speed <= topSpeed) speed += acceleration * Time.deltaTime;
             rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();*/
-            MovementSpeed();
+  
+            CalculateMovementSpeed();
         }
         
         //USE THIS IF ALL ELSE FAILS
@@ -74,22 +70,21 @@ public class TankBodyController : MonoBehaviour
         
     }
 
-    private void MovementSpeed()
+    private void CalculateMovementSpeed()
     {
-        if(rb.velocity.magnitude < topSpeed)
+
+        if (rb.velocity.magnitude < topSpeed * BackPenalty() * ForceSlow())
         {
             if (!ignoreAcceleration)
             {
-                if (speed <= topSpeed) speed += acceleration * Time.deltaTime;
+                if (speed <= topSpeed * BackPenalty() * ForceSlow()) speed += acceleration * Time.deltaTime;
             }
             else
             {
-                speed = topSpeed;
+                speed = topSpeed * BackPenalty() * ForceSlow();
             }
             rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();
-
         }
-
     }
 
     private void Rotate()
@@ -120,6 +115,14 @@ public class TankBodyController : MonoBehaviour
         }
         else
             return 1;
+    }
+    private float BackPenalty()
+    {
+        if (inputs.GetPadMoveForwardAxis().z >= 0)
+        {
+            return 1;
+        }
+        else return backPenalty;
     }
 
     IEnumerator SlowTimer()
