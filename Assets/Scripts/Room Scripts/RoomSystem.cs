@@ -25,10 +25,12 @@ public class RoomSystem : MonoBehaviour
         if (spawnPointList.Count != 0)
         {
             Debug.LogWarning("The SpawnPoints list should be empty, please attach SpawnPoints in the children instead.");
+            //spawnPointList.Clear();
         }
         if (doors.Count != 0)
         {
             Debug.LogWarning("The Doors list should be empty, please attach Doors in the children instead.");
+            //doors.Clear();
         }
 
         trigger = gameObject.GetComponent<BoxCollider>();
