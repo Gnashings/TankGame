@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e8477e613ac74d9e7aface3002596, type: 3}
   m_Name: Reaper
   m_EditorClassIdentifier: 
-  armor: 100
-  health: 100
+  armor: 200
+  health: 200
   topSpeed: 20
   armorRecharge: 1.5
   armorBreakTimer: 2
