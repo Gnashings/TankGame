@@ -64,7 +64,7 @@ public class FireGun : MonoBehaviour
         
         GameObject rocketInstance;
         Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
+        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, firingDirection) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
         

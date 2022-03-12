@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5de612369df4e444b616293cb9f7688, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  fireRate: 1
+  fireRate: 3
   bulletVelocity: 5000
   bulletSpread: 0
-  damage: 100
+  damage: 200
   dealDamage: 1
   explosiveProjectile: 1
   automaticFire: 0
