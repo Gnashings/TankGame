@@ -29,7 +29,6 @@ public class ImmortalDebugWatcher : MonoBehaviour
 
             if (proceed == true)
             {
-                levelMoved = true;
                 proceed = false;
                 SceneManager.LoadScene("Menu");
             }

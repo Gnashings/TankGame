@@ -15,4 +15,4 @@ MonoBehaviour:
   ignoreAcceleration: 1
   ignoreSlow: 0
   acceleration: 0
-  turningSpeed: 2
+  turningSpeed: 1.5
