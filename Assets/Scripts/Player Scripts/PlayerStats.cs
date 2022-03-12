@@ -51,16 +51,17 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         //LoadPlayerSettings();
-    }
-
-    void Start()
-    {
         ResetAllStats();
-        CheckBodyMod();      
+        CheckBodyMod();
         CheckTurretMods();
         CheckTrackMods();
         SetHealthAndArmor();
         StartCoroutine(ArmorRecharge());
+    }
+
+    void Start()
+    {
+
     }
 
     #region BodyMods
