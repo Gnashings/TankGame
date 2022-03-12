@@ -8,12 +8,21 @@ public class NormalProjectile : BaseProjectile {
     Vector3 m_direction;
     bool m_fired;
     private float damageToPlayer;
- 
+   
+    
+    
+public Transform target;
+
+
+
     // Update is called once per frame
     void Update () {
         if(m_fired){
             transform.position += m_direction * (speed * Time.deltaTime);
         }
+
+        transform.LookAt(target);
+
     }
  
     public override void FireProjectile(GameObject launcher, GameObject target, int damage, float attackSpeed){

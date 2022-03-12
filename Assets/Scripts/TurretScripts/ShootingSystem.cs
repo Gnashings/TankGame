@@ -55,7 +55,7 @@ void Start()
  
         for(int i = 0; i < projectileSpawns.Count; i++){
             if(projectileSpawns[i]){
-                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
+                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(270,0,0));
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], target, damage, fireRate);
  
                 lastProjectilesShot.Add(proj);
