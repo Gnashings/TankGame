@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //LoadPlayerSettings();
+        LoadPlayerSettings();
         ResetAllStats();
         CheckBodyMod();
         CheckTurretMods();
@@ -251,7 +251,6 @@ public class PlayerStats : MonoBehaviour
 
     #endregion Trackmods
 
-
     #region ArmorAndHealth
     public void TakeDamage(float damage)
     {
@@ -272,7 +271,11 @@ public class PlayerStats : MonoBehaviour
                 armor = 0;
                 health -= leftOverDamage;
                 StartCoroutine(ArmorBreakCooldown());
-                print("BREAK");
+                print("ARMOR BREAK");
+                if (health <= 0)
+                {
+                    Die();
+                }
                 return;
             }
             else
@@ -343,6 +346,7 @@ public class PlayerStats : MonoBehaviour
     public void Die()
     {
         Debug.Log("you died");
+        PlayerProgress.death = true;
         armorRecharge = 0;
     }
 

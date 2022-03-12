@@ -71,6 +71,11 @@ public class PlayerSelection : MonoBehaviour
 
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     private void CheckChoices()
     {
         if(PlayerProgress.hasTurret == true)

@@ -10,6 +10,7 @@ public class PlayerInputControls : MonoBehaviour
     private InputAction gas;
     private InputAction look;
     private InputAction fire;
+    private InputAction pause;
     private PlayerControls playerControls;
     public float sensitivity;
     [HideInInspector]
@@ -22,10 +23,7 @@ public class PlayerInputControls : MonoBehaviour
     void Awake()
     {
         playerControls = new PlayerControls();
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
+        LockMouse();
     }
 
     // Update is called once per frame
@@ -40,11 +38,10 @@ public class PlayerInputControls : MonoBehaviour
         else
             Gamepad.current.SetMotorSpeeds(0, 0);
         */
-
-        //Debug.Log(GetMoveForwardAxis());
     }
 
     public bool Firing => fire.triggered;
+    public bool paused => pause.triggered;
     [HideInInspector]
     public bool isHeld;
 
@@ -92,6 +89,19 @@ public class PlayerInputControls : MonoBehaviour
         return currentRotation;
     }
 
+    public void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     #region GAMEPAD
     Vector3 gamepadLook;
     float heading;
@@ -122,11 +132,12 @@ public class PlayerInputControls : MonoBehaviour
         look = playerControls.ScopeMode.LookAround;
         fire = playerControls.ScopeMode.Fire;
         gas = playerControls.ScopeMode.Gas;
-
+        pause = playerControls.ScopeMode.Pause;
         move.Enable();
         look.Enable();
         fire.Enable();
         gas.Enable();
+        pause.Enable();
     }
 
     private void OnDisable()
@@ -134,6 +145,7 @@ public class PlayerInputControls : MonoBehaviour
         move.Disable();
         look.Disable();
         fire.Disable();
-        gas.Enable();
+        gas.Disable();
+        pause.Disable();
     }
 }

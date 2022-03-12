@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelDirector : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class LevelDirector : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        //sets the current level for the level reset.
+        PlayerProgress.curLevel = SceneManager.GetActiveScene().name.ToString();
+        
         if (rooms.Count != 0)
         {
             Debug.LogWarning("Keep the room list to zero in the director script, this is a readonly field.");
@@ -22,10 +26,12 @@ public class LevelDirector : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(PlayerProgress.death == true)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 
     public void AddThisRoom(RoomSystem room)
