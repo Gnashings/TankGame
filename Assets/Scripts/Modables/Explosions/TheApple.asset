@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
   m_Name: TheApple
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 9
   force: 200
-  damage: 50
+  damage: 100
   upwardforce: 0
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
   canDamagePlayer: 1
