@@ -8,7 +8,6 @@ public class ImmortalDebugWatcher : MonoBehaviour
     public bool thisData;
     public bool proceed;
     public bool readData;
-    private bool levelMoved;
     private static ImmortalDebugWatcher instance;
     // Start is called before the first frame update
     void Start()
