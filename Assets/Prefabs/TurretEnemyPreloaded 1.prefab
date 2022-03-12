@@ -29,6 +29,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9395695, y: 2.0559442, z: 3.812511}
   m_Center: {x: 0, y: 1.0441777, z: -0.00000005960466}
+--- !u!114 &714704431540844433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755308313323082410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e530d33e264849d4088268e6b556f2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 5015dc979e647f443a771f14c6f7f4d1, type: 2}
+  health: 100
 --- !u!1 &3079547412257091081
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +294,7 @@ MonoBehaviour:
   fireRate: 0.2
   damage: 5
   fieldOfView: 100
-  projectile: {fileID: 138699865376652563, guid: d3b9b14fb4732d748b90ba4c65af942d, type: 3}
+  projectile: {fileID: 7586021834953977697, guid: db0ec34eed94d124981988753c1ed371, type: 3}
   projectileSpawns:
   - {fileID: 5981176943635223007}
   - {fileID: 3079547412257091081}
