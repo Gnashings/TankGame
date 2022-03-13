@@ -10,7 +10,7 @@ public class NormalProjectile : BaseProjectile {
     private float damageToPlayer;
    
     
-    
+    public float timer;
 public Transform target;
 
 
@@ -21,6 +21,15 @@ public Transform target;
             transform.position += m_direction * (speed * Time.deltaTime);
         }
 
+        transform.LookAt(target);
+
+         timer += 1.0F * Time.deltaTime;
+
+
+         if (timer >= 4)
+                {
+                GameObject.Destroy(gameObject);
+                }
         transform.LookAt(target);
 
     }

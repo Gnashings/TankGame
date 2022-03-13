@@ -8,6 +8,8 @@ public class ShootingSystem : MonoBehaviour {
     public float fieldOfView;
     public GameObject projectile;
     public List<GameObject> projectileSpawns;
+
+    
  
     List<GameObject> lastProjectilesShot = new List<GameObject>();
     float m_fireTimer = 0.0f;
@@ -16,6 +18,9 @@ public class ShootingSystem : MonoBehaviour {
 
 void Start()
     {
+
+            
+
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player");
 
@@ -55,8 +60,13 @@ void Start()
  
         for(int i = 0; i < projectileSpawns.Count; i++){
             if(projectileSpawns[i]){
-                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(270,0,0));
+                Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(90, 0, 0));
+                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, firingDirection);
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], target, damage, fireRate);
+
+
+                 GetComponent<AudioSource>().Play();
+
  
                 lastProjectilesShot.Add(proj);
             }
