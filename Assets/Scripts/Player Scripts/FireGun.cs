@@ -14,8 +14,6 @@ public class FireGun : MonoBehaviour
     [Tooltip("Where to shoot projectile from")]
     public GameObject muzzle;
     //[HideInInspector]
-    public AudioSource fireSound;
-    public AudioSource fireSoundAlt;
     private float firingCooldown;
     private float bulletVelocity;
     private bool canFire;
@@ -39,13 +37,13 @@ public class FireGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        SashaBaby();
-        
-        //FireTurret();
+        if(!PlayerProgress.paused)
+        {
+            CheckCanFire();
+        }
     }
 
-    private void SashaBaby()
+    private void CheckCanFire()
     {
         
         if (inputs.IsFireHeld() == true && canFire)
@@ -55,67 +53,22 @@ public class FireGun : MonoBehaviour
             {
                 
                 canFire = false;
-                SashaGun();
+                Fire();
                 StartCoroutine(StartCooldown());
             }
         }
     }
-    private void FireTurret()
-    {
 
-        if (inputs.Firing && canFire)
-        {
-            /* INSTANTIATION METHOD
-            GameObject rocketInstance;
-            Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-            rocketInstance = Instantiate(normalShot, muzzle.transform.position, firingDirection) as GameObject;
-            Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
-            rocketRB.AddForce(gameObject.transform.forward * bulletVelocity);
-
-            //Instantiate(projectile, muzzle.transform.position, muzzle.transform.rotation);
-
-            */
-            //SashaGun();
-            RiskyGun();
-
-            //begin the Cooldown timer
-            if (firingCooldown != 0)
-            {
-                canFire = false;
-                StartCoroutine(StartCooldown());
-            }
-        }
-    }
-    private void SashaGun()
+    private void Fire()
     {
         
-        /*
-        if(!fireSound.isPlaying)
-        {
-            fireSound.Play();
-        }
-        if(fireSound.isPlaying && !fireSoundAlt.isPlaying)
-        {
-            fireSoundAlt.Play();
-        }
-        */
         GameObject rocketInstance;
         Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
+        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, firingDirection) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
         
     }
-
-    private void RiskyGun()
-    {
-        GameObject rocketInstance;
-        Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
-        rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, Quaternion.identity) as GameObject;
-        Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
-        rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
-    }
-
 
     public void SetGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, bool autoFireVal,
         string bulletTypeVal)
@@ -129,10 +82,7 @@ public class FireGun : MonoBehaviour
         }
         bulletType = bulletTypeVal;
     }
-    public void SetBulletType()
-    {
 
-    }
     IEnumerator StartCooldown()
     {
         

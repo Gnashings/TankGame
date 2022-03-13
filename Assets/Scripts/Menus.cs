@@ -8,17 +8,31 @@ public class Menus : MonoBehaviour
 
     void Start ()
     {
-        PlayerProgress.ResetPlayerStats();
+        if(SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+
+            PlayerProgress.ResetPlayerStats();
+        }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("Parts_Menu");
+        SceneManager.LoadScene("PartsMenu");
     }
 
     public void Main()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ResetLevel()
+    {
+        Debug.Log(PlayerProgress.curLevel);
+        PlayerProgress.death = false;
+        SceneManager.LoadScene(PlayerProgress.curLevel);
     }
 
     public void Quit()

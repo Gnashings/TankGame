@@ -12,7 +12,11 @@ public class AimGun : MonoBehaviour
 
     void Update()
     {
-        PadAim();
+        if(!PlayerProgress.paused)
+        {
+            PadAim();
+        }
+        
     }
 
     private void Aim()

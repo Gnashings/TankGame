@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "EnemyStats", menuName = "Stats/Enemy")]
 public class EnemyStatsPerameters : ScriptableObject
 {
-    public new string enemyName;
+    public string enemyName;
     public float health;
     public bool canMove;
     public float fireRate;

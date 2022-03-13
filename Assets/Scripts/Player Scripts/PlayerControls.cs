@@ -57,6 +57,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd15e322-5de1-4311-902e-70c2480d22b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -246,6 +254,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Gas"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a058ff9-5a70-4c66-8d2c-2fcaad0d1f09"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""288b601b-0775-4193-8a15-82127c5f2cf6"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -259,6 +289,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_ScopeMode_Fire = m_ScopeMode.FindAction("Fire", throwIfNotFound: true);
         m_ScopeMode_Gas = m_ScopeMode.FindAction("Gas", throwIfNotFound: true);
         m_ScopeMode_Break = m_ScopeMode.FindAction("Break", throwIfNotFound: true);
+        m_ScopeMode_Pause = m_ScopeMode.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -313,6 +344,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_ScopeMode_Fire;
     private readonly InputAction m_ScopeMode_Gas;
     private readonly InputAction m_ScopeMode_Break;
+    private readonly InputAction m_ScopeMode_Pause;
     public struct ScopeModeActions
     {
         private @PlayerControls m_Wrapper;
@@ -322,6 +354,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Fire => m_Wrapper.m_ScopeMode_Fire;
         public InputAction @Gas => m_Wrapper.m_ScopeMode_Gas;
         public InputAction @Break => m_Wrapper.m_ScopeMode_Break;
+        public InputAction @Pause => m_Wrapper.m_ScopeMode_Pause;
         public InputActionMap Get() { return m_Wrapper.m_ScopeMode; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -346,6 +379,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Break.started -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnBreak;
                 @Break.performed -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnBreak;
                 @Break.canceled -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnBreak;
+                @Pause.started -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_ScopeModeActionsCallbackInterface = instance;
             if (instance != null)
@@ -365,6 +401,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Break.started += instance.OnBreak;
                 @Break.performed += instance.OnBreak;
                 @Break.canceled += instance.OnBreak;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -376,5 +415,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnGas(InputAction.CallbackContext context);
         void OnBreak(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

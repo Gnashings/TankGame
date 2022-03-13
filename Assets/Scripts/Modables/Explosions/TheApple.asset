@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
   m_Name: TheApple
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 9
   force: 200
   damage: 100
   upwardforce: 0

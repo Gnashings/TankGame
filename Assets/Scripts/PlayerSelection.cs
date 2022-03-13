@@ -14,12 +14,9 @@ public class PlayerSelection : MonoBehaviour
     private bool choseBody;
     private bool choseTracks;
 
-    private GameObject gameDirector;
-
     void Start()
     {
         CheckChoices();
-        gameDirector = GameObject.Find("GameDirector");
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -31,7 +28,7 @@ public class PlayerSelection : MonoBehaviour
         choseTurret = true;
         choseBody   = false;
         choseTracks = false;
-        print("turret " + thisString);
+        //print("turret " + thisString);
     }
 
     public void BodySelection(string thisString)
@@ -40,7 +37,7 @@ public class PlayerSelection : MonoBehaviour
         choseTurret = false;
         choseBody   = true;
         choseTracks = false;
-        print("body " + thisString);
+        //print("body " + thisString);
     }
     public void TrackSelection(string thisString)
     {
@@ -48,7 +45,7 @@ public class PlayerSelection : MonoBehaviour
         choseTurret = false;
         choseBody   = false;
         choseTracks = true;
-        print("track " + thisString);
+        //print("track " + thisString);
     }
 
     public void PlayGame()
@@ -69,6 +66,11 @@ public class PlayerSelection : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
         //LIVE: SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void CheckChoices()

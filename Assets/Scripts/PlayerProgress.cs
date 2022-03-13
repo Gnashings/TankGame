@@ -11,6 +11,9 @@ public static class PlayerProgress
     public static string curBody;
     public static string curTracks;
 
+    public static bool paused;
+    public static string curLevel;
+    public static bool death;
     public static void SetTurret(string selection)
     {
         curTurret = selection;
@@ -45,6 +48,8 @@ public static class PlayerProgress
         curTurret = null;
         curBody = null;
         curTracks = null;
+
+        death = false;
         Debug.Log("all stats resets");
     }
 }

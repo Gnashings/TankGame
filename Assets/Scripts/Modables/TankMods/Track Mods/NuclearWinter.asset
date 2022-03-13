@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: NuclearWinter
   m_EditorClassIdentifier: 
   ignoreAcceleration: 0
-  ignoreSlow: 1
+  ignoreSlow: 0
   acceleration: 5
-  turningSpeed: 2
+  turningSpeed: 3
