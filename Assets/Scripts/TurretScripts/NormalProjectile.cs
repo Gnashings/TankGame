@@ -9,7 +9,7 @@ public class NormalProjectile : BaseProjectile {
     bool m_fired;
     private float damageToPlayer;
    
-    public float timer;
+    
     
 public Transform target;
 
@@ -21,14 +21,8 @@ public Transform target;
             transform.position += m_direction * (speed * Time.deltaTime);
         }
 
-         timer += 1.0F * Time.deltaTime;
-
-
-         if (timer >= 4)
-                {
-                GameObject.Destroy(gameObject);
-                }
         transform.LookAt(target);
+
     }
  
     public override void FireProjectile(GameObject launcher, GameObject target, int damage, float attackSpeed){
