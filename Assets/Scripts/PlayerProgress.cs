@@ -40,6 +40,25 @@ public static class PlayerProgress
         Debug.Log("Tracks " + hasTracks);
     }
 
+    public static bool ChoseAbility()
+    {
+        bool hasAbility = false;
+        if(hasTurret)
+        {
+            hasAbility = true;
+        }
+        if(hasBody)
+        {
+            hasAbility = true;
+        }
+        if (hasTracks)
+        {
+            hasAbility = true;
+        }
+        return hasAbility;
+
+    }
+
     public static void ResetPlayerStats()
     {
         hasTurret = false;
