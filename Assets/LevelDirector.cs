@@ -54,7 +54,7 @@ public class LevelDirector : MonoBehaviour
         }
         if(roomsCompleted == true)
         {
-            print("ROOMS ARE ALL COMPLETED");
+            SceneManager.LoadScene("PartsMenu");
         }
     }
 }

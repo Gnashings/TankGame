@@ -63,7 +63,7 @@ public class PlayerSelection : MonoBehaviour
             PlayerProgress.SetTracks(selection);
         }
         //DEBUG: SceneManager.LoadScene("Menu");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level 1");
         //LIVE: SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5de612369df4e444b616293cb9f7688, type: 3}
   m_Name: noMod
   m_EditorClassIdentifier: 
-  fireRate: 2
+  fireRate: 1
   bulletVelocity: 2000
   bulletSpread: 0
   damage: 50
-  dealDamage: 0
+  dealDamage: 1
   explosiveProjectile: 1
   automaticFire: 0
   destroysOtherShots: 1

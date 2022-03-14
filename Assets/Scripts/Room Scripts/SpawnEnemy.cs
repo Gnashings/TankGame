@@ -34,4 +34,10 @@ public class SpawnEnemy : MonoBehaviour
     {
        Instantiate(enemy, transform.position, Quaternion.identity, gameObject.transform);
     }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 2f);
+    }
 }

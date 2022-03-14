@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        LoadPlayerSettings();
+        //LoadPlayerSettings();
         ResetAllStats();
         CheckBodyMod();
         CheckTurretMods();
@@ -132,7 +132,7 @@ public class PlayerStats : MonoBehaviour
             {
                 canBomba = false;
                 bigBombaBomb.Explode();
-                Debug.Log("bombabomb");
+                //Debug.Log("bombabomb");
                 StartCoroutine(BombaCooldown());
             }
         }    
@@ -254,6 +254,7 @@ public class PlayerStats : MonoBehaviour
     #region ArmorAndHealth
     public void TakeDamage(float damage)
     {
+        ProcSlow();
         if (armor > 0)
         {
             //check for damage reduciton
@@ -335,7 +336,6 @@ public class PlayerStats : MonoBehaviour
         armor = 0;
         totalHealth = 0;
         totalArmor = 0;
-        gustavArmorReduction = 0;
         flatDR = 0;
         armorRecharge = 0;
         canBomba = false;
