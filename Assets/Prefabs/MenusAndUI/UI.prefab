@@ -156,7 +156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: abd0a8fdd1407e048b5a2ee5618d39ac, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: About
+  m_Text: ABOUT
 --- !u!1 &2618854666335778477
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: abd0a8fdd1407e048b5a2ee5618d39ac, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: MAIN MENU
 --- !u!1 &4372594660384948455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: abd0a8fdd1407e048b5a2ee5618d39ac, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: CONTINUE
 --- !u!1 &4372594660995595237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: abd0a8fdd1407e048b5a2ee5618d39ac, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -1396,7 +1396,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Paused
+  m_Text: PAUSED
 --- !u!1 &4372594661424860515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: abd0a8fdd1407e048b5a2ee5618d39ac, type: 3}
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: QUIT GAME
 --- !u!1 &4883893886731332583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,6 +2085,10 @@ PrefabInstance:
     - target: {fileID: 4830028015139691261, guid: 72337ae274354354ca20bd17310ed5b0, type: 3}
       propertyPath: m_Name
       value: HTP
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830028015139691267, guid: 72337ae274354354ca20bd17310ed5b0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4830028015479497201, guid: 72337ae274354354ca20bd17310ed5b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
