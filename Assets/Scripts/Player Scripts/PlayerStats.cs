@@ -64,7 +64,7 @@ public class PlayerStats : MonoBehaviour
         CheckTrackMods();
         SetHealthAndArmor();
         StartCoroutine(ArmorRecharge());
-        print(PlayerProgress.ChoseAbility());
+        //print(PlayerProgress.ChoseAbility());
     }
 
     void Start()
