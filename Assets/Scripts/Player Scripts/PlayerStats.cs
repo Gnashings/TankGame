@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //LoadPlayerSettings();
+        LoadPlayerSettings();
         ResetAllStats();
         CheckBodyMod();
         CheckTurretMods();
