@@ -55,6 +55,7 @@ public class LevelDirector : MonoBehaviour
         if(roomsCompleted == true)
         {
             SceneManager.LoadScene("PartsMenu");
+            PlayerProgress.levelsCompleted++;
         }
     }
 }
