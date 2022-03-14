@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: noMod
   m_EditorClassIdentifier: 
   fireRate: 1
-  bulletVelocity: 2000
+  bulletVelocity: 2500
   bulletSpread: 0
   damage: 50
   dealDamage: 1

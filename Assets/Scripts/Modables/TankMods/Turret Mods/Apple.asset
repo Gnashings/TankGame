@@ -15,7 +15,7 @@ MonoBehaviour:
   fireRate: 3
   bulletVelocity: 5000
   bulletSpread: 0
-  damage: 200
+  damage: 275
   dealDamage: 1
   explosiveProjectile: 1
   automaticFire: 0
