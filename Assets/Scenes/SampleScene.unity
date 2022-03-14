@@ -721,7 +721,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6879325751890812594, guid: 40268def1c272ce4c870a79c043b7f37, type: 3}
       propertyPath: turrets
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879325751890812594, guid: 40268def1c272ce4c870a79c043b7f37, type: 3}
+      propertyPath: bodyMods
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7280919474109410468, guid: 40268def1c272ce4c870a79c043b7f37, type: 3}
       propertyPath: m_RootOrder

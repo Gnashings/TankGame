@@ -5140,7 +5140,7 @@ MonoBehaviour:
   health: 0
   armor: 0
   armorBreakTimer: 0
-  bodyMods: 1
+  bodyMods: 0
   bombaCooldown: 3
   gustavArmorReduction: 3
   autoGun: {fileID: 2116737988}
@@ -5153,7 +5153,7 @@ MonoBehaviour:
   riskyBusiness: {fileID: 11400000, guid: b95ff4a1adb4c6c4d8d56d7f6ce6ef96, type: 2}
   sasha: {fileID: 11400000, guid: f487dc1b1c0be8c469e610fa9c166125, type: 2}
   newtonsApple: {fileID: 11400000, guid: a040ec2788640a34ea01ffde0e0803ce, type: 2}
-  tracks: 1
+  tracks: 0
   noTrackMod: {fileID: 11400000, guid: a372af456a926cf4aadea6b60b880622, type: 2}
   nuclearWinter: {fileID: 11400000, guid: f58e4c308461fe440b65fdd4325ce442, type: 2}
   hare: {fileID: 11400000, guid: 81aba6fb5587da34c9de9be08d32610c, type: 2}
@@ -5162,6 +5162,12 @@ MonoBehaviour:
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
   bombaExplosionSound: {fileID: 0}
+  basicTurretModal: {fileID: 7761378074037277703}
+  sashaModel: {fileID: 7347048787835671044}
+  newtonsAppleModel: {fileID: 7261599358823628637}
+  basicBodyModel: {fileID: 218029730934879807}
+  gustavModel: {fileID: 1320449915956560665}
+  bigBombaModel: {fileID: 4489767830577592768}
 --- !u!54 &7280919474109410469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10641,10 +10647,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1007046829180088484, guid: 1aa9b1272e93e3e4ea683025549f7ca3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa9b1272e93e3e4ea683025549f7ca3, type: 3}
+--- !u!1 &218029730934879807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1007046829180088484, guid: 1aa9b1272e93e3e4ea683025549f7ca3, type: 3}
+  m_PrefabInstance: {fileID: 1080625471092065947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &598213825562979461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482570628181142046, guid: 1aa9b1272e93e3e4ea683025549f7ca3, type: 3}
@@ -10659,7 +10670,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 266989492529653875, guid: dee836b53694f4c46bdf3a754bb81a18, type: 3}
       propertyPath: m_Name
-      value: risky business Variant
+      value: newtons apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 266989492529653875, guid: dee836b53694f4c46bdf3a754bb81a18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 648334916849611465, guid: dee836b53694f4c46bdf3a754bb81a18, type: 3}
       propertyPath: m_RootOrder
@@ -10710,6 +10725,11 @@ PrefabInstance:
 --- !u!4 &8038277207938999783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 648334916849611465, guid: dee836b53694f4c46bdf3a754bb81a18, type: 3}
+  m_PrefabInstance: {fileID: 7454279422038710062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7261599358823628637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 266989492529653875, guid: dee836b53694f4c46bdf3a754bb81a18, type: 3}
   m_PrefabInstance: {fileID: 7454279422038710062}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7454756926492141910
@@ -10769,10 +10789,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
+--- !u!1 &7761378074037277703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
+  m_PrefabInstance: {fileID: 7454756926492141910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6989063872700157629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
@@ -10844,6 +10869,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15e65d263d379a04c956bdd48220be6c, type: 3}
   m_PrefabInstance: {fileID: 7580855750640398165}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7347048787835671044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 15e65d263d379a04c956bdd48220be6c, type: 3}
+  m_PrefabInstance: {fileID: 7580855750640398165}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8000996756712855409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10857,7 +10887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856821524847242929, guid: 709904fec2b75034cb4d955acfd34d4f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6488645318720222219, guid: 709904fec2b75034cb4d955acfd34d4f, type: 3}
       propertyPath: m_RootOrder
@@ -10905,6 +10935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 709904fec2b75034cb4d955acfd34d4f, type: 3}
+--- !u!1 &4489767830577592768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5856821524847242929, guid: 709904fec2b75034cb4d955acfd34d4f, type: 3}
+  m_PrefabInstance: {fileID: 8000996756712855409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3820473745651131258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6488645318720222219, guid: 709904fec2b75034cb4d955acfd34d4f, type: 3}
@@ -10971,6 +11006,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1003fd35fb721f4a80ab79003f45381, type: 3}
+--- !u!1 &1320449915956560665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9017322507302306028, guid: c1003fd35fb721f4a80ab79003f45381, type: 3}
+  m_PrefabInstance: {fileID: 8030156973106955253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1808475210366146979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8532113096332008022, guid: c1003fd35fb721f4a80ab79003f45381, type: 3}
