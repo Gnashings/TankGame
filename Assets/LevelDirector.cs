@@ -57,7 +57,16 @@ public class LevelDirector : MonoBehaviour
             PlayerProgress.levelsCompleted++;
             if (PlayerProgress.levelsCompleted == 3)
             {
-                SceneManager.LoadScene("WinScene");
+                
+                if (PlayerProgress.ChoseAbility() == false)
+                {
+                    SceneManager.LoadScene("WinScene2");
+                }
+                else if (PlayerProgress.ChoseAbility() == true)
+                {
+                    SceneManager.LoadScene("WinScene");
+                }
+                
             }
             else
             {

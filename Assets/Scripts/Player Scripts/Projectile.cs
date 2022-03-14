@@ -51,16 +51,15 @@ public class Projectile : MonoBehaviour, PooledObjects
     private void OnTriggerEnter(Collider other)
     {
         
-        if(chadShot == true && other.gameObject.GetComponent<NormalProjectile>() != false)
+        if(chadShot == true && other.CompareTag("EnemyBullet"))
         {
             Destroy(other.gameObject);
             return;
         }
         else if(chadShot == false)
         {
-            if(other.CompareTag("EnemyBullet"))
+            if(other.CompareTag("EnemyBullet") || other.CompareTag("bossBullet"))
             {
-                Debug.Log("PLAYER TO ENEMY");
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
             }
             
@@ -69,7 +68,8 @@ public class Projectile : MonoBehaviour, PooledObjects
             !other.CompareTag("AutoTurret") &&
             !other.CompareTag("Spawner") &&
             !other.CompareTag("PlayerBullet") &&
-            !other.CompareTag("EnemyBullet")
+            !other.CompareTag("EnemyBullet") &&
+            !other.CompareTag("bossBullet")
            )
         {
             if(isExplosive)
