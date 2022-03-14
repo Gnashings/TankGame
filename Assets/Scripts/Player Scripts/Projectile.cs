@@ -75,14 +75,14 @@ public class Projectile : MonoBehaviour, PooledObjects
             if(isExplosive)
             {
                 explosion.Explode();
-                print("exploding");
+                //print("exploding");
             }
             if (dealsDamage && other.CompareTag("Enemy"))
             {
                 if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
                 {
                     other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
-                    Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
+                    //Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
                 }
             }
             //Debug.Log(other.name);
