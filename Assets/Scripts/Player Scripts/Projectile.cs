@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour, PooledObjects
     private bool dealsDamage;
     private bool isExplosive;
     private bool chadShot;
+    private bool isEMP;
     public void OnObjectSpawn()
     {
         //killOffTimer = meme.clip.length;
@@ -33,6 +34,10 @@ public class Projectile : MonoBehaviour, PooledObjects
         rb.isKinematic = false;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        if (isEMP)
+        {
+            chadShot = true;
+        }
     }
 
     private void OnBecameInvisible()
@@ -50,8 +55,20 @@ public class Projectile : MonoBehaviour, PooledObjects
 
     private void OnTriggerEnter(Collider other)
     {
+<<<<<<< Updated upstream
 
         if(chadShot == true && other.gameObject.GetComponent<NormalProjectile>() != false)
+=======
+        if(isEMP)
+        {
+           if(other.gameObject.GetComponentInParent<EnemyStats>().isBomber)
+            {
+                //blow this dude up
+                other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
+            }
+        }
+        if(chadShot == true && other.CompareTag("EnemyBullet"))
+>>>>>>> Stashed changes
         {
             Destroy(other.gameObject);
             return;
@@ -77,6 +94,27 @@ public class Projectile : MonoBehaviour, PooledObjects
         }
 
     }
+<<<<<<< Updated upstream
+=======
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            //Debug.Log("PLAYER TO ENEMY");
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            //Debug.Log("PLAYER TO ENEMY");
+            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
+        }
+    }
+>>>>>>> Stashed changes
 
     public void SetFollowthrough(bool gigaChad)
     {
