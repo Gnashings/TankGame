@@ -13,6 +13,7 @@ public static class PlayerProgress
 
     public static bool paused;
     public static string curLevel;
+    public static int levelsCompleted;
     public static bool death;
     public static void SetTurret(string selection)
     {
@@ -39,6 +40,25 @@ public static class PlayerProgress
         Debug.Log("Tracks " + hasTracks);
     }
 
+    public static bool ChoseAbility()
+    {
+        bool hasAbility = false;
+        if(hasTurret)
+        {
+            hasAbility = true;
+        }
+        if(hasBody)
+        {
+            hasAbility = true;
+        }
+        if (hasTracks)
+        {
+            hasAbility = true;
+        }
+        return hasAbility;
+
+    }
+
     public static void ResetPlayerStats()
     {
         hasTurret = false;
@@ -50,6 +70,7 @@ public static class PlayerProgress
         curTracks = null;
 
         death = false;
+        levelsCompleted = 0;
         Debug.Log("all stats resets");
     }
 }

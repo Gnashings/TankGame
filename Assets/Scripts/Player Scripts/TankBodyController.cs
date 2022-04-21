@@ -38,7 +38,7 @@ public class TankBodyController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if(isSlowed)
+        if (isSlowed)
         {
             if(!countingSlow)
             {
@@ -83,7 +83,7 @@ public class TankBodyController : MonoBehaviour
             {
                 speed = topSpeed * BackPenalty() * ForceSlow();
             }
-            rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();
+            rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
         }
     }
 

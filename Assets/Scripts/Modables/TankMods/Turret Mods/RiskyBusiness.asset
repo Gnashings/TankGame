@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5de612369df4e444b616293cb9f7688, type: 3}
   m_Name: RiskyBusiness
   m_EditorClassIdentifier: 
-  fireRate: 2
-  bulletVelocity: 2000
+  fireRate: 0.9
+  bulletVelocity: 2500
   bulletSpread: 0.05
   damage: 0
   dealDamage: 0

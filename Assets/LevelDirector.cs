@@ -54,7 +54,27 @@ public class LevelDirector : MonoBehaviour
         }
         if(roomsCompleted == true)
         {
-            print("ROOMS ARE ALL COMPLETED");
+            PlayerProgress.levelsCompleted++;
+            if (PlayerProgress.levelsCompleted == 3)
+            {
+                
+                if (PlayerProgress.ChoseAbility() == false)
+                {
+                    SceneManager.LoadScene("WinScene2");
+                }
+                else if (PlayerProgress.ChoseAbility() == true)
+                {
+                    SceneManager.LoadScene("WinScene");
+                }
+                
+            }
+            else
+            {
+                SceneManager.LoadScene("PartsMenu");
+                
+            }
+                
+            
         }
     }
 }

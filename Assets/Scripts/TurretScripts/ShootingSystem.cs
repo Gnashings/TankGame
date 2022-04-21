@@ -4,11 +4,11 @@ using System.Collections.Generic;
  
 public class ShootingSystem : MonoBehaviour {
     public float fireRate;
-    public int damage;
+    public float damage;
     public float fieldOfView;
     public GameObject projectile;
     public List<GameObject> projectileSpawns;
-
+    public EnemyStatsPerameters perams;
     
  
     List<GameObject> lastProjectilesShot = new List<GameObject>();
@@ -16,10 +16,13 @@ public class ShootingSystem : MonoBehaviour {
     public GameObject target;
  
 
-void Start()
+    void Start()
     {
+        fireRate = 0f;
+        damage = 0f;
+        fireRate = perams.fireRate;
+        damage = perams.damage;
 
-            
 
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player");

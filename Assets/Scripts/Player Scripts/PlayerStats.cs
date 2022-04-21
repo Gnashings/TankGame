@@ -47,9 +47,16 @@ public class PlayerStats : MonoBehaviour
     public FireGun firegun;
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
+    public GameObject basicTurretModal;
+    public GameObject sashaModel;
+    public GameObject newtonsAppleModel;
+    public GameObject basicBodyModel;
+    public GameObject gustavModel;
+    public GameObject bigBombaModel;
 
     private void Awake()
     {
+        UnloadModels();
         LoadPlayerSettings();
         ResetAllStats();
         CheckBodyMod();
@@ -57,6 +64,7 @@ public class PlayerStats : MonoBehaviour
         CheckTrackMods();
         SetHealthAndArmor();
         StartCoroutine(ArmorRecharge());
+        //print(PlayerProgress.ChoseAbility());
     }
 
     void Start()
@@ -77,6 +85,7 @@ public class PlayerStats : MonoBehaviour
             armorRecharge = noBodyMod.armorRecharge;
             armorBreakTimer = noBodyMod.armorBreakTimer;
             canBomba = false;
+            
         }
 
         //Big Bomba
@@ -88,6 +97,7 @@ public class PlayerStats : MonoBehaviour
             armorRecharge = bigBomba.armorRecharge;
             armorBreakTimer = bigBomba.armorBreakTimer;
             canBomba = true;
+            
         }
 
         //Gustav
@@ -100,7 +110,7 @@ public class PlayerStats : MonoBehaviour
             canBomba = false;
             armorRecharge = gustav.armorRecharge;
             armorBreakTimer = gustav.armorBreakTimer;
-
+            
             //failsafe gustav ability
             if (hasGustavAbility)
             {
@@ -132,7 +142,7 @@ public class PlayerStats : MonoBehaviour
             {
                 canBomba = false;
                 bigBombaBomb.Explode();
-                Debug.Log("bombabomb");
+                //Debug.Log("bombabomb");
                 StartCoroutine(BombaCooldown());
             }
         }    
@@ -166,6 +176,7 @@ public class PlayerStats : MonoBehaviour
                                     noGunMod.bulletSpread,
                                     noGunMod.automaticFire,
                                     "NormalShot");
+            
         }
         if (turrets.HasFlag(TurretMods.riskyBusiness))
         {
@@ -182,6 +193,7 @@ public class PlayerStats : MonoBehaviour
                                     sasha.bulletSpread,
                                     sasha.automaticFire,
                                     "Sasha");
+            
         }
         if (turrets.HasFlag(TurretMods.newtonsApple))
         {
@@ -190,6 +202,7 @@ public class PlayerStats : MonoBehaviour
                                     newtonsApple.bulletSpread,
                                     newtonsApple.automaticFire,
                                     "Newtons");
+            
         }
     }
 
@@ -254,6 +267,7 @@ public class PlayerStats : MonoBehaviour
     #region ArmorAndHealth
     public void TakeDamage(float damage)
     {
+        ProcSlow();
         if (armor > 0)
         {
             //check for damage reduciton
@@ -335,7 +349,6 @@ public class PlayerStats : MonoBehaviour
         armor = 0;
         totalHealth = 0;
         totalArmor = 0;
-        gustavArmorReduction = 0;
         flatDR = 0;
         armorRecharge = 0;
         canBomba = false;
@@ -364,20 +377,24 @@ public class PlayerStats : MonoBehaviour
         if (PlayerProgress.hasTurret == false)
         {
             turrets = TurretMods.noMod;
+            basicTurretModal.SetActive(true);
         }
         else
         {
             if (PlayerProgress.curTurret.Equals("RiskyBusiness"))
             {
                 turrets = TurretMods.riskyBusiness;
+                basicTurretModal.SetActive(true);
             }
             if (PlayerProgress.curTurret.Equals("Sasha"))
             {
                 turrets = TurretMods.sasha;
+                sashaModel.SetActive(true);
             }
             if (PlayerProgress.curTurret.Equals("NewtonsApple"))
             {
                 turrets = TurretMods.newtonsApple;
+                newtonsAppleModel.SetActive(true);
             }
         }
 
@@ -385,20 +402,25 @@ public class PlayerStats : MonoBehaviour
         if (PlayerProgress.hasBody == false)
         {
             bodyMods = BodyMods.noMod;
+            basicBodyModel.SetActive(true);
+
         }
         else
         {
             if (PlayerProgress.curBody.Equals("BigBomba"))
             {
                 bodyMods = BodyMods.bigBomba;
+                bigBombaModel.SetActive(true);
             }
             if (PlayerProgress.curBody.Equals("Reaper"))
             {
                 bodyMods = BodyMods.reaper;
+                basicBodyModel.SetActive(true);
             }
             if (PlayerProgress.curBody.Equals("Gustav"))
             {
                 bodyMods = BodyMods.gustav;
+                gustavModel.SetActive(true);
             }
         }
 
@@ -422,5 +444,17 @@ public class PlayerStats : MonoBehaviour
                 tracks = TrackMods.tortoise;
             }
         }
+    }
+
+    private void UnloadModels()
+    {
+        basicTurretModal.SetActive(false);
+        sashaModel.SetActive(false);
+        newtonsAppleModel.SetActive(false);
+
+        basicBodyModel.SetActive(false);
+        gustavModel.SetActive(false);
+        bigBombaModel.SetActive(false);
+
     }
 }

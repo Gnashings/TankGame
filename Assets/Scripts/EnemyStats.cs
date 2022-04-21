@@ -25,4 +25,12 @@ public class EnemyStats : MonoBehaviour
                 gameObject.SetActive(false);
             }
     }
+
+    private void OnDisable()
+    {
+        //transform.GetComponentInParent<RoomSystem>().UnlockDoors();
+        SendMessageUpwards("CheckDoorCanOpen", SendMessageOptions.DontRequireReceiver);
+
+
+    }
 }
