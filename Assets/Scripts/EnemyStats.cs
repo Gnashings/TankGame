@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     public EnemyStatsPerameters stats;
 
     public float health;
+    public bool isBomber;
 
     void Start()
     {
