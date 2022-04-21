@@ -42,11 +42,24 @@ public class PlayerStats : MonoBehaviour
     public TrackStats hare;
     public TrackStats tortoise;
 
+    [Header("Gadget Abilities")]
+    public GadgetMods gadgets;
+
     [Header("Editable Scripts")]
     public TankBodyController tankbody;
     public FireGun firegun;
     public Explosion bigBombaBomb;
     public AudioClip bombaExplosionSound;
+<<<<<<< Updated upstream
+=======
+    public GameObject basicTurretModal;
+    public GameObject sashaModel;
+    public GameObject newtonsAppleModel;
+    public GameObject basicBodyModel;
+    public GameObject gustavModel;
+    public GameObject bigBombaModel;
+    public PlayerInputControls input;
+>>>>>>> Stashed changes
 
     private void Awake()
     {
@@ -64,6 +77,34 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public float gadgetCD;
+    public bool gadgetStarted;
+    public float armorBonusRch;
+    void Update()
+    {
+        if (gadgets.HasFlag(GadgetMods.steroid))
+        {
+            Debug.Log(armorBonusRch);
+            if (input.gadgetStart && !gadgetStarted)
+            {
+                StartCoroutine(Healing());
+            }
+        }
+
+    }
+
+    private IEnumerator Healing()
+    {
+        if(!gadgetStarted)
+        {
+            armorBonusRch = 55;
+            gadgetStarted = true;
+        }
+        yield return new WaitForSeconds(armorBreakTimer);
+        gadgetStarted = false;
+        armorBonusRch = 0;
+    }
+
     #region BodyMods
 
     private void CheckBodyMod()
@@ -77,6 +118,10 @@ public class PlayerStats : MonoBehaviour
             armorRecharge = noBodyMod.armorRecharge;
             armorBreakTimer = noBodyMod.armorBreakTimer;
             canBomba = false;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
 
         //Big Bomba
@@ -88,6 +133,10 @@ public class PlayerStats : MonoBehaviour
             armorRecharge = bigBomba.armorRecharge;
             armorBreakTimer = bigBomba.armorBreakTimer;
             canBomba = true;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
 
         //Gustav
@@ -105,7 +154,7 @@ public class PlayerStats : MonoBehaviour
             if (hasGustavAbility)
             {
                 if (gustavArmorReduction <= 0)
-                    gustavArmorReduction = 3;  
+                    gustavArmorReduction = 3;
                 else
                     flatDR = gustavArmorReduction;
             }
@@ -126,16 +175,16 @@ public class PlayerStats : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Enemy") && canBomba)
+        if (collision.collider.CompareTag("Enemy") && canBomba)
         {
-            if(canBomba == true)
+            if (canBomba == true)
             {
                 canBomba = false;
                 bigBombaBomb.Explode();
                 Debug.Log("bombabomb");
                 StartCoroutine(BombaCooldown());
             }
-        }    
+        }
     }
     IEnumerator BombaCooldown()
     {
@@ -158,14 +207,18 @@ public class PlayerStats : MonoBehaviour
 
     private void CheckTurretMods()
     {
-        
+
         if (turrets.HasFlag(TurretMods.noMod))
         {
-            firegun.SetGunValues(   noGunMod.fireRate,
+            firegun.SetGunValues(noGunMod.fireRate,
                                     noGunMod.bulletVelocity,
                                     noGunMod.bulletSpread,
                                     noGunMod.automaticFire,
                                     "NormalShot");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
         if (turrets.HasFlag(TurretMods.riskyBusiness))
         {
@@ -182,6 +235,10 @@ public class PlayerStats : MonoBehaviour
                                     sasha.bulletSpread,
                                     sasha.automaticFire,
                                     "Sasha");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
         if (turrets.HasFlag(TurretMods.newtonsApple))
         {
@@ -190,6 +247,10 @@ public class PlayerStats : MonoBehaviour
                                     newtonsApple.bulletSpread,
                                     newtonsApple.automaticFire,
                                     "Newtons");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
     }
 
@@ -294,20 +355,20 @@ public class PlayerStats : MonoBehaviour
         canRecharge = false;
         yield return new WaitForSeconds(armorBreakTimer);
         canRecharge = true;
-        
+
     }
     IEnumerator ArmorRecharge()
     {
-        while(true)
+        while (true)
         {
             if (armor < totalArmor)
             {
-                if(canRecharge == false)
+                if (canRecharge == false)
                 {
                     yield return null;
                 }
                 else
-                    armor += armorRecharge;
+                    armor += armorRecharge + armorBonusRch;
                 yield return new WaitForSeconds(1);
             }
             else
@@ -315,7 +376,7 @@ public class PlayerStats : MonoBehaviour
                 yield return null;
             }
         }
-        
+
     }
     private void SetHealthAndArmor()
     {
@@ -329,6 +390,7 @@ public class PlayerStats : MonoBehaviour
     {
         tankbody.isSlowed = true;
     }
+
     private void ResetAllStats()
     {
         health = 0;
@@ -357,6 +419,22 @@ public class PlayerStats : MonoBehaviour
         sasha,
         newtonsApple,
     };
+
+    public enum GadgetMods
+    {
+        noMod,
+        shockwave,
+        steroid,
+        mineBomb,
+    };
+
+    private void CheckGadgetMods()
+    {
+        if (gadgets.HasFlag(GadgetMods.steroid))
+        {
+
+        }
+    }
 
     private void LoadPlayerSettings()
     {
