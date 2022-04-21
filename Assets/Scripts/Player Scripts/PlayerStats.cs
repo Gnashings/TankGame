@@ -235,6 +235,10 @@ public class PlayerStats : MonoBehaviour
                                     sasha.bulletSpread,
                                     sasha.automaticFire,
                                     "Sasha");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
         if (turrets.HasFlag(TurretMods.newtonsApple))
         {
@@ -243,6 +247,10 @@ public class PlayerStats : MonoBehaviour
                                     newtonsApple.bulletSpread,
                                     newtonsApple.automaticFire,
                                     "Newtons");
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
     }
 
