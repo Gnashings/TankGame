@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 7107564079255526536}
   m_Layer: 0
   m_Name: Spawn (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ BoxCollider:
   m_GameObject: {fileID: 3767834124669172550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.8822843, y: 1.455239, z: 5.4519725}
   m_Center: {x: -0.00000009282303, y: 2.8723326, z: 1.4863821}
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 5981176943527281933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9297254, y: -4.952047, z: 24.329308}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3276090537789999120}
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 5981176943635223000}
   m_Layer: 0
   m_Name: Spawn
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5981176944438499826}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ BoxCollider:
   m_GameObject: {fileID: 5981176944438499824}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 6803653574564939948}
   m_Layer: 0
   m_Name: __GeneratedParent
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,10 +468,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Proxy TurretStationary Base
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
 --- !u!1 &2755308313323082410 stripped
@@ -550,10 +546,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: df1152b6f1b794e43850021495c52500, type: 3}
       propertyPath: m_Name
       value: Proxy TurretStationary Top
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: df1152b6f1b794e43850021495c52500, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1152b6f1b794e43850021495c52500, type: 3}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e8477e613ac74d9e7aface3002596, type: 3}
   m_Name: Gustav
   m_EditorClassIdentifier: 
-  armor: 450
+  armor: 225
   health: 200
   topSpeed: 10
-  armorRecharge: 7
+  armorRecharge: 1
   armorBreakTimer: 5

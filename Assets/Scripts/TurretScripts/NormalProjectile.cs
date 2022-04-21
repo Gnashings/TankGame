@@ -25,44 +25,31 @@ public Transform target;
 
          timer += 1.0F * Time.deltaTime;
 
-        /*
+
          if (timer >= 4)
                 {
                 GameObject.Destroy(gameObject);
                 }
         transform.LookAt(target);
-        */
+
     }
  
-    public override void FireProjectile(GameObject launcher, GameObject target, float damage, float attackSpeed){
+    public override void FireProjectile(GameObject launcher, GameObject target, int damage, float attackSpeed){
         if(launcher && target){
             m_direction = (target.transform.position - launcher.transform.position).normalized;
             m_fired = true;
             damageToPlayer = damage;
         }
     }
-    private void OnBecameInvisible()
-    {
-        GameObject.Destroy(gameObject);
-    }
 
     void OnTriggerEnter(Collider other)
     {
-        switch (other.tag)
+
+        //do any other stuff you want here too
+        if (other.CompareTag("Player"))
         {
-            case "Player":
-                other.gameObject.GetComponentInParent<PlayerStats>().TakeDamage(damageToPlayer);
-                Destroy(gameObject);
-                break;
-            case "AutoTurret":
-                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
-                break;
-            case "PlayerBullet":
-                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
-                break;
-            case "Untagged":
-                Destroy(gameObject);
-                break;
+            other.gameObject.GetComponentInParent<PlayerStats>().TakeDamage(damageToPlayer);
+            Destroy(gameObject);
         }
     }
 

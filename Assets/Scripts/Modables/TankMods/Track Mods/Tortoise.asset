@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoreAcceleration: 0
   ignoreSlow: 1
-  acceleration: 3.5
+  acceleration: 3
   turningSpeed: 2

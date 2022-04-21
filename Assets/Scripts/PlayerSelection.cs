@@ -63,7 +63,7 @@ public class PlayerSelection : MonoBehaviour
             PlayerProgress.SetTracks(selection);
         }
         //DEBUG: SceneManager.LoadScene("Menu");
-        DetermineLevel();
+        SceneManager.LoadScene("SampleScene");
         //LIVE: SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
@@ -88,22 +88,6 @@ public class PlayerSelection : MonoBehaviour
         if (PlayerProgress.hasTracks == true)
         {
             tracks.SetActive(false);
-        }
-    }
-
-    private void DetermineLevel()
-    {
-        if(PlayerProgress.levelsCompleted == 0)
-        {
-            SceneManager.LoadScene("Level 1");
-        }
-        if (PlayerProgress.levelsCompleted == 1)
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-        if (PlayerProgress.levelsCompleted == 2)
-        {
-            SceneManager.LoadScene("Level 3");
         }
     }
 }

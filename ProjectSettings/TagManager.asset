@@ -10,9 +10,6 @@ TagManager:
   - Door
   - AutoTurret
   - EnemyBullet
-  - PlayerBullet
-  - Structure
-  - bossBullet
   layers:
   - Default
   - TransparentFX

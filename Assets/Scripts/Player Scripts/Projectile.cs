@@ -50,63 +50,32 @@ public class Projectile : MonoBehaviour, PooledObjects
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(chadShot == true && other.CompareTag("EnemyBullet"))
+
+        if(chadShot == true && other.gameObject.GetComponent<NormalProjectile>() != false)
         {
             Destroy(other.gameObject);
             return;
         }
-        else if(chadShot == false)
-        {
-            if(other.CompareTag("EnemyBullet") || other.CompareTag("bossBullet"))
-            {
-                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
-            }
-            
-        }
         if (!other.CompareTag("Player") &&
             !other.CompareTag("AutoTurret") &&
             !other.CompareTag("Spawner") &&
-            !other.CompareTag("PlayerBullet") &&
-            !other.CompareTag("EnemyBullet") &&
-            !other.CompareTag("bossBullet")
-           )
+            !other.gameObject.GetComponent<NormalProjectile>() != false)
         {
             if(isExplosive)
             {
                 explosion.Explode();
-                //print("exploding");
             }
             if (dealsDamage && other.CompareTag("Enemy"))
             {
                 if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
                 {
                     other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
-                    //Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
                 }
             }
-            //Debug.Log(other.name);
             ShutDown();
             //print(other.tag +" TARGET HIT "+other.name);
         }
 
-    }
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("EnemyBullet"))
-        {
-            //Debug.Log("PLAYER TO ENEMY");
-            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("EnemyBullet"))
-        {
-            //Debug.Log("PLAYER TO ENEMY");
-            Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
-        }
     }
 
     public void SetFollowthrough(bool gigaChad)

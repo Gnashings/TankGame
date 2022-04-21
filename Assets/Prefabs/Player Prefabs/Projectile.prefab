@@ -14,11 +14,12 @@ GameObject:
   - component: {fileID: 638589816355311827}
   - component: {fileID: 1830697642702009027}
   - component: {fileID: 1248091766568693480}
+  - component: {fileID: 7903358558469142572}
   - component: {fileID: 470601769898302904}
   - component: {fileID: 3493382173483983313}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: PlayerBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +130,20 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &7903358558469142572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750524474285098865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &470601769898302904
 Rigidbody:
