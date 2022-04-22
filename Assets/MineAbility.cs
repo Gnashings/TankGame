@@ -7,12 +7,17 @@ public class MineAbility : MonoBehaviour
     public PlayerInputControls inputs;
     public GameObject mine;
     public GameObject mineSpawn;
-    public GameObject outMine;
+    private GameObject outMine;
     private bool mineOut = false;
 
 
     void Start()
     {
+        outMine = null;
+        if (!PlayerProgress.curGadgets.Equals("Mine"))
+        {
+            this.enabled = false;
+        }
         
     }
 
@@ -46,7 +51,5 @@ public class MineAbility : MonoBehaviour
             //print("DETONATING");
             mineOut = false;
         }
-            
-
     }
 }

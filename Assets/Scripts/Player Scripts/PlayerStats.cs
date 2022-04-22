@@ -49,7 +49,7 @@ public class PlayerStats : MonoBehaviour
     public float RoidDamageIncrease;
     public float gadgetCD;
     public float armorBonusRch;
-    private bool gadgetStarted;
+    private bool enraged;
 
     [Header("Editable Scripts")]
     public TankBodyController tankbody;
@@ -80,38 +80,41 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        
+        PlayerProgress.ReadData();
     }
 
     void Update()
     {
         if(!PlayerProgress.paused)
         {
-            if (input.gadgetStart && !gadgetStarted && gadgets.HasFlag(GadgetMods.steroid))
+            if(PlayerProgress.curGadgets.Equals("Steroid"))
             {
-                //Debug.Log("repairing...");
-                PlayerProgress.roided = RoidDamageIncrease;
-                StartCoroutine(ArmorRepair());
+                if (input.gadgetStart && !enraged)
+                {
+                    Debug.Log("repairing...");
+                    PlayerProgress.roidDmgMod = RoidDamageIncrease;
+                    StartCoroutine(ArmorRepair());
+                }
             }
         }
     }
 
     private IEnumerator ArmorRepair()
     {
-
-        if (!gadgetStarted)
+        if (!enraged)
         {
-            gadgetStarted = true;
+            enraged = true;
         }
         yield return new WaitForSeconds(armorBreakTimer);
-        //Debug.Log("repairing completed");
-        PlayerProgress.roided = 0;
-        gadgetStarted = false;
+        Debug.Log("repairing completed");
+        PlayerProgress.roidDmgMod = 0;
+        yield return new WaitForSeconds(gadgetCD);
+        enraged = false;
     }
 
     private float BufferArmorRecharge()
     {
-        if (!gadgetStarted)
+        if (PlayerProgress.roidDmgMod == 0)
             return 0;
         else
             return armorBonusRch;
@@ -484,6 +487,27 @@ public class PlayerStats : MonoBehaviour
             if (PlayerProgress.curTracks.Equals("Tortoise"))
             {
                 tracks = TrackMods.tortoise;
+            }
+        }
+
+        //Gadget
+        if (PlayerProgress.hasGadgets == false)
+        {
+            gadgets = GadgetMods.noMod;
+        }
+        else
+        {
+            if (PlayerProgress.curGadgets.Equals("Shockwave"))
+            {
+                gadgets = GadgetMods.shockwave;
+            }
+            if (PlayerProgress.curGadgets.Equals("Mine"))
+            {
+                gadgets = GadgetMods.mineBomb;
+            }
+            if (PlayerProgress.curGadgets.Equals("Steroid"))
+            {
+                gadgets = GadgetMods.steroid;
             }
         }
     }

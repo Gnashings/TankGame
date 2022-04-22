@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class FireGun : MonoBehaviour
 {
     private PlayerInputControls inputs;
-    private TurretStats Shockwave;
 
     [Tooltip("Where to shoot projectile from")]
     public GameObject muzzle;
@@ -51,7 +50,6 @@ public class FireGun : MonoBehaviour
 
     private void CheckCanFire()
     {
-        
         if (inputs.IsFireHeld() == true && canFire)
         {
             
@@ -63,14 +61,17 @@ public class FireGun : MonoBehaviour
                 StartCoroutine(StartCooldown());
             }
         }
-        if (inputs.gadgetStart == true && canSecondaryFire)
+        if(PlayerProgress.curGadgets.Equals("Shockwave"))
         {
-
-            if (firingCooldown != 0)
+            if (inputs.gadgetStart == true && canSecondaryFire == true)
             {
-                canSecondaryFire = false;
-                Secondary();
-                StartCoroutine(SecondaryCD());
+
+                if (firingCooldown != 0)
+                {
+                    canSecondaryFire = false;
+                    Secondary();
+                    StartCoroutine(SecondaryCD());
+                }
             }
         }
     }
@@ -103,6 +104,7 @@ public class FireGun : MonoBehaviour
 
     public void SetSecondaryGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, string bulletTypeVal)
     {
+        //Debug.Log("Set Sec.Fire.");
         canSecondaryFire = true;
         secondaryVelocity = bulletVelocityVal;
         secondaryCooldown = firerateVal;

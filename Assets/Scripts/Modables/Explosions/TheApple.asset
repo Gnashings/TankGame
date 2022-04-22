@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TheApple
   m_EditorClassIdentifier: 
   radius: 9
-  force: 200
+  force: 50
   damage: 100
   upwardforce: 0
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}

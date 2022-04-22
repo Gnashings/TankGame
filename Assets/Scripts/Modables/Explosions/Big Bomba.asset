@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Big Bomba
   m_EditorClassIdentifier: 
   radius: 40
-  force: 700
-  damage: 500
+  force: 50
+  damage: 350
   upwardforce: 1
   particles: {fileID: 1680070425851635562, guid: 1c23fb9fdb5d3e447a38af8aef99838d, type: 3}
   canDamagePlayer: 0

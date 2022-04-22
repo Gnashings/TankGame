@@ -13,6 +13,7 @@ public class PlayerSelection : MonoBehaviour
     private bool choseTurret;
     private bool choseBody;
     private bool choseTracks;
+    private bool choseGadget;
 
     void Start()
     {
@@ -24,27 +25,40 @@ public class PlayerSelection : MonoBehaviour
 
     public void TurretSelection(string thisString)
     {
-        selection = thisString;
+        selection   = thisString;
         choseTurret = true;
         choseBody   = false;
         choseTracks = false;
+        choseGadget = false;
         //print("turret " + thisString);
     }
 
     public void BodySelection(string thisString)
     {
-        selection = thisString;
+        selection   = thisString;
         choseTurret = false;
         choseBody   = true;
         choseTracks = false;
+        choseGadget = false;
         //print("body " + thisString);
     }
     public void TrackSelection(string thisString)
     {
-        selection = thisString;
+        selection   = thisString;
         choseTurret = false;
         choseBody   = false;
         choseTracks = true;
+        choseGadget = false;
+        //print("track " + thisString);
+    }
+
+    public void GadgetSelection(string thisString)
+    {
+        selection   = thisString;
+        choseTurret = false;
+        choseBody   = false;
+        choseTracks = false;
+        choseGadget = true;
         //print("track " + thisString);
     }
 
@@ -61,6 +75,10 @@ public class PlayerSelection : MonoBehaviour
         if(choseTracks == true)
         {
             PlayerProgress.SetTracks(selection);
+        }
+        if (choseGadget == true)
+        {
+            PlayerProgress.SetGadget(selection);
         }
         //DEBUG: SceneManager.LoadScene("Menu");
         DetermineLevel();

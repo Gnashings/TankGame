@@ -25,6 +25,8 @@ public class TankBodyController : MonoBehaviour
     public float slowAmount;
     public float slowDuration;
     public bool isSlowed;
+    public float roidDebuffAmount;
+
     [HideInInspector]
     public bool slowImmune;
     public float backPenalty;
@@ -34,6 +36,10 @@ public class TankBodyController : MonoBehaviour
         inputs = gameObject.GetComponent<PlayerInputControls>();
         rb = gameObject.GetComponentInChildren<Rigidbody>();
         speed = 0;
+        if(roidDebuffAmount == 0)
+        {
+            roidDebuffAmount = 1;
+        }
     }
     
     private void FixedUpdate()
@@ -59,31 +65,25 @@ public class TankBodyController : MonoBehaviour
         }
         if (inputs.GetPadMoveForwardAxis().z != 0)
         {
-            /*if(speed <= topSpeed) speed += acceleration * Time.deltaTime;
-            rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();*/
-  
             CalculateMovementSpeed();
         }
-        
-        //USE THIS IF ALL ELSE FAILS
-        //rb.position += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * Time.deltaTime;
-        
+  
     }
 
     private void CalculateMovementSpeed()
     {
 
-        if (rb.velocity.magnitude < topSpeed * BackPenalty() * ForceSlow())
+        if (rb.velocity.magnitude < topSpeed * SlowDebuffs())
         {
             if (!ignoreAcceleration)
             {
-                if (speed <= topSpeed * BackPenalty() * ForceSlow()) speed += acceleration * Time.deltaTime;
+                if (speed <= topSpeed * SlowDebuffs()) speed += acceleration * Time.deltaTime;
             }
             else
             {
-                speed = topSpeed * BackPenalty() * ForceSlow();
+                speed = topSpeed * SlowDebuffs();
             }
-            Debug.Log("calculating movement speed");
+            //Debug.Log("calculating movement speed");
             rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
         }
     }
@@ -92,6 +92,11 @@ public class TankBodyController : MonoBehaviour
     {
         Quaternion deltaRotation = Quaternion.Euler(rotationSpeed * inputs.GetMoveRotationAxis());
         rb.MoveRotation(rb.rotation * deltaRotation);
+    }
+
+    private float SlowDebuffs()
+    {
+        return BackPenalty() * RoidSlow() * ForceSlow();
     }
 
     private float ForceSlow()
@@ -117,6 +122,7 @@ public class TankBodyController : MonoBehaviour
         else
             return 1;
     }
+
     private float BackPenalty()
     {
         if (inputs.GetPadMoveForwardAxis().z >= 0)
@@ -124,6 +130,15 @@ public class TankBodyController : MonoBehaviour
             return 1;
         }
         else return backPenalty;
+    }
+
+    private float RoidSlow()
+    {
+        if (PlayerProgress.roidDmgMod == 0)
+        {
+            return 1;
+        }
+        else return roidDebuffAmount;
     }
 
     IEnumerator SlowTimer()

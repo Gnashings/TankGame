@@ -7,15 +7,17 @@ public static class PlayerProgress
     public static bool hasTurret;
     public static bool hasBody;
     public static bool hasTracks;
+    public static bool hasGadgets;
     public static string curTurret;
     public static string curBody;
     public static string curTracks;
+    public static string curGadgets;
 
     public static bool paused;
     public static string curLevel;
     public static int levelsCompleted;
     public static bool death;
-    public static float roided;
+    public static float roidDmgMod;
     public static void SetTurret(string selection)
     {
         curTurret = selection;
@@ -34,11 +36,19 @@ public static class PlayerProgress
         hasTracks = true;
     }
 
+    public static void SetGadget(string selection)
+    {
+        curGadgets = selection;
+        hasGadgets = true;
+        Debug.Log("selec" + selection);
+    }
+
     public static void ReadData()
     {
         Debug.Log("Turret: " + hasTurret);
         Debug.Log("Body: " + hasBody);
         Debug.Log("Tracks " + hasTracks);
+        Debug.Log("Gadget " + hasGadgets + " " + curGadgets);
     }
 
     public static bool ChoseAbility()
@@ -62,17 +72,20 @@ public static class PlayerProgress
 
     public static void ResetPlayerStats()
     {
-        roided = 0;
+        roidDmgMod = 0;
 
         hasTurret = false;
         hasBody = false;
         hasTracks = false;
+        hasGadgets = false;
 
         curTurret = null;
         curBody = null;
         curTracks = null;
+        curGadgets = null;
 
         death = false;
+
         levelsCompleted = 0;
         Debug.Log("all stats resets");
     }

@@ -218,6 +218,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 979094379058533515, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Full Metal Jacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533692622629567021, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: InvokeDefinition
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533692622629567021, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AbilityDictionary, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533692622629567021, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Thunder Cheeks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781916191603823300, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: All Mine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
 --- !u!1 &316471470 stripped

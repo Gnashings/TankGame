@@ -89,7 +89,7 @@ public class Projectile : MonoBehaviour, PooledObjects
             {
                 if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
                 {
-                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage + (damage * PlayerProgress.roided));
+                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage + (damage * PlayerProgress.roidDmgMod));
                     //Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
                 }
             }

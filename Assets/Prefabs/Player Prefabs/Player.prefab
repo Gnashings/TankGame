@@ -5073,14 +5073,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7280919474109410468}
   - component: {fileID: 645969128092274130}
-  - component: {fileID: 7280919474109410467}
-  - component: {fileID: 7280919474109410466}
   - component: {fileID: 6879325751890812594}
+  - component: {fileID: 7280919474109410466}
+  - component: {fileID: 864747063}
+  - component: {fileID: 7280919474109410467}
   - component: {fileID: 7280919474109410469}
   - component: {fileID: 2060620787878208410}
   - component: {fileID: 7981507556856815659}
   - component: {fileID: 335287278}
-  - component: {fileID: 864747063}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5116,45 +5116,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7280919474109410471}
   m_Mesh: {fileID: 9042771077998628582, guid: e8064e2e2d74d05448c2812384ada164, type: 3}
---- !u!114 &7280919474109410467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280919474109410471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a93c321edb6804db40c9f4af2461c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivity: 0.5
-  maxYAngle: 0
-  isHeld: 0
---- !u!114 &7280919474109410466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280919474109410471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a55195bea2279b8488041ed41d0a3fba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputs: {fileID: 7280919474109410467}
-  rb: {fileID: 7280919474109410469}
-  acceleration: 5
-  speed: 0
-  rotationSpeed: 2
-  topSpeed: 0
-  ignoreAcceleration: 0
-  slowAmount: 0.45
-  slowDuration: 1
-  isSlowed: 0
-  slowImmune: 0
-  backPenalty: 0.5
 --- !u!114 &6879325751890812594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,11 +5151,11 @@ MonoBehaviour:
   nuclearWinter: {fileID: 11400000, guid: f58e4c308461fe440b65fdd4325ce442, type: 2}
   hare: {fileID: 11400000, guid: 81aba6fb5587da34c9de9be08d32610c, type: 2}
   tortoise: {fileID: 11400000, guid: 1149c61bb6464ba45b5f54580390eeda, type: 2}
-  gadgets: 3
+  gadgets: 0
   Shockwave: {fileID: 11400000, guid: 3dfc900631c2760488ac14b08093bff2, type: 2}
   RoidDamageIncrease: 0.5
   gadgetCD: 5
-  armorBonusRch: 5
+  armorBonusRch: 3
   tankbody: {fileID: 7280919474109410466}
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
@@ -5206,6 +5167,61 @@ MonoBehaviour:
   gustavModel: {fileID: 1320449915956560665}
   bigBombaModel: {fileID: 4489767830577592768}
   input: {fileID: 7280919474109410467}
+--- !u!114 &7280919474109410466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280919474109410471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55195bea2279b8488041ed41d0a3fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputs: {fileID: 7280919474109410467}
+  rb: {fileID: 7280919474109410469}
+  acceleration: 5
+  speed: 0
+  rotationSpeed: 2
+  topSpeed: 0
+  ignoreAcceleration: 0
+  slowAmount: 0.45
+  slowDuration: 1
+  isSlowed: 0
+  roidDebuffAmount: 0.1
+  slowImmune: 0
+  backPenalty: 0.5
+--- !u!114 &864747063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280919474109410471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6387860fded5bb1468d262efdcea3e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputs: {fileID: 7280919474109410467}
+  mine: {fileID: 5846489631836927078, guid: a4d0640f5f8d0b847a97fc3489ca5fe1, type: 3}
+  mineSpawn: {fileID: 1024910738}
+--- !u!114 &7280919474109410467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280919474109410471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a93c321edb6804db40c9f4af2461c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 0.5
+  maxYAngle: 0
+  isHeld: 0
 --- !u!54 &7280919474109410469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5427,22 +5443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 11400000, guid: 0dd86ac20298b06428f36670c4b120d4, type: 2}
---- !u!114 &864747063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7280919474109410471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6387860fded5bb1468d262efdcea3e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputs: {fileID: 7280919474109410467}
-  mine: {fileID: 5846489631836927078, guid: a4d0640f5f8d0b847a97fc3489ca5fe1, type: 3}
-  mineSpawn: {fileID: 1024910738}
-  outMine: {fileID: 0}
 --- !u!1 &7280919474254699850
 GameObject:
   m_ObjectHideFlags: 0

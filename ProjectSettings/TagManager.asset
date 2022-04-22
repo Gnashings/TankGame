@@ -13,6 +13,7 @@ TagManager:
   - PlayerBullet
   - Structure
   - bossBullet
+  - Mine
   layers:
   - Default
   - TransparentFX

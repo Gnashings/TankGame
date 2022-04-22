@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Normal Tank Shot
   m_EditorClassIdentifier: 
   radius: 10
-  force: 500
+  force: 25
   damage: 50
-  upwardforce: 0
+  upwardforce: 1
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
-  canDamagePlayer: 1
+  canDamagePlayer: 0
   canAffectPlayer: 0
   canDamageEnemies: 1
   canAffectEnemies: 1

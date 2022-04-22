@@ -63,7 +63,7 @@ public class Explosion : MonoBehaviour
         {
             //Debug.Log("EXPLOSION.CS: NO ENEMY HEALTH IMPLIMENTED YET");
             //other.gameObject.SetActive(false);
-            other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage * (1 + PlayerProgress.roided));
+            other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage * (1 + PlayerProgress.roidDmgMod));
             //Debug.Log(" HIT " + other.tag + " FOR: " + explosion.damage * (1 + PlayerProgress.roided) + " EXP DAMAGE");
         }
         if(explosion.canDamagePlayer && other.CompareTag("Player"))

@@ -2454,6 +2454,15 @@ MonoBehaviour:
   - Name: Tortoise
     Def: Slow and steady! But not really, slow no longer affect you.
     SpecialEffect: Slower accleration.
+  - Name: Thunder Cheeks
+    Def: Send out a shockwave that blows up explosive enemies and projectiles!
+    SpecialEffect: Deals little damage.
+  - Name: All Mine
+    Def: Pops out a mine from the back of the tank that can be remotely detonated!
+    SpecialEffect: High explosive damage,  affects player, small radius.
+  - Name: Full Metal Jacket
+    Def: Diverts power from tracks to repair the tank and deal more damage!
+    SpecialEffect: Strong slow effect, Increases both explosive and shot damage.
 --- !u!1 &545181476012010002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,7 +2839,7 @@ GameObject:
   - component: {fileID: 3781916191603823300}
   - component: {fileID: 8927360495184697440}
   m_Layer: 5
-  m_Name: Hare
+  m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,14 +2919,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 845441419}
         m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
-        m_MethodName: TrackSelection
+        m_MethodName: GadgetSelection
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Hare
+          m_StringArgument: Mine
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 149283870}
@@ -3402,7 +3411,7 @@ GameObject:
   - component: {fileID: 1533692622629567021}
   - component: {fileID: 38599633719398319}
   m_Layer: 5
-  m_Name: Nuclear Winter
+  m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3482,14 +3491,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 845441419}
         m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
-        m_MethodName: TrackSelection
+        m_MethodName: GadgetSelection
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: NuclearWinter
+          m_StringArgument: Shockwave
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 149283870}
@@ -3544,7 +3553,7 @@ GameObject:
   - component: {fileID: 979094379058533515}
   - component: {fileID: 8945280896157089575}
   m_Layer: 5
-  m_Name: Tortoise
+  m_Name: Steroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3624,14 +3633,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 845441419}
         m_TargetAssemblyTypeName: PlayerSelection, Assembly-CSharp
-        m_MethodName: TrackSelection
+        m_MethodName: GadgetSelection
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tortoise
+          m_StringArgument: Steroid
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 149283870}
