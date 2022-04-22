@@ -9,29 +9,35 @@ using UnityEngine.InputSystem;
 public class FireGun : MonoBehaviour
 {
     private PlayerInputControls inputs;
-
+    private TurretStats Shockwave;
 
     [Tooltip("Where to shoot projectile from")]
     public GameObject muzzle;
+
+    public GameObject mineMuzzle;
+
     //[HideInInspector]
     private float firingCooldown;
     private float bulletVelocity;
     private bool canFire;
     private float accuracy;
-    private float damage;
     private string bulletType;
+    
+    //shockwave stuff
+    private bool canSecondaryFire;
+    private float secondaryVelocity;
+    private float secondaryCooldown;
+    private string secondaryBulletType;
+
     void Start()
     {
         inputs = gameObject.GetComponentInParent<PlayerInputControls>();
         canFire = true;
-        
-        if(bulletVelocity <= 1)
+
+        if (bulletVelocity <= 1)
         {
             bulletVelocity = 2000f;
         }
-
-
-        
     }
 
     // Update is called once per frame
@@ -57,37 +63,62 @@ public class FireGun : MonoBehaviour
                 StartCoroutine(StartCooldown());
             }
         }
+        if (inputs.gadgetStart == true && canSecondaryFire)
+        {
+
+            if (firingCooldown != 0)
+            {
+                canSecondaryFire = false;
+                Secondary();
+                StartCoroutine(SecondaryCD());
+            }
+        }
+    }
+
+    private void Secondary()
+    {
+        GameObject rocketInstance;
+        Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
+        rocketInstance = BulletPool.Instance.SpawnFromPool(secondaryBulletType, muzzle.transform.position, firingDirection) as GameObject;
+        Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
+        rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * secondaryVelocity);
     }
 
     private void Fire()
     {
-        
         GameObject rocketInstance;
         Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
         rocketInstance = BulletPool.Instance.SpawnFromPool(bulletType, muzzle.transform.position, firingDirection) as GameObject;
         Rigidbody rocketRB = rocketInstance.GetComponent<Rigidbody>();
         rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * bulletVelocity);
-        
     }
 
-    public void SetGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, bool autoFireVal,
-        string bulletTypeVal)
+    public void SetGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, string bulletTypeVal)
     {
         firingCooldown = firerateVal;
         bulletVelocity = bulletVelocityVal;
         accuracy = bulletSpreadVal;
-        if (autoFireVal == true)
-        {
-
-        }
         bulletType = bulletTypeVal;
+    }
+
+    public void SetSecondaryGunValues(float firerateVal, float bulletVelocityVal, float bulletSpreadVal, string bulletTypeVal)
+    {
+        canSecondaryFire = true;
+        secondaryVelocity = bulletVelocityVal;
+        secondaryCooldown = firerateVal;
+        secondaryBulletType = bulletTypeVal;
     }
 
     IEnumerator StartCooldown()
     {
-        
         yield return new WaitForSeconds(firingCooldown);
-        
         canFire = true;
     }
+
+    IEnumerator SecondaryCD()
+    {
+        yield return new WaitForSeconds(secondaryCooldown);
+        canSecondaryFire = true;
+    }
+
 }

@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     private float armorRecharge;
     private bool hasGustavAbility;
     private bool canBomba;
+    private float armorRechargeTimer = 0.05f;
     //defensive stats
     private bool canRecharge;
     private float flatDR;
@@ -42,6 +43,14 @@ public class PlayerStats : MonoBehaviour
     public TrackStats hare;
     public TrackStats tortoise;
 
+    [Header("Gadget Abilities")]
+    public GadgetMods gadgets;
+    public TurretStats Shockwave;
+    public float RoidDamageIncrease;
+    public float gadgetCD;
+    public float armorBonusRch;
+    private bool gadgetStarted;
+
     [Header("Editable Scripts")]
     public TankBodyController tankbody;
     public FireGun firegun;
@@ -53,6 +62,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject basicBodyModel;
     public GameObject gustavModel;
     public GameObject bigBombaModel;
+    public PlayerInputControls input;
 
     private void Awake()
     {
@@ -62,6 +72,7 @@ public class PlayerStats : MonoBehaviour
         CheckBodyMod();
         CheckTurretMods();
         CheckTrackMods();
+        CheckGadgetMods();
         SetHealthAndArmor();
         StartCoroutine(ArmorRecharge());
         //print(PlayerProgress.ChoseAbility());
@@ -69,7 +80,41 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
+        
+    }
 
+    void Update()
+    {
+        if(!PlayerProgress.paused)
+        {
+            if (input.gadgetStart && !gadgetStarted && gadgets.HasFlag(GadgetMods.steroid))
+            {
+                //Debug.Log("repairing...");
+                PlayerProgress.roided = RoidDamageIncrease;
+                StartCoroutine(ArmorRepair());
+            }
+        }
+    }
+
+    private IEnumerator ArmorRepair()
+    {
+
+        if (!gadgetStarted)
+        {
+            gadgetStarted = true;
+        }
+        yield return new WaitForSeconds(armorBreakTimer);
+        //Debug.Log("repairing completed");
+        PlayerProgress.roided = 0;
+        gadgetStarted = false;
+    }
+
+    private float BufferArmorRecharge()
+    {
+        if (!gadgetStarted)
+            return 0;
+        else
+            return armorBonusRch;
     }
 
     #region BodyMods
@@ -174,7 +219,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(   noGunMod.fireRate,
                                     noGunMod.bulletVelocity,
                                     noGunMod.bulletSpread,
-                                    noGunMod.automaticFire,
                                     "NormalShot");
             
         }
@@ -183,7 +227,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(riskyBusiness.fireRate,
                                     riskyBusiness.bulletVelocity,
                                     riskyBusiness.bulletSpread,
-                                    riskyBusiness.automaticFire,
                                     "RiskyBusiness");
         }
         if (turrets.HasFlag(TurretMods.sasha))
@@ -191,7 +234,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(sasha.fireRate,
                                     sasha.bulletVelocity,
                                     sasha.bulletSpread,
-                                    sasha.automaticFire,
                                     "Sasha");
             
         }
@@ -200,7 +242,6 @@ public class PlayerStats : MonoBehaviour
             firegun.SetGunValues(newtonsApple.fireRate,
                                     newtonsApple.bulletVelocity,
                                     newtonsApple.bulletSpread,
-                                    newtonsApple.automaticFire,
                                     "Newtons");
             
         }
@@ -218,7 +259,7 @@ public class PlayerStats : MonoBehaviour
             tankbody.slowImmune = noTrackMod.ignoreSlow;
             tankbody.acceleration = noTrackMod.acceleration;
             tankbody.rotationSpeed = noTrackMod.turningSpeed;
-            tankbody.rb.mass = 10;
+            tankbody.rb.mass = 100;
             tankbody.rb.drag = 5;
             tankbody.rb.angularDrag = 4;
         }
@@ -228,7 +269,7 @@ public class PlayerStats : MonoBehaviour
             tankbody.slowImmune = nuclearWinter.ignoreSlow;
             tankbody.acceleration = nuclearWinter.acceleration;
             tankbody.rotationSpeed = nuclearWinter.turningSpeed;
-            tankbody.rb.mass = 10;
+            tankbody.rb.mass = 100;
             tankbody.rb.drag = 1;
             tankbody.rb.angularDrag = 4;
         }
@@ -238,7 +279,7 @@ public class PlayerStats : MonoBehaviour
             tankbody.slowImmune = hare.ignoreSlow;
             tankbody.acceleration = hare.acceleration;
             tankbody.rotationSpeed = hare.turningSpeed;
-            tankbody.rb.mass = 10;
+            tankbody.rb.mass = 100;
             tankbody.rb.drag = 5;
             tankbody.rb.angularDrag = 4;
         }
@@ -310,6 +351,7 @@ public class PlayerStats : MonoBehaviour
         canRecharge = true;
         
     }
+
     IEnumerator ArmorRecharge()
     {
         while(true)
@@ -321,8 +363,8 @@ public class PlayerStats : MonoBehaviour
                     yield return null;
                 }
                 else
-                    armor += armorRecharge;
-                yield return new WaitForSeconds(1);
+                    armor += (armorRecharge * armorRechargeTimer) + BufferArmorRecharge();
+                yield return new WaitForSeconds(armorRechargeTimer);
             }
             else
             {
@@ -445,16 +487,36 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
-
+    public enum GadgetMods
+    {
+        noMod,
+        shockwave,
+        steroid,
+        mineBomb,
+    };
+    private void CheckGadgetMods()
+    {
+        if (gadgets.HasFlag(GadgetMods.steroid))
+        {
+            //tod
+        }
+        if (gadgets.HasFlag(GadgetMods.shockwave))
+        {
+            //todo
+            firegun.SetSecondaryGunValues(Shockwave.fireRate, Shockwave.bulletVelocity, Shockwave.bulletSpread, "Shockwave");
+        }
+        if (gadgets.HasFlag(GadgetMods.mineBomb))
+        {
+            //todo
+        }
+    }
     private void UnloadModels()
     {
         basicTurretModal.SetActive(false);
         sashaModel.SetActive(false);
         newtonsAppleModel.SetActive(false);
-
         basicBodyModel.SetActive(false);
         gustavModel.SetActive(false);
         bigBombaModel.SetActive(false);
-
     }
 }

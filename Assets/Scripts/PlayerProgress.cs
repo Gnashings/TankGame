@@ -15,6 +15,7 @@ public static class PlayerProgress
     public static string curLevel;
     public static int levelsCompleted;
     public static bool death;
+    public static float roided;
     public static void SetTurret(string selection)
     {
         curTurret = selection;
@@ -61,6 +62,8 @@ public static class PlayerProgress
 
     public static void ResetPlayerStats()
     {
+        roided = 0;
+
         hasTurret = false;
         hasBody = false;
         hasTracks = false;

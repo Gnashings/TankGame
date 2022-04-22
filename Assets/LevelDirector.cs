@@ -71,7 +71,6 @@ public class LevelDirector : MonoBehaviour
             else
             {
                 SceneManager.LoadScene("PartsMenu");
-                
             }
                 
             

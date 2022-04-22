@@ -50,6 +50,45 @@ public class BulletPool : MonoBehaviour
         }
     }
 
+    public float ProjectileSpeed(string tag)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("POOL WITH TAG " + tag + " DOES NOT EXIST");
+            return 0;
+        }
+        float velocity = 0;
+        foreach (Pool pool in pools)
+        {
+           if(pool.tag == tag)
+            {
+                velocity = pool.bulPerams.bulletVelocity;
+            }
+        }
+        print("bug + " + velocity);
+        return velocity;
+
+    }
+
+    public float ProjectileFireRate(string tag)
+    {
+        if (!poolDictionary.ContainsKey(tag))
+        {
+            Debug.LogWarning("POOL WITH TAG " + tag + " DOES NOT EXIST");
+            return 0;
+        }
+        float fireRate = 0;
+        foreach (Pool pool in pools)
+        {
+            if (pool.tag == tag)
+            {
+                fireRate = pool.bulPerams.fireRate;
+            }
+        }
+        print("bug + " + fireRate);
+        return fireRate;
+
+    }
 
     public GameObject SpawnFromPool (string tag, Vector3 position, Quaternion rotation)
     {

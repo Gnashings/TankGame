@@ -23,7 +23,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""11354b6f-1923-430d-92b6-d0b08cb4e454"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone"",
                     ""interactions"": """"
                 },
                 {
@@ -62,6 +62,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""fd15e322-5de1-4311-902e-70c2480d22b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Gadget"",
+                    ""type"": ""Button"",
+                    ""id"": ""a531bf2b-f607-4c59-a3d5-079680170409"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -309,6 +317,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""014dced6-df83-465c-9e99-ef0161b935a3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gadget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08af872b-d70b-4e41-92a4-b7b66e502e6a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gadget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,6 +353,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_ScopeMode_Gas = m_ScopeMode.FindAction("Gas", throwIfNotFound: true);
         m_ScopeMode_Break = m_ScopeMode.FindAction("Break", throwIfNotFound: true);
         m_ScopeMode_Pause = m_ScopeMode.FindAction("Pause", throwIfNotFound: true);
+        m_ScopeMode_Gadget = m_ScopeMode.FindAction("Gadget", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -378,6 +409,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_ScopeMode_Gas;
     private readonly InputAction m_ScopeMode_Break;
     private readonly InputAction m_ScopeMode_Pause;
+    private readonly InputAction m_ScopeMode_Gadget;
     public struct ScopeModeActions
     {
         private @PlayerControls m_Wrapper;
@@ -388,6 +420,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Gas => m_Wrapper.m_ScopeMode_Gas;
         public InputAction @Break => m_Wrapper.m_ScopeMode_Break;
         public InputAction @Pause => m_Wrapper.m_ScopeMode_Pause;
+        public InputAction @Gadget => m_Wrapper.m_ScopeMode_Gadget;
         public InputActionMap Get() { return m_Wrapper.m_ScopeMode; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -415,6 +448,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnPause;
+                @Gadget.started -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnGadget;
+                @Gadget.performed -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnGadget;
+                @Gadget.canceled -= m_Wrapper.m_ScopeModeActionsCallbackInterface.OnGadget;
             }
             m_Wrapper.m_ScopeModeActionsCallbackInterface = instance;
             if (instance != null)
@@ -437,6 +473,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Gadget.started += instance.OnGadget;
+                @Gadget.performed += instance.OnGadget;
+                @Gadget.canceled += instance.OnGadget;
             }
         }
     }
@@ -449,5 +488,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnGas(InputAction.CallbackContext context);
         void OnBreak(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnGadget(InputAction.CallbackContext context);
     }
 }

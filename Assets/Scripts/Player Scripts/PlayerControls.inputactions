@@ -10,7 +10,7 @@
                     "type": "PassThrough",
                     "id": "11354b6f-1923-430d-92b6-d0b08cb4e454",
                     "expectedControlType": "",
-                    "processors": "",
+                    "processors": "StickDeadzone",
                     "interactions": ""
                 },
                 {
@@ -49,6 +49,14 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "fd15e322-5de1-4311-902e-70c2480d22b7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Gadget",
+                    "type": "Button",
+                    "id": "a531bf2b-f607-4c59-a3d5-079680170409",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -294,6 +302,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "014dced6-df83-465c-9e99-ef0161b935a3",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gadget",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08af872b-d70b-4e41-92a4-b7b66e502e6a",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gadget",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

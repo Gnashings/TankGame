@@ -19,8 +19,10 @@ public class Projectile : MonoBehaviour, PooledObjects
     private bool dealsDamage;
     private bool isExplosive;
     private bool chadShot;
+    private bool isEMP;
     public void OnObjectSpawn()
     {
+        StopAllCoroutines();
         //killOffTimer = meme.clip.length;
         if (effects != null)
         {
@@ -37,7 +39,10 @@ public class Projectile : MonoBehaviour, PooledObjects
 
     private void OnBecameInvisible()
     {
-        ShutDown();
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(OffCamTimer());
+        }
     }
 
     public void ShutDown()
@@ -50,7 +55,11 @@ public class Projectile : MonoBehaviour, PooledObjects
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(isEMP)
+        {
+            other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
+            
+        }
         if(chadShot == true && other.CompareTag("EnemyBullet"))
         {
             Destroy(other.gameObject);
@@ -62,7 +71,6 @@ public class Projectile : MonoBehaviour, PooledObjects
             {
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
             }
-            
         }
         if (!other.CompareTag("Player") &&
             !other.CompareTag("AutoTurret") &&
@@ -81,12 +89,15 @@ public class Projectile : MonoBehaviour, PooledObjects
             {
                 if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
                 {
-                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
+                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage + (damage * PlayerProgress.roided));
                     //Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
                 }
             }
             //Debug.Log(other.name);
-            ShutDown();
+            if(!isEMP)
+            {
+                ShutDown();
+            }
             //print(other.tag +" TARGET HIT "+other.name);
         }
 
@@ -131,5 +142,11 @@ public class Projectile : MonoBehaviour, PooledObjects
     public void SetEffects(GameObject fx)
     {
         effects = fx;
+    }
+
+    private IEnumerator OffCamTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ShutDown();
     }
 }

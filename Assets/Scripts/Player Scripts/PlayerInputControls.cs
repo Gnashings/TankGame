@@ -11,6 +11,7 @@ public class PlayerInputControls : MonoBehaviour
     private InputAction look;
     private InputAction fire;
     private InputAction pause;
+    private InputAction gadget;
     private PlayerControls playerControls;
     public float sensitivity;
     [HideInInspector]
@@ -18,6 +19,7 @@ public class PlayerInputControls : MonoBehaviour
     private Vector2 currentRotation;
     private Vector3 direction;
     private Vector3 rotation;
+    private bool gadgetSet;
 
     // Start is called before the first frame update
     void Awake()
@@ -42,6 +44,8 @@ public class PlayerInputControls : MonoBehaviour
 
     public bool Firing => fire.triggered;
     public bool paused => pause.triggered;
+
+    public bool gadgetStart => gadget.triggered;
     [HideInInspector]
     public bool isHeld;
 
@@ -133,6 +137,8 @@ public class PlayerInputControls : MonoBehaviour
         fire = playerControls.ScopeMode.Fire;
         gas = playerControls.ScopeMode.Gas;
         pause = playerControls.ScopeMode.Pause;
+        gadget = playerControls.ScopeMode.Gadget;
+        gadget.Enable();
         move.Enable();
         look.Enable();
         fire.Enable();
@@ -147,5 +153,6 @@ public class PlayerInputControls : MonoBehaviour
         fire.Disable();
         gas.Disable();
         pause.Disable();
+        gadget.Disable();
     }
 }

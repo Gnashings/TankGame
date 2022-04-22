@@ -11,6 +11,7 @@ public class Explosion : MonoBehaviour
 
     public void Explode()
     {
+
         if(explosion.particles != null)
         {
             Instantiate(explosion.particles, transform.position, transform.rotation);
@@ -26,7 +27,7 @@ public class Explosion : MonoBehaviour
             {
                 DoPhysics(hitObj, rb);
             }
-            
+
             DamageTargets(hitObj);
         }
     }
@@ -35,12 +36,24 @@ public class Explosion : MonoBehaviour
     {
         if (explosion.canAffectPlayer && other.CompareTag("Player"))
         {
-            rb.AddExplosionForce(explosion.force, other.ClosestPoint(gameObject.transform.position), explosion.radius);
-            
+            //bl = new Vector3(other.ClosestPointOnBounds(gameObject.transform.position).x, other.ClosestPointOnBounds(gameObject.transform.position).y + 0.05f, other.ClosestPointOnBounds(gameObject.transform.position).z);
+            //other.ClosestPointOnBounds(gameObject.transform.position).y 
+            rb.AddExplosionForce(explosion.force, other.ClosestPointOnBounds(gameObject.transform.position), explosion.radius, explosion.upwardforce, ForceMode.VelocityChange);
+            //rb.AddExplosionForce(explosion.force, other.ClosestPoint(gameObject.transform.position), explosion.radius, 0, ForceMode.VelocityChange);
         }
         if (explosion.canAffectEnemies && other.CompareTag("Enemy"))
         {
             rb.AddExplosionForce(explosion.force, transform.position, explosion.radius);
+        }
+        else
+        {
+            //print(other.tag);
+            if (other.tag.Equals("Mine"))
+            {
+                rb.AddExplosionForce(25 , other.ClosestPoint(gameObject.transform.position), 10, 2, ForceMode.VelocityChange);
+            }
+
+            
         }
     }
 
@@ -50,8 +63,8 @@ public class Explosion : MonoBehaviour
         {
             //Debug.Log("EXPLOSION.CS: NO ENEMY HEALTH IMPLIMENTED YET");
             //other.gameObject.SetActive(false);
-            other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage);
-            //Debug.Log(" HIT " + other.tag + " FOR: " + explosion.damage + " EXP");
+            other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage * (1 + PlayerProgress.roided));
+            //Debug.Log(" HIT " + other.tag + " FOR: " + explosion.damage * (1 + PlayerProgress.roided) + " EXP DAMAGE");
         }
         if(explosion.canDamagePlayer && other.CompareTag("Player"))
         {

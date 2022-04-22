@@ -57,7 +57,7 @@ public class TankBodyController : MonoBehaviour
             if(speed > 0){speed -= acceleration * Time.deltaTime;}*/
             speed = 0;
         }
-        if (inputs.GetPadMoveForwardAxis().magnitude != 0)
+        if (inputs.GetPadMoveForwardAxis().z != 0)
         {
             /*if(speed <= topSpeed) speed += acceleration * Time.deltaTime;
             rb.velocity = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed * ForceSlow();*/
@@ -83,6 +83,7 @@ public class TankBodyController : MonoBehaviour
             {
                 speed = topSpeed * BackPenalty() * ForceSlow();
             }
+            Debug.Log("calculating movement speed");
             rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
         }
     }

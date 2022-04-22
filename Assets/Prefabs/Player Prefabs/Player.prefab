@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1024910738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024910739}
+  m_Layer: 0
+  m_Name: MineSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024910739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024910738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.68, z: -6.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7280919474109410468}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2116737988
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,6 +5080,7 @@ GameObject:
   - component: {fileID: 2060620787878208410}
   - component: {fileID: 7981507556856815659}
   - component: {fileID: 335287278}
+  - component: {fileID: 864747063}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5073,6 +5104,7 @@ Transform:
   - {fileID: 2116737989}
   - {fileID: 3068348216030246855}
   - {fileID: 515259346763637682}
+  - {fileID: 1024910739}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5118,7 +5150,7 @@ MonoBehaviour:
   rotationSpeed: 2
   topSpeed: 0
   ignoreAcceleration: 0
-  slowAmount: 0.85
+  slowAmount: 0.45
   slowDuration: 1
   isSlowed: 0
   slowImmune: 0
@@ -5158,6 +5190,11 @@ MonoBehaviour:
   nuclearWinter: {fileID: 11400000, guid: f58e4c308461fe440b65fdd4325ce442, type: 2}
   hare: {fileID: 11400000, guid: 81aba6fb5587da34c9de9be08d32610c, type: 2}
   tortoise: {fileID: 11400000, guid: 1149c61bb6464ba45b5f54580390eeda, type: 2}
+  gadgets: 3
+  Shockwave: {fileID: 11400000, guid: 3dfc900631c2760488ac14b08093bff2, type: 2}
+  RoidDamageIncrease: 0.5
+  gadgetCD: 5
+  armorBonusRch: 5
   tankbody: {fileID: 7280919474109410466}
   firegun: {fileID: 7280919475653588323}
   bigBombaBomb: {fileID: 335287278}
@@ -5168,6 +5205,7 @@ MonoBehaviour:
   basicBodyModel: {fileID: 218029730934879807}
   gustavModel: {fileID: 1320449915956560665}
   bigBombaModel: {fileID: 4489767830577592768}
+  input: {fileID: 7280919474109410467}
 --- !u!54 &7280919474109410469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5389,6 +5427,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 11400000, guid: 0dd86ac20298b06428f36670c4b120d4, type: 2}
+--- !u!114 &864747063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280919474109410471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6387860fded5bb1468d262efdcea3e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputs: {fileID: 7280919474109410467}
+  mine: {fileID: 5846489631836927078, guid: a4d0640f5f8d0b847a97fc3489ca5fe1, type: 3}
+  mineSpawn: {fileID: 1024910738}
+  outMine: {fileID: 0}
 --- !u!1 &7280919474254699850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5548,6 +5602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 7280919474106374531}
+  mineMuzzle: {fileID: 0}
 --- !u!114 &7280919475653588320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5593,6 +5648,11 @@ MonoBehaviour:
     expPerams: {fileID: 11400000, guid: 40c1c2fdd853cae43be0a392ddf198fc, type: 2}
     bulPerams: {fileID: 11400000, guid: a040ec2788640a34ea01ffde0e0803ce, type: 2}
     prefab: {fileID: 750524474285098865, guid: d51e79ad6a7cd8242a7c925b390cc3bd, type: 3}
+    size: 2
+  - tag: Shockwave
+    expPerams: {fileID: 11400000, guid: a5d9a9162ac14da45b2364a2419df3a7, type: 2}
+    bulPerams: {fileID: 11400000, guid: 3dfc900631c2760488ac14b08093bff2, type: 2}
+    prefab: {fileID: 750524474285098865, guid: f6eb27da645899345902df1e37d6cd38, type: 3}
     size: 2
 --- !u!82 &1503892090
 AudioSource:
@@ -10793,14 +10853,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
---- !u!1 &7761378074037277703 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
-  m_PrefabInstance: {fileID: 7454756926492141910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6989063872700157629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
+  m_PrefabInstance: {fileID: 7454756926492141910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7761378074037277703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4c4a11523ce069c4aa554364e283bb84, type: 3}
   m_PrefabInstance: {fileID: 7454756926492141910}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7580855750640398165
