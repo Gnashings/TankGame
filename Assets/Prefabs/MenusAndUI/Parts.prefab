@@ -2411,6 +2411,7 @@ MonoBehaviour:
   turret: {fileID: 5906101978814410418}
   body: {fileID: 2333357927230108206}
   tracks: {fileID: 8227628800564503271}
+  gadgets: {fileID: 0}
 --- !u!114 &149283870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2939,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Hare
+          m_StringArgument: All Mine
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8927360495184697440
@@ -3510,7 +3511,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Nuclear Winter
+          m_StringArgument: Thunder Cheeks
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &38599633719398319
@@ -3652,7 +3653,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tortoise
+          m_StringArgument: Full Metal Jacket
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &8945280896157089575

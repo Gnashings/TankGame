@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour, PooledObjects
     private bool dealsDamage;
     private bool isExplosive;
     private bool chadShot;
-    private bool isEMP;
+    public bool isEMP;
     public void OnObjectSpawn()
     {
         StopAllCoroutines();

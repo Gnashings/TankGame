@@ -8,6 +8,7 @@ public class PlayerSelection : MonoBehaviour
     public GameObject turret;
     public GameObject body;
     public GameObject tracks;
+    public GameObject gadgets;
 
     private string selection;
     private bool choseTurret;
@@ -106,6 +107,11 @@ public class PlayerSelection : MonoBehaviour
         if (PlayerProgress.hasTracks == true)
         {
             tracks.SetActive(false);
+        }
+
+        if (PlayerProgress.hasGadgets == true)
+        {
+            gadgets.SetActive(false);
         }
     }
 

@@ -40,7 +40,7 @@ public static class PlayerProgress
     {
         curGadgets = selection;
         hasGadgets = true;
-        Debug.Log("selec" + selection);
+        //Debug.Log("selec" + selection);
     }
 
     public static void ReadData()
