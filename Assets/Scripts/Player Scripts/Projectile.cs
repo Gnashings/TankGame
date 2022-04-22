@@ -55,11 +55,6 @@ public class Projectile : MonoBehaviour, PooledObjects
 
     private void OnTriggerEnter(Collider other)
     {
-        if(isEMP)
-        {
-            other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage);
-            
-        }
         if(chadShot == true && other.CompareTag("EnemyBullet"))
         {
             Destroy(other.gameObject);
@@ -83,13 +78,21 @@ public class Projectile : MonoBehaviour, PooledObjects
             if(isExplosive)
             {
                 explosion.Explode();
-                //print("exploding");
             }
-            if (dealsDamage && other.CompareTag("Enemy"))
+            if (dealsDamage && other.CompareTag("Enemy") && other.gameObject.GetComponentInParent<EnemyStats>()!=null)
             {
-                if (other.gameObject.GetComponentInParent<EnemyStats>() != null)
+                EnemyStats enemyStats = other.gameObject.GetComponentInParent<EnemyStats>();
+                if (enemyStats != null)
                 {
-                    other.gameObject.GetComponentInParent<EnemyStats>().TakeDamage(damage + (damage * PlayerProgress.roidDmgMod));
+                    if (isEMP)
+                    {
+                        if(enemyStats.isBomber)
+                        {
+                            enemyStats.TakeDamage(10000);
+                        }
+                    }
+                    else
+                        enemyStats.TakeDamage(damage + (damage * PlayerProgress.roidDmgMod));
                     //Debug.Log(" HIT " + other.tag + " FOR: " + damage + " PRG");
                 }
             }
