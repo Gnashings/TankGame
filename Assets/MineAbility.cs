@@ -14,7 +14,7 @@ public class MineAbility : MonoBehaviour
     void Start()
     {
         outMine = null;
-        if (!PlayerProgress.curGadgets.Equals("Mine"))
+        if (PlayerProgress.curGadgets==null || !PlayerProgress.curGadgets.Equals("Mine"))
         {
             this.enabled = false;
         }

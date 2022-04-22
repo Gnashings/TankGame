@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
-  m_Name: Big Bomba
+  m_Name: EnemyDeath
   m_EditorClassIdentifier: 
-  radius: 40
-  force: 50
-  damage: 150
-  upwardforce: 1
+  radius: 10
+  force: 0
+  damage: 350
+  upwardforce: 0
   particles: {fileID: 1680070425851635562, guid: 1c23fb9fdb5d3e447a38af8aef99838d, type: 3}
-  canDamagePlayer: 0
-  canAffectPlayer: 0
+  canDamagePlayer: 1
+  canAffectPlayer: 1
   canDamageEnemies: 1
   canAffectEnemies: 1

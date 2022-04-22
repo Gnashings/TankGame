@@ -61,7 +61,7 @@ public class FireGun : MonoBehaviour
                 StartCoroutine(StartCooldown());
             }
         }
-        if(PlayerProgress.curGadgets.Equals("Shockwave"))
+        if(PlayerProgress.curGadgets != null && PlayerProgress.curGadgets.Equals("Shockwave"))
         {
             if (inputs.gadgetStart == true && canSecondaryFire == true)
             {

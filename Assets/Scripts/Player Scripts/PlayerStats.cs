@@ -80,14 +80,14 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        PlayerProgress.ReadData();
+        //PlayerProgress.ReadData();
     }
 
     void Update()
     {
         if(!PlayerProgress.paused)
         {
-            if(PlayerProgress.curGadgets.Equals("Steroid"))
+            if(PlayerProgress.curGadgets != null && PlayerProgress.curGadgets.Equals("Steroid"))
             {
                 if (input.gadgetStart && !enraged)
                 {
