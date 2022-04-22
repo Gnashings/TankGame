@@ -21,7 +21,6 @@ public class EnemyStats : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        print(damage);
         if (totalHP < damage)
         {
             gameObject.SetActive(false);
