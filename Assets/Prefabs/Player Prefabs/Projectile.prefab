@@ -55,7 +55,7 @@ MeshRenderer:
   m_GameObject: {fileID: 750524474285098865}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -105,6 +105,7 @@ MonoBehaviour:
   exp: {fileID: 1248091766568693480}
   rb: {fileID: 470601769898302904}
   explosion: {fileID: 1830697642702009027}
+  isEMP: 0
 --- !u!114 &1830697642702009027
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   force: 50
   damage: 100
   upwardforce: 0
-  particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
+  particles: {fileID: 1680070425851635562, guid: 1c23fb9fdb5d3e447a38af8aef99838d, type: 3}
   canDamagePlayer: 1
   canAffectPlayer: 0
   canDamageEnemies: 1

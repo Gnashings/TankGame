@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float armor;
     public float armorBreakTimer;
-
+    public AudioSource hurtSound;
     //private stats
     private float armorRecharge;
     private bool hasGustavAbility;
@@ -338,6 +338,7 @@ public class PlayerStats : MonoBehaviour
             }
             else
                 armor -= damage;
+            hurtSound.Play();
         }
         else
             health -= damage;

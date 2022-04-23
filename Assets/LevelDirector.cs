@@ -70,10 +70,17 @@ public class LevelDirector : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("PartsMenu");
+                StartCoroutine(levelTimeout());
+                
             }
                 
             
         }
+    }
+
+    private IEnumerator levelTimeout()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("PartsMenu");
     }
 }
