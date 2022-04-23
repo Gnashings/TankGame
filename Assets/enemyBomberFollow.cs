@@ -11,7 +11,7 @@ public class enemyBomberFollow : MonoBehaviour
     void Start()
     {
           if (Player == null)
-            Player = GameObject.FindGameObjectWithTag("Player");
+            Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

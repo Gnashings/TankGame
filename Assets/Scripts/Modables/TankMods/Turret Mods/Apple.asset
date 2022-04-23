@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   fireRate: 3
-  bulletVelocity: 5000
+  bulletVelocity: 7000
   bulletSpread: 0
   damage: 375
   dealDamage: 1
