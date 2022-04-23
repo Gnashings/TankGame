@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 845441419, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
-      propertyPath: gadgets
-      value: 
-      objectReference: {fileID: 918788109}
     - target: {fileID: 545181475929751330, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
       propertyPath: m_Name
       value: Parts
@@ -227,11 +223,6 @@ PrefabInstance:
 --- !u!1 &316471470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 545181475451948878, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
-  m_PrefabInstance: {fileID: 149283868}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &918788109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4982312060935920076, guid: 204b920ba4e0a524f93f19d24e09b81f, type: 3}
   m_PrefabInstance: {fileID: 149283868}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &976433375
