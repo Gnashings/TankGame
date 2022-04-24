@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 65751226462495478}
   - component: {fileID: 2814027583568942652}
   - component: {fileID: 3516460888582130780}
-  - component: {fileID: 4912953236342803675}
+  - component: {fileID: 3160058136460848204}
   m_Layer: 0
   m_Name: rock small cover
   m_TagString: Untagged
@@ -99,8 +99,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &4912953236342803675
-CapsuleCollider:
+--- !u!64 &3160058136460848204
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.41
-  m_Height: 10
-  m_Direction: 1
-  m_Center: {x: -0.46, y: 0, z: 0.78}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3369316746193770658, guid: a06b78c512d272648b5942ff90d434a6, type: 3}

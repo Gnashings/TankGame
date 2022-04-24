@@ -569,6 +569,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock small cover (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4912953236342803675, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_Radius
+      value: 3.348409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912953236342803675, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_Center.x
+      value: -0.17502086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912953236342803675, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_Center.z
+      value: 0.5566121
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
 --- !u!4 &301386821 stripped
@@ -1696,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6580177341001824923, guid: cdfc90fbe615622448d2e008c55fe53c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377689157959473033, guid: cdfc90fbe615622448d2e008c55fe53c, type: 3}
       propertyPath: m_RootOrder
@@ -1822,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6580177341001824923, guid: cdfc90fbe615622448d2e008c55fe53c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8377689157959473033, guid: cdfc90fbe615622448d2e008c55fe53c, type: 3}
       propertyPath: m_RootOrder
@@ -3341,6 +3353,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Height
+      value: 12.628299
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Radius
+      value: 2.6975634
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Center.x
+      value: 0.02251482
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Center.y
+      value: -0.18585062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Center.z
+      value: 0.4921503
+      objectReference: {fileID: 0}
     - target: {fileID: 7974842491323732920, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
       propertyPath: m_Name
       value: rock tall cover Variant (2)
@@ -3739,6 +3771,18 @@ PrefabInstance:
     - target: {fileID: 7342983208691730690, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Radius
+      value: 2.7329805
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Center.x
+      value: -0.4991045
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796507829979916545, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
+      propertyPath: m_Center.z
+      value: 0.52937293
       objectReference: {fileID: 0}
     - target: {fileID: 7974842491323732920, guid: f572cadf48f0a7a49ba2064b58c1d989, type: 3}
       propertyPath: m_Name

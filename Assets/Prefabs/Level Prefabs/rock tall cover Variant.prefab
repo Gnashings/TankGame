@@ -16,8 +16,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &7796507829979916545
-CapsuleCollider:
+--- !u!64 &6228260590849837028
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -26,10 +26,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 3.747327
-  m_Height: 15
-  m_Direction: 1
-  m_Center: {x: 0.11378062, y: 1, z: 0.7621238}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3861478300804232965, guid: f7580b89ca332444a8f2044ef00d4632, type: 3}
 --- !u!1001 &7092392263187689193
 PrefabInstance:
   m_ObjectHideFlags: 0
