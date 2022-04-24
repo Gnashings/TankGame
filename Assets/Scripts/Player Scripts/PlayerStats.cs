@@ -359,7 +359,7 @@ public class PlayerStats : MonoBehaviour
 
     private float GustavArmorCalculations(float damage)
     {
-        print("Damage Before: " + damage);
+        //print("Damage Before: " + damage);
         if(damage <= 15)
         {
             damage -= flatDR;
@@ -369,7 +369,7 @@ public class PlayerStats : MonoBehaviour
             damage *= 0.8f;
         }
 
-        print("Damage After: " + damage);
+        //print("Damage After: " + damage);
         return damage;
     }
 
