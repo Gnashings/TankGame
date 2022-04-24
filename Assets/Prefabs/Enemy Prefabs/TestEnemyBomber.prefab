@@ -180,5 +180,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 8365247258113469916}
-  enemy: {fileID: 689671667}
+  navMesh: {fileID: 0}
   player: {fileID: 0}
