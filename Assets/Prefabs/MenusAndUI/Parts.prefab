@@ -2444,7 +2444,7 @@ MonoBehaviour:
     Def: Gain an Auto Turret that shoots at your enemies when in range!
     SpecialEffect: Auto turret range is short.
   - Name: Gustav
-    Def: More armor and reduces all damage by a flat amount!
+    Def: More armor and reduces all damage! Ignores small arm damage.
     SpecialEffect: Lower Speed, Armor repair takes longer to start up.
   - Name: Nuclear Winter
     Def: Allows your tank to rotate much quicker!

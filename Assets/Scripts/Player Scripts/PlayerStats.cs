@@ -315,7 +315,11 @@ public class PlayerStats : MonoBehaviour
         if (armor > 0)
         {
             //check for damage reduciton
-            damage -= flatDR;
+            if(PlayerProgress.curBody.Equals("Gustav"))
+            {
+                damage = GustavArmorCalculations(damage);
+            }
+            //ignore damage if reduced heavily
             if (damage <= 0)
             {
                 return;
@@ -342,12 +346,30 @@ public class PlayerStats : MonoBehaviour
         }
         else
             health -= damage;
+        hurtSound.Play();
 
         if (health <= 0)
         {
             Die();
         }
     }
+
+    private float GustavArmorCalculations(float damage)
+    {
+        print("Damage Before: " + damage);
+        if(damage <= 15)
+        {
+            damage -= flatDR;
+        }
+        else
+        {
+            damage *= 0.8f;
+        }
+
+        print("Damage After: " + damage);
+        return damage;
+    }
+
     IEnumerator ArmorBreakCooldown()
     {
         canRecharge = false;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestEnemyStats
   m_EditorClassIdentifier: 
   enemyName: 
-  health: 5
-  canMove: 0
+  health: 100
+  canMove: 1
   fireRate: 1
   damage: 1
