@@ -11,7 +11,8 @@ public class NormalProjectile : BaseProjectile {
    
     
     public float timer;
-public Transform target;
+    public Transform target;
+    public GameObject endingFX;
 
 
 
@@ -43,6 +44,7 @@ public Transform target;
     }
     private void OnBecameInvisible()
     {
+        
         GameObject.Destroy(gameObject);
     }
 
@@ -52,6 +54,7 @@ public Transform target;
         {
             case "Player":
                 other.gameObject.GetComponentInParent<PlayerStats>().TakeDamage(damageToPlayer);
+                Instantiate(endingFX, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
             case "AutoTurret":

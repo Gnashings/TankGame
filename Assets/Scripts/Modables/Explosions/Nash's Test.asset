@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nash's Test
   m_EditorClassIdentifier: 
   radius: 20
-  force: 400
+  force: 40
   damage: 4
   upwardforce: 0
   particles: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}

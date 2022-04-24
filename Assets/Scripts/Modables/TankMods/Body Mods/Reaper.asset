@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armor: 400
   health: 200
-  topSpeed: 20
+  topSpeed: 25
   armorRecharge: 11
   armorBreakTimer: 2

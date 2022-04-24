@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float armor;
     public float armorBreakTimer;
-    public AudioSource hurtSound;
+    public AudioSource armorBreakSound;
     //private stats
     private float armorRecharge;
     private bool hasGustavAbility;
@@ -333,7 +333,7 @@ public class PlayerStats : MonoBehaviour
                 armor = 0;
                 health -= leftOverDamage;
                 StartCoroutine(ArmorBreakCooldown());
-                //print("ARMOR BREAK");
+                armorBreakSound.Play();
                 if (health <= 0)
                 {
                     Die();
@@ -342,11 +342,9 @@ public class PlayerStats : MonoBehaviour
             }
             else
                 armor -= damage;
-            hurtSound.Play();
         }
         else
             health -= damage;
-        hurtSound.Play();
 
         if (health <= 0)
         {

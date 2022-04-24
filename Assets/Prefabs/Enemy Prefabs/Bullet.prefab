@@ -112,3 +112,4 @@ MonoBehaviour:
   damage: 0.5
   timer: 0
   target: {fileID: 0}
+  endingFX: {fileID: 1680070425851635562, guid: 8c4849745e3e93548bd528f5fc663d71, type: 3}

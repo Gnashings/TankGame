@@ -9937,7 +9937,7 @@ MonoBehaviour:
   health: 0
   armor: 0
   armorBreakTimer: 0
-  hurtSound: {fileID: 6698617582225188272}
+  armorBreakSound: {fileID: 7981507556856815659}
   bodyMods: 0
   bombaCooldown: 3
   gustavArmorReduction: 3
@@ -10150,7 +10150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f8ad979f5ee3bbf44a8ea067d0140026, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
