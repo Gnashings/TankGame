@@ -6,31 +6,39 @@ using UnityEngine.AI;
 public class EnemyBomberFollow : MonoBehaviour
 {
     public EnemyStats enemyStats;
-    public NavMeshAgent enemy;
+    public NavMeshAgent navMesh;
     public Transform player;
     // Start is called before the first frame update
     void Start()
     {
-          if (player == null)
+        if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemy.SetDestination(player.position);
-        Debug.Log("REMAINING:" + enemy.remainingDistance + " STOPPING:" + enemy.stoppingDistance);
+        navMesh.SetDestination(player.position);
+        Debug.Log("REMAINING:" + navMesh.remainingDistance + " STOPPING:" + navMesh.stoppingDistance);
     }
     NavMeshPath path;
     // Update is called once per frame
     void FixedUpdate()
     {
-        enemy.SetDestination(player.position); 
+        MoveToPlayer();
     }
 
     private void LateUpdate()
     {
-        if (enemy.remainingDistance < enemy.stoppingDistance)
+        if (navMesh.remainingDistance < navMesh.stoppingDistance)
         {
             if (enemyStats.isBomber)
             {
                 enemyStats.TakeDamage(10000);
             }
+        }
+    }
+
+    void MoveToPlayer()
+    {
+        if(enemyStats.stats.canMove)
+        {
+            navMesh.SetDestination(player.position);
         }
     }
 }
