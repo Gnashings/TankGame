@@ -7,13 +7,15 @@ public class MineAbility : MonoBehaviour
     public PlayerInputControls inputs;
     public GameObject mine;
     public GameObject mineSpawn;
+    public float abilityCD;
     private GameObject outMine;
     private bool mineOut = false;
-
+    private bool canActivate;
 
     void Start()
     {
         outMine = null;
+        canActivate = true;
         if (PlayerProgress.curGadgets==null || !PlayerProgress.curGadgets.Equals("Mine"))
         {
             this.enabled = false;
@@ -31,7 +33,7 @@ public class MineAbility : MonoBehaviour
 
     private void LayMines()
     {
-        if (inputs.gadgetStart == true && !mineOut)
+        if (inputs.gadgetStart == true && !mineOut && canActivate)
         {
             if (mine != null)
             {
@@ -50,6 +52,14 @@ public class MineAbility : MonoBehaviour
             outMine.GetComponent<Mine>().Detonate();
             //print("DETONATING");
             mineOut = false;
+            StartCoroutine(Cooldown());
         }
+    }
+
+    private IEnumerator Cooldown()
+    {
+        canActivate = false;
+        yield return new WaitForSeconds(5);
+        canActivate = true;
     }
 }

@@ -2439,10 +2439,11 @@ MonoBehaviour:
     SpecialEffect: Affects self, low shot speed.
   - Name: Big Bomba
     Def: Ram into enemies to create an explosion!
-    SpecialEffect: On a cooldown, start with lower armor.
+    SpecialEffect: On a cooldown, start with lower armor. Armor repair takes longer
+      to start up
   - Name: Reaper
     Def: Gain an Auto Turret that shoots at your enemies when in range!
-    SpecialEffect: Auto turret range is short.
+    SpecialEffect: Auto turret range is short. Increased armor regen.
   - Name: Gustav
     Def: More armor and reduces all damage! Ignores small arm damage.
     SpecialEffect: Lower Speed, Armor repair takes longer to start up.
@@ -2457,7 +2458,7 @@ MonoBehaviour:
     SpecialEffect: Slower accleration.
   - Name: Thunder Cheeks
     Def: Send out a shockwave that blows up explosive enemies and projectiles!
-    SpecialEffect: Deals little damage.
+    SpecialEffect: Deals little damage to non explosive enemies. Situational use.
   - Name: All Mine
     Def: Pops out a mine from the back of the tank that can be remotely detonated!
     SpecialEffect: High explosive damage,  affects player, small radius.

@@ -315,7 +315,7 @@ public class PlayerStats : MonoBehaviour
         if (armor > 0)
         {
             //check for damage reduciton
-            if(PlayerProgress.curBody.Equals("Gustav"))
+            if (PlayerProgress.curBody != null && PlayerProgress.curBody.Equals("Gustav"))
             {
                 damage = GustavArmorCalculations(damage);
             }
@@ -333,7 +333,7 @@ public class PlayerStats : MonoBehaviour
                 armor = 0;
                 health -= leftOverDamage;
                 StartCoroutine(ArmorBreakCooldown());
-                print("ARMOR BREAK");
+                //print("ARMOR BREAK");
                 if (health <= 0)
                 {
                     Die();
@@ -352,6 +352,11 @@ public class PlayerStats : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void HealToFull()
+    {
+        armor = totalArmor;
     }
 
     private float GustavArmorCalculations(float damage)
