@@ -15,6 +15,7 @@ public class ShootingSystem : MonoBehaviour {
     float m_fireTimer = 0.0f;
     private GameObject target;
     private float shotVelocity;
+    private float accuracy;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class ShootingSystem : MonoBehaviour {
         fireRate = perams.fireRate;
         damage = perams.damage;
         shotVelocity = perams.bulletVelocity;
-
+        accuracy = perams.bullAccuracy;
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player");
 
@@ -67,7 +68,7 @@ public class ShootingSystem : MonoBehaviour {
                 GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, firingDirection);
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], target, damage, fireRate);
                 Rigidbody rocketRB = proj.GetComponent<Rigidbody>();
-                rocketRB.AddForce(gameObject.transform.TransformDirection(0, 0, 1) * shotVelocity);
+                rocketRB.AddForce(gameObject.transform.TransformDirection(Random.Range(-accuracy, accuracy), Random.Range(-accuracy, accuracy), 1) * shotVelocity);
 
                 GetComponent<AudioSource>().Play();
 

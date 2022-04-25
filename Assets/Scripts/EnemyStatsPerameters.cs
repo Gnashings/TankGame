@@ -11,4 +11,5 @@ public class EnemyStatsPerameters : ScriptableObject
     public float fireRate;
     public float damage;
     public float bulletVelocity;
+    public float bullAccuracy;
 }
