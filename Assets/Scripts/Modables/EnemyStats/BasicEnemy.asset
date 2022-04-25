@@ -17,3 +17,5 @@ MonoBehaviour:
   canMove: 0
   fireRate: 0.2
   damage: 4
+  bulletVelocity: 1000
+  bullAccuracy: 0
