@@ -43,7 +43,7 @@ public class Explosion : MonoBehaviour
         }
         if (explosion.canAffectEnemies && other.CompareTag("Enemy"))
         {
-            rb.AddExplosionForce(explosion.force, transform.position, explosion.radius);
+            rb.AddExplosionForce(explosion.force, other.ClosestPointOnBounds(gameObject.transform.position), explosion.radius, explosion.upwardforce, ForceMode.VelocityChange);
         }
         else
         {

@@ -12,6 +12,7 @@ public class EnemyStats : MonoBehaviour
     //nash edit
     private float totalHP;
     public Explosion explosion;
+    
     void Start()
     {
         //stats.health = 0;

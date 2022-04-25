@@ -9995,6 +9995,9 @@ MonoBehaviour:
   slowDuration: 1
   isSlowed: 0
   roidDebuffAmount: 0.1
+  engineNoise: {fileID: 2060620787878208410}
+  dirtright: {fileID: 3966245287566106652}
+  dirtleft: {fileID: 8517044811492009467}
   slowImmune: 0
   backPenalty: 0.5
 --- !u!114 &864747063
@@ -10056,7 +10059,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f357995ff72fdd3418d3b810380bf198, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.096
+  m_Volume: 0.026
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -15565,7 +15568,7 @@ GameObject:
   - component: {fileID: 8829311813342774418}
   m_Layer: 0
   m_Name: Sights
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

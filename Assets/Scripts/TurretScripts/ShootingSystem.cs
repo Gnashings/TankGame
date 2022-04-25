@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
  
 public class ShootingSystem : MonoBehaviour {
-    public float fireRate;
-    public float damage;
+    private float fireRate;
+    private float damage;
     public float fieldOfView;
     public GameObject projectile;
     public List<GameObject> projectileSpawns;
@@ -13,8 +13,8 @@ public class ShootingSystem : MonoBehaviour {
  
     List<GameObject> lastProjectilesShot = new List<GameObject>();
     float m_fireTimer = 0.0f;
-    public GameObject target;
- 
+    private GameObject target;
+    private float shotVelocity;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class ShootingSystem : MonoBehaviour {
         damage = 0f;
         fireRate = perams.fireRate;
         damage = perams.damage;
-
+        shotVelocity = perams.bulletVelocity;
 
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player");
@@ -66,9 +66,10 @@ public class ShootingSystem : MonoBehaviour {
                 Quaternion firingDirection = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(90, 0, 0));
                 GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, firingDirection);
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], target, damage, fireRate);
+                Rigidbody rocketRB = proj.GetComponent<Rigidbody>();
+                rocketRB.AddForce(gameObject.transform.TransformDirection(0, 0, 1) * shotVelocity);
 
-
-                 GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().Play();
 
  
                 lastProjectilesShot.Add(proj);

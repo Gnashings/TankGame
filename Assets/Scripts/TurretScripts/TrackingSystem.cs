@@ -6,7 +6,7 @@ public class TrackingSystem : MonoBehaviour {
     public float spinSpeed = 3.0f;
  
     [Tooltip("What is it tracking")]
-    public GameObject target;
+    private GameObject target;
     
     Vector3 m_lastKnownPosition = Vector3.zero;
     Quaternion m_lookAtRotation;

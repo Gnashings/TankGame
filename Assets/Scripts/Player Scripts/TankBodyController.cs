@@ -27,6 +27,11 @@ public class TankBodyController : MonoBehaviour
     public bool isSlowed;
     public float roidDebuffAmount;
 
+    [Header("Effects")]
+    public AudioSource engineNoise;
+    public ParticleSystem dirtright;
+    public ParticleSystem dirtleft;
+
     [HideInInspector]
     public bool slowImmune;
     public float backPenalty;
@@ -61,6 +66,7 @@ public class TankBodyController : MonoBehaviour
         {
             /*weird thing where you lose speed over time instead of instantly
             if(speed > 0){speed -= acceleration * Time.deltaTime;}*/
+            StopDirtEffects();
             speed = 0;
         }
         if (inputs.GetPadMoveForwardAxis().z != 0)
@@ -83,7 +89,7 @@ public class TankBodyController : MonoBehaviour
             {
                 speed = topSpeed * SlowDebuffs();
             }
-            //Debug.Log("calculating movement speed");
+            StartDirtEffects();
             rb.velocity += Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0) * inputs.GetPadMoveForwardAxis() * speed;
         }
     }
@@ -139,6 +145,32 @@ public class TankBodyController : MonoBehaviour
             return 1;
         }
         else return roidDebuffAmount;
+    }
+
+    private void StartDirtEffects()
+    {
+        engineNoise.volume = 0.05f;
+        if (!dirtright.isPlaying)
+        {
+            dirtright.Play();
+        }
+        if (!dirtleft.isPlaying)
+        {
+            dirtleft.Play();
+        }
+    }
+
+    private void StopDirtEffects()
+    {
+        engineNoise.volume = 0.01f;
+        if (dirtright.isPlaying)
+        {
+            dirtright.Stop();
+        }
+        if (dirtleft.isPlaying)
+        {
+            dirtleft.Stop();
+        }
     }
 
     IEnumerator SlowTimer()

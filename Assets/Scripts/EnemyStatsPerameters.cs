@@ -9,5 +9,6 @@ public class EnemyStatsPerameters : ScriptableObject
     public float health;
     public bool canMove;
     public float fireRate;
-    public int damage;
+    public float damage;
+    public float bulletVelocity;
 }

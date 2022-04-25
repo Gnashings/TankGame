@@ -8,15 +8,16 @@ public class EnemyBomberFollow : MonoBehaviour
     public EnemyStats enemyStats;
     public NavMeshAgent enemyNavMesh;
     public Transform player;
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
           if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyNavMesh.SetDestination(player.position);
+        //enemyNavMesh.SetDestination(player.position);
         //Debug.Log("REMAINING:" + enemy.remainingDistance + " STOPPING:" + enemy.stoppingDistance);
     }
-    NavMeshPath path;
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -25,15 +26,18 @@ public class EnemyBomberFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (enemyNavMesh.remainingDistance < enemyNavMesh.stoppingDistance)
+        if(enemyStats.stats.canMove)
         {
-            if (enemyStats.isBomber)
+            if (enemyNavMesh.remainingDistance < enemyNavMesh.stoppingDistance)
             {
-                enemyStats.TakeDamage(10000);
+                if (enemyStats.isBomber)
+                {
+                    enemyStats.TakeDamage(10000);
+                }
             }
         }
-    }
 
+    }
     void CanMove()
     {
         if(enemyStats.stats.canMove)
