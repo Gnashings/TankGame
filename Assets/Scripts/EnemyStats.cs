@@ -12,18 +12,20 @@ public class EnemyStats : MonoBehaviour
     //nash edit
     private float totalHP;
     public Explosion explosion;
-    
+    private bool gibbed;
     void Start()
     {
         //stats.health = 0;
         health = 0;
         health = stats.health;
         totalHP = stats.health;
+        gibbed = false;
     }
     public void TakeDamage(float damage)
     {
         if (totalHP < damage)
         {
+            gibbed = true;
             gameObject.SetActive(false);
             return;
         }
@@ -38,7 +40,7 @@ public class EnemyStats : MonoBehaviour
     private void OnDisable()
     {
         //transform.GetComponentInParent<RoomSystem>().UnlockDoors();
-        if(isBomber && explosion != null)
+        if(isBomber && explosion != null && gibbed == true)
         {
             InstaGib();
         } 
