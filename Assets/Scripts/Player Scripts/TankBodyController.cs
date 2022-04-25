@@ -149,7 +149,7 @@ public class TankBodyController : MonoBehaviour
 
     private void StartDirtEffects()
     {
-        engineNoise.volume = 0.05f;
+        engineNoise.volume = 0.015f;
         if (!dirtright.isPlaying)
         {
             dirtright.Play();
@@ -162,7 +162,7 @@ public class TankBodyController : MonoBehaviour
 
     private void StopDirtEffects()
     {
-        engineNoise.volume = 0.01f;
+        engineNoise.volume = 0.04f;
         if (dirtright.isPlaying)
         {
             dirtright.Stop();
