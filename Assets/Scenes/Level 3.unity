@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657934, g: 0.4964136, b: 0.574816, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657958, g: 0.49641383, b: 0.57481647, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 0
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: e36d5be825b780a4b84e17e02400acd7, type: 2}
 --- !u!1001 &16541114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +181,14 @@ PrefabInstance:
     - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
       propertyPath: m_Name
       value: rock small cover (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
@@ -497,6 +505,14 @@ PrefabInstance:
     - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
       propertyPath: m_Name
       value: rock small cover
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
@@ -1655,6 +1671,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: rock small cover (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
 --- !u!4 &1223337274 stripped
@@ -1728,6 +1752,14 @@ PrefabInstance:
     - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
       propertyPath: m_Name
       value: rock small cover (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
@@ -2852,6 +2884,14 @@ PrefabInstance:
     - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
       propertyPath: m_Name
       value: rock small cover (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4327276847775135721, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27d30718a0d1de4b85b64586b825b92, type: 3}
