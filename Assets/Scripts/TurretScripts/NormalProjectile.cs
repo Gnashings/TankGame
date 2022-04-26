@@ -13,8 +13,8 @@ public class NormalProjectile : BaseProjectile {
     public float timer;
     public Transform target;
     public GameObject endingFX;
-
-
+    public Explosion explosion;
+    public bool explosiveRound;
 
     // Update is called once per frame
     void Update () {
@@ -44,7 +44,6 @@ public class NormalProjectile : BaseProjectile {
     }
     private void OnBecameInvisible()
     {
-        
         GameObject.Destroy(gameObject);
     }
 
@@ -64,6 +63,13 @@ public class NormalProjectile : BaseProjectile {
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
                 break;
             case "Untagged":
+                if(explosiveRound)
+                {
+                    if (explosion != null)
+                    {
+                        explosion.Explode();
+                    }
+                }
                 Destroy(gameObject);
                 break;
         }

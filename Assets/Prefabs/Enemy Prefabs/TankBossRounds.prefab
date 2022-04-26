@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 138699865376652557}
   - component: {fileID: 138699865376652562}
   - component: {fileID: 5002309106988726732}
+  - component: {fileID: 6110103189430630121}
   m_Layer: 0
-  m_Name: BossBullet
+  m_Name: TankBossRounds
   m_TagString: bossBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +115,8 @@ MonoBehaviour:
   timer: 0
   target: {fileID: 0}
   endingFX: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
-  explosiveRound: 0
+  explosion: {fileID: 6110103189430630121}
+  explosiveRound: 1
 --- !u!54 &5002309106988726732
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,3 +133,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6110103189430630121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138699865376652563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382458088d94f2541bc2380e4f91431c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 11400000, guid: 5d9d034b44aa9614cbbf02480911dc1d, type: 2}
