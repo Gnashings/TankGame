@@ -27,8 +27,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9395695, y: 2.0559442, z: 3.812511}
-  m_Center: {x: 0, y: 1.0441777, z: -0.00000005960466}
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &683254397056996691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
+  lookUpDown: 0
 --- !u!82 &6803653574564939948
 AudioSource:
   m_ObjectHideFlags: 0

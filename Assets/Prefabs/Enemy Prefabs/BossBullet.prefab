@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1108147716743453759, guid: 74abd377fd2b25c4e8fe906de713d249, type: 3}
+  - {fileID: 2100000, guid: 156909585b4fae34db396545794018d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   timer: 0
   target: {fileID: 0}
   endingFX: {fileID: 1680070425851635562, guid: e54969b1ed732494cbcdca8d81f21481, type: 3}
+  explosion: {fileID: 0}
   explosiveRound: 0
 --- !u!54 &5002309106988726732
 Rigidbody:

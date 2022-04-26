@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: ChainGunner
   health: 100
   canMove: 0
-  fireRate: 0.15
+  fireRate: 0.05
   damage: 2
   bulletVelocity: 5000
-  bullAccuracy: 0
+  bullAccuracy: 0.15
