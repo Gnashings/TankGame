@@ -2443,7 +2443,7 @@ MonoBehaviour:
       to start up
   - Name: Reaper
     Def: Gain an Auto Turret that shoots at your enemies when in range!
-    SpecialEffect: Auto turret range is short. Increased armor regen.
+    SpecialEffect: Auto turret range is limited. Better armor regen.
   - Name: Gustav
     Def: More armor and reduces all damage! Ignores small arm damage.
     SpecialEffect: Lower Speed, Armor repair takes longer to start up.

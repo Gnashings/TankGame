@@ -273,8 +273,8 @@ public class PlayerStats : MonoBehaviour
             tankbody.acceleration = nuclearWinter.acceleration;
             tankbody.rotationSpeed = nuclearWinter.turningSpeed;
             tankbody.rb.mass = 100;
-            tankbody.rb.drag = 1;
-            tankbody.rb.angularDrag = 4;
+            tankbody.rb.drag = 4;
+            tankbody.rb.angularDrag = 3;
         }
         if (tracks.HasFlag(TrackMods.hare))
         {

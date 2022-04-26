@@ -93,7 +93,7 @@ MonoBehaviour:
   shotBox: {fileID: 2116737990}
   autoGunAudio: {fileID: 4497219228839135922}
   particlesfx: {fileID: 7724895995071912757}
-  damage: 5
+  damage: 10
   cooldown: 0.15
   audioShots:
   - {fileID: 8300000, guid: 8be5b4973a9abd34fa7099bfdef7b494, type: 3}
@@ -235,7 +235,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2746223754261634767}
   serializedVersion: 7
-  lengthInSec: 4
+  lengthInSec: 5
   simulationSpeed: 30
   stopAction: 0
   cullingMode: 0
@@ -363,7 +363,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -855,7 +855,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 50
+    angle: 15
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
