@@ -9,8 +9,8 @@ Rigidbody:
   m_GameObject: {fileID: 2755308313323082410}
   serializedVersion: 2
   m_Mass: 1000
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 4
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -43,6 +43,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 0401ee9cba586f94cb3e4e9e040c183f, type: 2}
   health: 2000
+  isBomber: 0
+  explosion: {fileID: 0}
 --- !u!1 &3079547412257091081
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5981176945048174673}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 2.36, z: 0}
+  m_LocalPosition: {x: 0, y: 1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4540149047292355068}
@@ -291,15 +293,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884692394f0fd5649937ff6f1991b0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
-  damage: 99
   fieldOfView: 100
   projectile: {fileID: 138699865376652563, guid: 819f0af8ad7f2cf4c9eb6a638e1b7914, type: 3}
   projectileSpawns:
   - {fileID: 5981176943635223007}
   - {fileID: 3079547412257091081}
   perams: {fileID: 11400000, guid: a14985c45129b0b458c1fe3fc761ee3d, type: 2}
-  target: {fileID: 0}
 --- !u!114 &5981176945048174685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +312,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 100
-  target: {fileID: 0}
 --- !u!82 &6803653574564939948
 AudioSource:
   m_ObjectHideFlags: 0
@@ -514,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df1152b6f1b794e43850021495c52500, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.68
+      value: -2.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df1152b6f1b794e43850021495c52500, type: 3}
       propertyPath: m_LocalPosition.z
