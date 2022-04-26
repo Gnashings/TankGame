@@ -334,9 +334,12 @@ public class PlayerStats : MonoBehaviour
                 health -= leftOverDamage;
                 StartCoroutine(ArmorBreakCooldown());
                 armorBreakSound.Play();
-                if (health <= 0)
+                if (PlayerProgress.godMode == false)
                 {
-                    Die();
+                    if (health <= 0)
+                    {
+                        Die();
+                    }
                 }
                 return;
             }
@@ -346,10 +349,14 @@ public class PlayerStats : MonoBehaviour
         else
             health -= damage;
 
-        if (health <= 0)
+        if (PlayerProgress.godMode == false)
         {
-            Die();
-        }
+            if (health <= 0)
+            {
+                Die();
+            }
+        }    
+
     }
 
     public void HealToFull()

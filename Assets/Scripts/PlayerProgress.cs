@@ -18,6 +18,11 @@ public static class PlayerProgress
     public static int levelsCompleted;
     public static bool death;
     public static float roidDmgMod;
+
+    //options
+    public static bool godMode;
+    public static bool sightsOn;
+    
     public static void SetTurret(string selection)
     {
         curTurret = selection;
