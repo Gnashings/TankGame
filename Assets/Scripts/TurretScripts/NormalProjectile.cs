@@ -62,6 +62,9 @@ public class NormalProjectile : BaseProjectile {
             case "PlayerBullet":
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
                 break;
+            case "Mine":
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>(), true);
+                break;
             case "Untagged":
                 if(explosiveRound)
                 {
