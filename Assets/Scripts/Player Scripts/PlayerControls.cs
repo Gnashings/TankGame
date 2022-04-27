@@ -78,17 +78,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""cd6cac94-54f4-4381-86cd-eaeb76f7345b"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look Around"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0c942d97-dc51-4fd2-b6a3-c047d42ba1d6"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
