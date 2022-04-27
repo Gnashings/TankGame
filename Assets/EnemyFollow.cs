@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBomberFollow : MonoBehaviour
+public class EnemyFollow : MonoBehaviour
 {
     public EnemyStats enemyStats;
     public NavMeshAgent enemyNavMesh;
-    public Transform player;
+    private Transform player;
     public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
