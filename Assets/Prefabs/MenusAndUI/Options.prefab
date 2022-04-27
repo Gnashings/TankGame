@@ -1598,6 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378827656707722281}
   - component: {fileID: 3561155564914281286}
+  - component: {fileID: 2681254684385655246}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -1671,13 +1672,38 @@ MonoBehaviour:
   m_FillRect: {fileID: 1897911851654648766}
   m_HandleRect: {fileID: 1563469435539334468}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2681254684385655246}
+        m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
+        m_MethodName: SetLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2681254684385655246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704775600345198637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17443243ac4fc6418a2b8cd859dc9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 21161303c2443ee439f50f910663321f, type: 2}
 --- !u!1 &9143162768054008903
 GameObject:
   m_ObjectHideFlags: 0
