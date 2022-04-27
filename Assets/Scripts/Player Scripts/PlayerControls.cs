@@ -20,10 +20,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Look Around"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""11354b6f-1923-430d-92b6-d0b08cb4e454"",
-                    ""expectedControlType"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
                     ""interactions"": """"
                 },
                 {
@@ -79,7 +79,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cd6cac94-54f4-4381-86cd-eaeb76f7345b"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -92,7 +92,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""0c942d97-dc51-4fd2-b6a3-c047d42ba1d6"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone(min=0.15,max=0.9)"",
                     ""groups"": """",
                     ""action"": ""Look Around"",
                     ""isComposite"": false,

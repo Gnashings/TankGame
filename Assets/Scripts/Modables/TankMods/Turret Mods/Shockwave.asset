@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Shockwave
   m_EditorClassIdentifier: 
   fireRate: 5
-  bulletVelocity: 2000
+  bulletVelocity: 1000
   bulletSpread: 0
   damage: 5
   dealDamage: 1
   explosiveProjectile: 0
-  automaticFire: 0
   destroysOtherShots: 1
   fireFX: {fileID: 0}

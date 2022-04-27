@@ -22,7 +22,15 @@ public class AimGun : MonoBehaviour
     private void Aim()
     {
         //float cameraRot = Camera.main.transform.rotation.eulerAngles.y;
-        transform.rotation = Quaternion.Euler(inputs.GetLookAxis().y, inputs.GetLookAxis().x, 0);
+        //Debug.Log(inputs.MouseLookAxis() * Mathf.Rad2Deg);
+        var (success, position) = inputs.MouseLookAxis();
+        if(success)
+        {
+            var direction = position - transform.position;
+            direction.y = 0;
+            Debug.Log("SUCCESS" + direction);
+            transform.forward = direction;
+        }
     }
 
     private void PadAim()

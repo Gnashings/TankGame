@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657922, g: 0.49641496, b: 0.5748184, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.49641472, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
     agentSlope: 0
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -1766,6 +1766,10 @@ PrefabInstance:
       propertyPath: turrets
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7280919474109410467, guid: 40268def1c272ce4c870a79c043b7f37, type: 3}
+      propertyPath: lay.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7280919474109410468, guid: 40268def1c272ce4c870a79c043b7f37, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3306,7 +3310,7 @@ GameObject:
   - component: {fileID: 2026679178}
   - component: {fileID: 2026679177}
   - component: {fileID: 2026679176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

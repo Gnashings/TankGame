@@ -92,6 +92,21 @@ public class PlayerInputControls : MonoBehaviour
         currentRotation.y = Mathf.Clamp(currentRotation.y, -maxYAngle, maxYAngle); 
         return currentRotation;
     }
+    public LayerMask lay;
+    public(bool success, Vector3 position)  MouseLookAxis()
+    {
+        
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        Debug.Log(ray);
+        if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, lay))
+        {
+            Debug.Log("SUCCESS STAGE ONE");
+            return (success: true, position: hitInfo.point);
+        }
+        else
+            Debug.Log("FAILURE STAGE ONE");
+            return (success: false, position: Vector3.zero);
+    }
 
     public void UnlockMouse()
     {
