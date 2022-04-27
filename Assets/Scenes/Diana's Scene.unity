@@ -607,6 +607,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -728622287877565193, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5eef42328246358428b59a381bfbce78, type: 2}
+    - target: {fileID: -728622287877565193, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f382291c155a0fc439add2b5dde0beee, type: 2}
+    - target: {fileID: -728622287877565193, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40a03ced9ac5dc54ab63abd144448ed6, type: 2}
+    - target: {fileID: 480568853233617795, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40a03ced9ac5dc54ab63abd144448ed6, type: 2}
+    - target: {fileID: 480568853233617795, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5eef42328246358428b59a381bfbce78, type: 2}
+    - target: {fileID: 480568853233617795, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40a03ced9ac5dc54ab63abd144448ed6, type: 2}
     - target: {fileID: 919132149155446097, guid: fe788a53283c48547ad36e674bc787f0, type: 3}
       propertyPath: m_Name
       value: turret enemy
@@ -1341,9 +1365,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bb036678b80ed41a63ac9e724c41ec, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 0810708353eea3c43adaa6fcaaeba315, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d8bb036678b80ed41a63ac9e724c41ec, type: 2}
     - target: {fileID: 919132149155446097, guid: 8f5f45547b164ee42a3d6b5b64276ae7, type: 3}
       propertyPath: m_Name
       value: TurretStationary Base
@@ -1646,6 +1678,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0810708353eea3c43adaa6fcaaeba315, type: 2}
+    - target: {fileID: -7511558181221131132, guid: df1152b6f1b794e43850021495c52500, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f355fff89d519fe48a2668bdc0553fa6, type: 2}
+    - target: {fileID: -7511558181221131132, guid: df1152b6f1b794e43850021495c52500, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f355fff89d519fe48a2668bdc0553fa6, type: 2}
     - target: {fileID: 919132149155446097, guid: df1152b6f1b794e43850021495c52500, type: 3}
       propertyPath: m_Name
       value: TurretStationary Top
