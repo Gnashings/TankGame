@@ -129,5 +129,9 @@ public class PlayerSelection : MonoBehaviour
         {
             SceneManager.LoadScene("Level 3");
         }
+        if (PlayerProgress.levelsCompleted == 3)
+        {
+            SceneManager.LoadScene("Level 4");
+        }
     }
 }

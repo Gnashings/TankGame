@@ -55,7 +55,7 @@ public class LevelDirector : MonoBehaviour
         if(roomsCompleted == true)
         {
             PlayerProgress.levelsCompleted++;
-            if (PlayerProgress.levelsCompleted == 3)
+            if (PlayerProgress.levelsCompleted == 4)
             {
                 
                 if (PlayerProgress.ChoseAbility() == false)
