@@ -18,7 +18,7 @@ public class EnemyBomberFollow : MonoBehaviour
         //Debug.Log("REMAINING:" + enemy.remainingDistance + " STOPPING:" + enemy.stoppingDistance);
     }
     
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         CanMove();
