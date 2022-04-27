@@ -1704,6 +1704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 21161303c2443ee439f50f910663321f, type: 2}
+  slider: {fileID: 3561155564914281286}
 --- !u!1 &9143162768054008903
 GameObject:
   m_ObjectHideFlags: 0

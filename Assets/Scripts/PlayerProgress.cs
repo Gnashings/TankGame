@@ -22,7 +22,7 @@ public static class PlayerProgress
     //options
     public static bool godMode;
     public static bool sightsOn;
-    
+    public static float vol;
     public static void SetTurret(string selection)
     {
         curTurret = selection;
