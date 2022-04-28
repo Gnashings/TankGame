@@ -14,7 +14,7 @@ public class EnemyFollow : MonoBehaviour
     {
           if (player == null)
             player = GameObject.FindGameObjectWithTag("Player").transform;
-        //enemyNavMesh.SetDestination(player.position);
+        
         //Debug.Log("REMAINING:" + enemy.remainingDistance + " STOPPING:" + enemy.stoppingDistance);
     }
     
@@ -28,13 +28,19 @@ public class EnemyFollow : MonoBehaviour
     {
         if(enemyStats.stats.canMove)
         {
-            if (enemyNavMesh.remainingDistance < enemyNavMesh.stoppingDistance)
+
+            if(enemyNavMesh.remainingDistance > 1f)
             {
-                if (enemyStats.isBomber)
+                if (enemyNavMesh.remainingDistance < enemyNavMesh.stoppingDistance)
                 {
-                    enemyStats.TakeDamage(10000);
+                    print("dis " + enemyNavMesh.remainingDistance + " st " + enemyNavMesh.stoppingDistance);
+                    if (enemyStats.isBomber)
+                    {
+                        enemyStats.TakeDamage(10000);
+                    }
                 }
             }
+
         }
 
     }
