@@ -11,7 +11,6 @@ public class Explosion : MonoBehaviour
 
     public void Explode()
     {
-
         if(explosion.particles != null)
         {
             Instantiate(explosion.particles, transform.position, transform.rotation);
@@ -36,10 +35,7 @@ public class Explosion : MonoBehaviour
     {
         if (explosion.canAffectPlayer && other.CompareTag("Player"))
         {
-            //bl = new Vector3(other.ClosestPointOnBounds(gameObject.transform.position).x, other.ClosestPointOnBounds(gameObject.transform.position).y + 0.05f, other.ClosestPointOnBounds(gameObject.transform.position).z);
-            //other.ClosestPointOnBounds(gameObject.transform.position).y 
             rb.AddExplosionForce(explosion.force, other.ClosestPointOnBounds(gameObject.transform.position), explosion.radius, explosion.upwardforce, ForceMode.VelocityChange);
-            //rb.AddExplosionForce(explosion.force, other.ClosestPoint(gameObject.transform.position), explosion.radius, 0, ForceMode.VelocityChange);
         }
         if (explosion.canAffectEnemies && other.CompareTag("Enemy"))
         {
@@ -47,7 +43,6 @@ public class Explosion : MonoBehaviour
         }
         else
         {
-            //print(other.tag);
             if (other.tag.Equals("Mine"))
             {
                 rb.AddExplosionForce(25 , other.ClosestPoint(gameObject.transform.position), 10, 2, ForceMode.VelocityChange);
@@ -61,10 +56,7 @@ public class Explosion : MonoBehaviour
     {
         if(explosion.canDamageEnemies && other.CompareTag("Enemy"))
         {
-            //Debug.Log("EXPLOSION.CS: NO ENEMY HEALTH IMPLIMENTED YET");
-            //other.gameObject.SetActive(false);
             other.gameObject.GetComponent<EnemyStats>().TakeDamage(explosion.damage * (1 + PlayerProgress.roidDmgMod));
-            //Debug.Log(" HIT " + other.tag + " FOR: " + explosion.damage * (1 + PlayerProgress.roided) + " EXP DAMAGE");
         }
         if(explosion.canDamagePlayer && other.CompareTag("Player"))
         {

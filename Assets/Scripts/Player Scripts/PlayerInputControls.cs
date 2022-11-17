@@ -40,6 +40,11 @@ public class PlayerInputControls : MonoBehaviour
         else
             Gamepad.current.SetMotorSpeeds(0, 0);
         */
+        Plane plane = new Plane(
+        inNormal: Vector3.back,
+        inPoint: Vector3.zero);
+
+        Debug.Log(plane);
     }
 
     public bool Firing => fire.triggered;
@@ -80,7 +85,6 @@ public class PlayerInputControls : MonoBehaviour
     {
         rotation.y = move.ReadValue<Vector2>().x;
         return rotation;
-        
     }
 
     public Vector3 GetLookAxis()
@@ -95,7 +99,6 @@ public class PlayerInputControls : MonoBehaviour
     public LayerMask lay;
     public(bool success, Vector3 position)  MouseLookAxis()
     {
-        
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         Debug.Log(ray);
         if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, lay))
@@ -118,7 +121,7 @@ public class PlayerInputControls : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
     #region GAMEPAD
@@ -126,12 +129,10 @@ public class PlayerInputControls : MonoBehaviour
     float heading;
     public float GetPadLookAxis()
     {
-        
         if (look.ReadValue<Vector2>().x!=0 && look.ReadValue<Vector2>().y !=0)
         {
             return heading = Mathf.Atan2(look.ReadValue<Vector2>().x, look.ReadValue<Vector2>().y);
         }
-        
         return heading;
     }
     public Vector3 GetPadMoveForwardAxis()
@@ -146,7 +147,6 @@ public class PlayerInputControls : MonoBehaviour
     #endregion
     private void OnEnable()
     {
-        
         move = playerControls.ScopeMode.Move;
         look = playerControls.ScopeMode.LookAround;
         fire = playerControls.ScopeMode.Fire;
