@@ -10030,6 +10030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 0.5
   maxYAngle: 0
+  cube: {fileID: 138699865376652563, guid: d3b9b14fb4732d748b90ba4c65af942d, type: 3}
   isHeld: 0
   lay:
     serializedVersion: 2

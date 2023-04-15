@@ -21,12 +21,26 @@ public class PlayerInputControls : MonoBehaviour
     private Vector3 rotation;
     private bool gadgetSet;
 
+    public bool gamePadMode;
+    Gamepad controllerGP;
+
     // Start is called before the first frame update
     void Awake()
     {
         playerControls = new PlayerControls();
+
         LockMouse();
+
+        if(Gamepad.current != null)
+        {
+            gamePadMode = true;
+        }
+        else
+        {
+            gamePadMode = false;
+        }
     }
+    //var gamepadButtonPressed = Gamepad.current.allControls.Any(x => x is ButtonControl button && x.isPressed && !x.synthetic);
 
     // Update is called once per frame
     void Update()
@@ -40,11 +54,7 @@ public class PlayerInputControls : MonoBehaviour
         else
             Gamepad.current.SetMotorSpeeds(0, 0);
         */
-        Plane plane = new Plane(
-        inNormal: Vector3.back,
-        inPoint: Vector3.zero);
 
-        Debug.Log(plane);
     }
 
     public bool Firing => fire.triggered;
@@ -100,7 +110,7 @@ public class PlayerInputControls : MonoBehaviour
     public(bool success, Vector3 position)  MouseLookAxis()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Debug.Log(ray);
+        Debug.Log(ray + "RAY");
         if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, lay))
         {
             Debug.Log("SUCCESS STAGE ONE");
@@ -111,6 +121,21 @@ public class PlayerInputControls : MonoBehaviour
             return (success: false, position: Vector3.zero);
     }
 
+
+    public Vector3 MouseAimDown()
+    {
+        RaycastHit hitInfo;
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Ray rayOrigin = Camera.main.ScreenPointToRay(mousePosition);
+        
+        if (Physics.Raycast(rayOrigin, out hitInfo))
+        {
+            Debug.Log("Raycast hit object " + hitInfo.transform.name + " at the position of " + hitInfo.transform.position);
+            //MeshRenderer renderer = hitInfo.transform.GetComponent<MeshRenderer>();
+        }
+        return  hitInfo.point;
+    }
+
     public void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -119,8 +144,8 @@ public class PlayerInputControls : MonoBehaviour
 
     public void LockMouse()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
     }
 
@@ -145,6 +170,7 @@ public class PlayerInputControls : MonoBehaviour
     }
 
     #endregion
+
     private void OnEnable()
     {
         move = playerControls.ScopeMode.Move;
