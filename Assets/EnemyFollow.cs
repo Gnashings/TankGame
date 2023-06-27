@@ -33,7 +33,7 @@ public class EnemyFollow : MonoBehaviour
             {
                 if (enemyNavMesh.remainingDistance < enemyNavMesh.stoppingDistance)
                 {
-                    print("dis " + enemyNavMesh.remainingDistance + " st " + enemyNavMesh.stoppingDistance);
+                    //print("dis " + enemyNavMesh.remainingDistance + " st " + enemyNavMesh.stoppingDistance);
                     if (enemyStats.isBomber)
                     {
                         enemyStats.TakeDamage(10000);

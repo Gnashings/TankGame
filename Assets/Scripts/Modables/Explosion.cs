@@ -10,9 +10,29 @@ public class Explosion : MonoBehaviour
     public ExplosionParameters explosion;
 
     public void Explode()
-    {
+    {   
+        ParticleSystem fx;
         if(explosion.particles != null)
         {
+            /*
+            fx = explosion.particles.GetComponent<ParticleSystem>();
+            var sh = fx.shape.enabled;
+
+            Debug.Log("Radius " + fx.shape.radius);
+            fx.shape.enabled = false;
+            Debug.Log("Radius " + fx.shape.radius);
+            */
+            
+
+            float r = explosion.radius;
+            ParticleSystem.ShapeModule ps = explosion.particles.GetComponent<ParticleSystem>().shape;
+            ps.radius = r;
+
+            float rc = explosion.radius;
+            ParticleSystem.ShapeModule psc = explosion.particles.transform.GetChild(0).GetComponent<ParticleSystem>().shape;
+            ps.radius = rc;
+            Debug.Log("Radius C" + explosion.particles.transform.GetChild(0).GetComponent<ParticleSystem>().shape.radius);
+            Debug.Log("Radius C" + explosion.radius);
             Instantiate(explosion.particles, transform.position, transform.rotation);
         }
         
@@ -26,7 +46,6 @@ public class Explosion : MonoBehaviour
             {
                 DoPhysics(hitObj, rb);
             }
-
             DamageTargets(hitObj);
         }
     }
@@ -47,8 +66,6 @@ public class Explosion : MonoBehaviour
             {
                 rb.AddExplosionForce(25 , other.ClosestPoint(gameObject.transform.position), 10, 2, ForceMode.VelocityChange);
             }
-
-            
         }
     }
 

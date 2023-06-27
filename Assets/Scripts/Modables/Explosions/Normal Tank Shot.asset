@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 188c592afb70a094ebe82fe6e2428cd7, type: 3}
   m_Name: Normal Tank Shot
   m_EditorClassIdentifier: 
-  radius: 10
+  radius: 20
   force: 10
   damage: 50
   upwardforce: 1
