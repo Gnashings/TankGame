@@ -385,7 +385,6 @@ public class PlayerStats : MonoBehaviour
         canRecharge = false;
         yield return new WaitForSeconds(armorBreakTimer);
         canRecharge = true;
-        
     }
 
     IEnumerator ArmorRecharge()
@@ -421,6 +420,7 @@ public class PlayerStats : MonoBehaviour
     {
         tankbody.isSlowed = true;
     }
+
     private void ResetAllStats()
     {
         health = 0;
@@ -481,7 +481,6 @@ public class PlayerStats : MonoBehaviour
         {
             bodyMods = BodyMods.noMod;
             basicBodyModel.SetActive(true);
-
         }
         else
         {
@@ -551,6 +550,7 @@ public class PlayerStats : MonoBehaviour
         steroid,
         mineBomb,
     };
+
     private void CheckGadgetMods()
     {
         if (gadgets.HasFlag(GadgetMods.steroid))
@@ -567,6 +567,7 @@ public class PlayerStats : MonoBehaviour
             //todo
         }
     }
+    
     private void UnloadModels()
     {
         basicTurretModal.SetActive(false);

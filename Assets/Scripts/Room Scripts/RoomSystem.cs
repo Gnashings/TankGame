@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class RoomSystem : MonoBehaviour
@@ -16,6 +18,7 @@ public class RoomSystem : MonoBehaviour
     private int enemiesKilled;
     [HideInInspector]
     public bool roomCompleted;
+
     void Start()
     {
         if (director == null)
@@ -47,11 +50,6 @@ public class RoomSystem : MonoBehaviour
         director.AddThisRoom(this.GetComponent<RoomSystem>());
     }
 
-    void Update()
-    {
-        
-    }
-
     private void ReleaseEnemies()
     {
         foreach (Transform spawner in spawnPointList)
@@ -65,6 +63,8 @@ public class RoomSystem : MonoBehaviour
         foreach (GameObject door in doors)
         {
             door.SetActive(true);
+            //set the door text INEFFECTIVE
+            door.GetComponentInChildren<TMP_Text>().text = enemyCount.ToString();
         }
     }
     private void UnlockDoors()
@@ -75,20 +75,34 @@ public class RoomSystem : MonoBehaviour
         }
     }
 
+    //TODO CHANGE
+    private void UpdateEnemyCounter(int enemies)
+    {
+        foreach (GameObject door in doors)
+        {
+            //set the door text INEFFECTIVE
+            door.GetComponentInChildren<TMP_Text>().text = enemies.ToString();
+        }
+    }
+    /*
     public void CheckDoorCanOpen()
     {
-        enemiesKilled++;
+        //enemiesKilled++;
+        //update the door text INEFFECTIVE
+        UpdateEnemyCounter(enemyCount-enemiesKilled);
+        //Debug.Log("Enemies Killed " + enemiesKilled + "enemyCount " + enemyCount);
         if(enemiesKilled == enemyCount)
         {
             UnlockDoors();
             ReportRoomCompleted();
         }
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+            enemiesKilled = 0;
             trigger.enabled = false;
             ReleaseEnemies();
             LockDoors();
@@ -100,4 +114,26 @@ public class RoomSystem : MonoBehaviour
         roomCompleted = true;
         director.CheckLevelCompletion();
     }
+
+    //delegate for each enemy killed.
+    void ProcEnemyCount()
+    {
+        enemiesKilled++;
+        UpdateEnemyCounter(enemyCount-enemiesKilled);
+        //Debug.Log("enemiesKilled " + enemiesKilled + " enemyCount " + enemyCount);
+        if(enemiesKilled == enemyCount)
+        {
+            UnlockDoors();
+            ReportRoomCompleted();
+        }
+    }
+
+    private void OnEnable() {
+        EnemyStats.onDeath += ProcEnemyCount;
+    }
+
+    private void OnDisable() {
+        EnemyStats.onDeath -= ProcEnemyCount;
+    }
+
 }

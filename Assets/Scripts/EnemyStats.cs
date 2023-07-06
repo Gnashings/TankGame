@@ -13,6 +13,10 @@ public class EnemyStats : MonoBehaviour
     private float totalHP;
     public Explosion explosion;
     private bool gibbed;
+public delegate void OnDeath();
+public static OnDeath onDeath;
+    //deligate for when an enemy is killed
+
     void Start()
     {
         //stats.health = 0;
@@ -39,14 +43,13 @@ public class EnemyStats : MonoBehaviour
 
     private void OnDisable()
     {
-        //transform.GetComponentInParent<RoomSystem>().UnlockDoors();
         if(isBomber && explosion != null && gibbed == true)
         {
             InstaGib();
-        } 
-        SendMessageUpwards("CheckDoorCanOpen", SendMessageOptions.DontRequireReceiver);
-
-
+        }
+        
+        //delegate call
+        onDeath?.Invoke();
     }
 
     private void InstaGib()

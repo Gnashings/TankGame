@@ -87,7 +87,6 @@ public class PlayerInputControls : MonoBehaviour
     public Vector3 GetMoveForwardAxis()
     {
         direction.z = move.ReadValue<Vector2>().y;
-
         return direction;
     }
 
@@ -130,7 +129,7 @@ public class PlayerInputControls : MonoBehaviour
         
         if (Physics.Raycast(rayOrigin, out hitInfo))
         {
-            Debug.Log("Raycast hit object " + hitInfo.transform.name + " at the position of " + hitInfo.transform.position);
+            //Debug.Log("Raycast hit object " + hitInfo.transform.name + " at the position of " + hitInfo.transform.position);
             //MeshRenderer renderer = hitInfo.transform.GetComponent<MeshRenderer>();
         }
         return  hitInfo.point;

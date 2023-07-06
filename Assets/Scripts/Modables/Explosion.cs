@@ -31,8 +31,8 @@ public class Explosion : MonoBehaviour
             float rc = explosion.radius;
             ParticleSystem.ShapeModule psc = explosion.particles.transform.GetChild(0).GetComponent<ParticleSystem>().shape;
             ps.radius = rc;
-            Debug.Log("Radius C" + explosion.particles.transform.GetChild(0).GetComponent<ParticleSystem>().shape.radius);
-            Debug.Log("Radius C" + explosion.radius);
+            //Debug.Log("Radius C" + explosion.particles.transform.GetChild(0).GetComponent<ParticleSystem>().shape.radius);
+            //Debug.Log("Radius C" + explosion.radius);
             Instantiate(explosion.particles, transform.position, transform.rotation);
         }
         
