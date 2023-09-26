@@ -98,6 +98,10 @@ PrefabInstance:
       value: rock tall cover Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f7580b89ca332444a8f2044ef00d4632, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7580b89ca332444a8f2044ef00d4632, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}

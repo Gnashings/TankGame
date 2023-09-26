@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Rock Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a06b78c512d272648b5942ff90d434a6, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a06b78c512d272648b5942ff90d434a6, type: 3}
 --- !u!1 &2551175687531546740 stripped

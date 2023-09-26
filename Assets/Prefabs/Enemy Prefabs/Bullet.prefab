@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0f5c86b669d0446998e7f5804bc335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 75
+  speed: 0
   damage: 0.5
-  timer: 0
+  timer: 22
   target: {fileID: 0}
   endingFX: {fileID: 1680070425851635562, guid: 8c4849745e3e93548bd528f5fc663d71, type: 3}
   explosion: {fileID: 0}

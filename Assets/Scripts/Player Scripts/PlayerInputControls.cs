@@ -126,13 +126,16 @@ public class PlayerInputControls : MonoBehaviour
         RaycastHit hitInfo;
         Vector2 mousePosition = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(mousePosition);
-        
-        if (Physics.Raycast(rayOrigin, out hitInfo))
+        int layerMask = 1 << 6;
+        //layerMask = ~layerMask;
+        if (Physics.Raycast(rayOrigin, out hitInfo, Mathf.Infinity, layerMask))
         {
-            //Debug.Log("Raycast hit object " + hitInfo.transform.name + " at the position of " + hitInfo.transform.position);
+            Debug.Log("Raycast hit object " + hitInfo.transform.name + " at the position of " + hitInfo.transform.position);
             //MeshRenderer renderer = hitInfo.transform.GetComponent<MeshRenderer>();
+            return  hitInfo.point;
         }
         return  hitInfo.point;
+        
     }
 
     public void UnlockMouse()
